@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './styles.css'
+// components
+import HomeNavbar from './components/HomeNavbar'
+import BlogNavbar from './components/BlogNavbar'
+import Footer from './components/Footer'
+// pages
+import Home from './pages/home/Home'
+import BlogSlug from './pages/home/blog/BlogSlug'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+
+        <Routes>
+          {/* Home - Blog posts */}
+          <Route path='/' element={<><HomeNavbar /><Home /></>} />
+          <Route path='/blog/:id' element={<><BlogNavbar /><BlogSlug /></>} />
+
+        </Routes>
+      </Router>
+      <Footer />
+      {/* Blog Post Item */}
+      {/* Economic Calendar */}
+      {/* Compounding Calculator */}
+      {/* Currency Converter */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

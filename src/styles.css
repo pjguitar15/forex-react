@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400&display=swap');
+
+.link-style {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Fonts */
+.montserrat {
+  font-family: 'montserrat';
+  font-weight: 700;
+  line-height: 40px;
+  font-size: 13px;
+}
+
+.raleway-700 {
+  font-family: 'raleway';
+  font-weight: 700;
+}
+
+.raleway-400-italic {
+  font-family: 'raleway';
+  font-style: italic;
+  font-weight: 400;
+}
+
+.raleway-400 {
+  font-family: 'raleway';
+  font-weight: 400;
+}
+
+.navbar-brand-style {
+  font-family: 'raleway';
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 24px;
+  letter-spacing: 2px;
+}
+
+.navbar-main {
+  transition: padding 0.3s ease-in-out;
+}
+
+.my-jumbotron {
+  height: 71vh;
+  width: 100%;
+  background: url('./assets/forex.jpg');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 15vh;
+  justify-content: center;
+}
+
+.jumbotron-content {
+  /* Font: Raleway 400, 21px, lineHeight: 38px, White */
+  font-family: 'raleway';
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 38px;
+  color: white;
+}
+
+/* Change Container Width */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 970px !important;
+  }
+}
+
+.blog-bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+    url('./assets/back-gold-bg.png');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+}
+
+.blog-img-parent {
+  cursor: pointer;
+}
+
+.blog-item-img {
+  position: relative;
+  background-size: 100% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  transition: background-size 0.2s ease-in, box-shadow 0.3s ease-in;
+}
+
+.inner-btn-parent {
+  /* display: none !important; */
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100px; /* Need a specific value to work */
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* lg */
+@media (min-width: 992px) {
+  .blog-item-img:hover {
+    box-shadow: inset 0 0 0 1000px rgba(49, 115, 255, 0.507);
+    background-size: 22rem !important;
+  }
+}
+
+/* md */
+@media (min-width: 576px) {
+  .blog-item-img:hover {
+    box-shadow: inset 0 0 0 1000px rgba(49, 115, 255, 0.507);
+    background-size: 22rem !important;
+  }
+}
+
+.blog-item-img:hover > .inner-btn-parent {
+  opacity: 1;
+}
