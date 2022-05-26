@@ -17,9 +17,9 @@ const Footer = () => {
       </p>
       <p
         className='raleway-400 m-0'
-        style={{ color: '#999999', fontSize: '12px'}}
+        style={{ color: '#999999', fontSize: '12px' }}
       >
-        Restricted Regions: Circle Markets Ltd does not provide services for
+        Restricted Regions: Bullish Beast does not provide services for
         citizens/residents of certain regions, such as Canada, Cuba, Iran, Iraq,
         Myanmar, North Korea, Sudan, Syria, The United States. We Only accept
         New Zealand clients who are defined as ‘Wholesale Investor’ or ‘Eligible
