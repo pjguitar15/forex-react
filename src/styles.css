@@ -32,6 +32,11 @@
   font-weight: 400;
 }
 
+.calendar-small-text {
+  font-family: Arial;
+  font-size: 12px;
+}
+
 .navbar-brand-style {
   font-family: 'raleway';
   font-weight: 400;
@@ -45,11 +50,11 @@
 }
 
 .my-jumbotron {
-  height: 71vh;
+  height: 65vh;
   width: 100%;
   background: url('./assets/forex.jpg');
-  background-position: center;
-  background-size: cover;
+  background-position: center !important;
+  background-size: cover !important;
   display: flex;
   align-items: flex-end;
   padding-bottom: 15vh;
@@ -74,7 +79,7 @@
 
 .blog-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
-    url('./assets/back-gold-bg.png');
+    url('https://res.cloudinary.com/philcob/image/upload/v1653546916/Untitled-1_paobo2.jpg');
   background-size: cover;
   background-position: center;
   margin: 0;
@@ -105,11 +110,10 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-/* lg */
-@media (min-width: 992px) {
-  .blog-item-img:hover {
-    box-shadow: inset 0 0 0 1000px rgba(49, 115, 255, 0.507);
-    background-size: 22rem !important;
+/* md */
+@media (min-width: 0) {
+  .my-container {
+    padding: 0 30px;
   }
 }
 
@@ -118,6 +122,29 @@
   .blog-item-img:hover {
     box-shadow: inset 0 0 0 1000px rgba(49, 115, 255, 0.507);
     background-size: 22rem !important;
+  }
+
+  .my-container {
+    padding: 0 60px;
+  }
+}
+
+/* lg */
+@media (min-width: 992px) {
+  .blog-item-img:hover {
+    box-shadow: inset 0 0 0 1000px rgba(49, 115, 255, 0.507);
+    background-size: 22rem !important;
+  }
+
+  .my-container {
+    padding: 0 60px;
+  }
+}
+
+/* xl */
+@media (min-width: 1400px) {
+  .my-container {
+    padding: 0 200px;
   }
 }
 

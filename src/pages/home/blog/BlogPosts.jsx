@@ -1,15 +1,25 @@
 import React from 'react'
 import BlogCard from './BlogCard'
-// import fake data
-import { BlogData } from '../../../fake-data/BlogData'
+import { Spinner } from 'react-bootstrap'
+// import context
+import { useBlog } from '../../../context/ContextProvider'
 
 const BlogPosts = () => {
+  const { firebaseData, loading } = useBlog()
   return (
     <>
       <div className='row mt-2'>
-        {BlogData.slice(0, 6).map((item, index) => (
-          <BlogCard key={index} item={item} />
-        ))}
+        {loading ? (
+          <div className='text-center mb-5'>
+            <Spinner variant='light' animation='border' size='lg' role='status'>
+              <span className='visually-hidden'>Loading...</span>
+            </Spinner>
+          </div>
+        ) : (
+          firebaseData
+            .slice(0, 6)
+            .map((item, index) => <BlogCard key={index} item={item} />)
+        )}
       </div>
     </>
   )

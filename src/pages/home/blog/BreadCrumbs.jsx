@@ -1,45 +1,86 @@
 import React, { useState, useEffect } from 'react'
-import { Container } from 'react-bootstrap'
+import { Container, Spinner } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
-import { BlogData } from '../../../fake-data/BlogData'
+
+// context
+import { useBlog } from '../../../context/ContextProvider'
 
 const BreadCrumbs = ({ id }) => {
-  const [data, setData] = useState({})
+  const { firebaseData, loading } = useBlog()
   const navigate = useNavigate()
-  useEffect(() => {
-    setData(BlogData.filter((item) => item.id === id)[0])
-  }, [])
+
+  // tag clicked
+  const tagClicked = (id) => {
+    const endPoint = '/blog/categories'
+    if (id === 'how to guide') {
+      navigate(endPoint + '/how-to-guide')
+    }
+    if (id === 'traders education') {
+      navigate(endPoint + '/traders-education')
+    }
+    if (id === 'make money online') {
+      navigate(endPoint + '/make-money-online')
+    }
+    if (id === 'technical analysis') {
+      navigate(endPoint + '/technical-analysis')
+    }
+    if (id === 'uncategorized') {
+      navigate(endPoint + '/uncategorized')
+    }
+    if (id === 'cryptocurrency') {
+      navigate(endPoint + '/cryptocurrency')
+    }
+    if (id === 'lifestyle') {
+      navigate(endPoint + '/lifestyle')
+    }
+  }
   return (
     <div className='bg-light py-5'>
-      <Container className='d-flex justify-content-between'>
-        <h4 className='raleway-700 m-0' style={{ color: '#505050' }}>
-          Blog Post
-        </h4>
-        <div>
-          <span
-            onClick={() => navigate('/')}
-            className='text-muted raleway-400'
-            style={{ fontSize: '14px', cursor: 'pointer' }}
-          >
-            Home
-          </span>
-          <span className='text-muted mx-3'>
-            <i className='bi bi-caret-right-fill'></i>
-          </span>
-          <span className='text-muted raleway-400' style={{ fontSize: '14px' }}>
-            How to Guide
-          </span>
-          <span className='text-muted mx-3'>
-            <i className='bi bi-caret-right-fill'></i>
-          </span>
-          <span
-            className='raleway-400 fw-bold'
-            style={{ color: '#505050', fontSize: '14px' }}
-          >
-            {data.title}
-          </span>
+      {loading ? (
+        <div className='text-center mb-5'>
+          <Spinner animation='border' size='lg' role='status'>
+            <span className='visually-hidden'>Loading...</span>
+          </Spinner>
         </div>
-      </Container>
+      ) : (
+        firebaseData
+          .filter((item) => item.id === id)
+          .map((item, index) => (
+            <Container key={index} className='d-flex justify-content-between'>
+              <h4 className='raleway-700 m-0' style={{ color: '#505050' }}>
+                Blog Post
+              </h4>
+              <div>
+                <span
+                  onClick={() => navigate('/')}
+                  className='text-muted raleway-400'
+                  style={{ fontSize: '14px', cursor: 'pointer' }}
+                >
+                  Home
+                </span>
+                <span className='text-muted mx-3'>
+                  <i className='fa-solid fa-chevron-right'></i>
+                </span>
+                <span
+                  onClick={() => tagClicked(item.tag)}
+                  className='text-muted raleway-400 text-capitalize'
+                  style={{ fontSize: '14px', cursor: 'pointer' }}
+                >
+                  {item.tag}
+                </span>
+                <span className='text-muted mx-3'>
+                  <i className='fa-solid fa-chevron-right'></i>
+                </span>
+                <span
+                  className='raleway-400 fw-bold'
+                  style={{ color: '#505050', fontSize: '14px' }}
+                >
+                  {item.title}
+                </span>
+              </div>
+            </Container>
+          ))
+      )}
     </div>
   )
 }

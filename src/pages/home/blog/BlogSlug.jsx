@@ -8,24 +8,19 @@ import cardImg from '../../../assets/card-img.jpg'
 import BreadCrumbs from './BreadCrumbs'
 import DisplayCurrentItem from './DisplayCurrentItem'
 import Categories from './Categories'
-// import fake data
-import { BlogData } from '../../../fake-data/BlogData'
+// import firebase
+import { useBlog } from '../../../context/ContextProvider'
 const BlogSlug = () => {
-  const [currentData, setCurrentData] = useState({})
+  const { firebaseData, loading } = useBlog()
   const { id } = useParams()
-
-  useEffect(() => {
-    const filtered = BlogData.filter((item) => id === item.id)
-    setCurrentData(filtered[0])
-  }, [])
   return (
-    <div className='bg-white' style={{ height: '200vh' }}>
+    <div className='bg-white pb-5'>
       {/* BlogPost breadcrumbs section */}
       <BreadCrumbs id={id} />
       <Container>
         <div className='row py-5'>
           <div className='col-lg-9 pe-5'>
-            <DisplayCurrentItem currentData={currentData} />
+            <DisplayCurrentItem loading={loading} firebaseData={firebaseData} />
           </div>
           <div className='col-lg-3 p-0'>
             <Categories />

@@ -17,7 +17,7 @@ const BlogCard = ({ item }) => {
           // src={item.img}
           className='w-100 h-100 blog-item-img'
           style={{
-            background: `url(${cardImg})`,
+            background: `url(${item.img})`,
           }}
           alt='cardItem'
         >
@@ -46,7 +46,7 @@ const BlogCard = ({ item }) => {
         className='text-white raleway-400'
         style={{ textAlign: 'justify', fontSize: '14px', lineHeight: '25px' }}
       >
-        {item.content}
+        {item.content.slice(0, 200)}...
       </p>
       {/* hr */}
       <hr style={{ color: 'white' }} />
