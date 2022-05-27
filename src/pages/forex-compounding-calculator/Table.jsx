@@ -11,7 +11,7 @@ const Table = ({ item }) => {
         </div>
         <div className='col-3 p-1'>
           <div className='p-3 text-dark' style={{ background: '#A3A3A3' }}>
-            {item.month}
+            ${item.previous}
           </div>
         </div>
         <div className='col-3 p-1'>
@@ -21,7 +21,7 @@ const Table = ({ item }) => {
         </div>
         <div className='col-3 p-1'>
           <div className='p-3 text-dark' style={{ background: '#A3A3A3' }}>
-            {item.month}
+            ${item.total}
           </div>
         </div>
       </div>

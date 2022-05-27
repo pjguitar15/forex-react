@@ -59,7 +59,7 @@ const Calculator = ({
           variant='success mt-2 mb-0'
           size='md'
         >
-          Result: <b>{result}</b>
+          Result: <b>${result}</b>
         </Alert>
         <Form.Group className='py-3'>
           <Button type='submit'>Calculate</Button>

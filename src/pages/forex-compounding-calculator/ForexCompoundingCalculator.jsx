@@ -29,14 +29,22 @@ const ForexCompoundingCalculator = () => {
       // each increment previousValue will add up to its percentage
       let arrTable = []
       const percentInDecimal = monthlyPercent / 100
-      let computedPercentage = parseInt(startBal)
+      console.log(percentInDecimal)
+      let previousValue = parseInt(startBal)
+      let totalValue = parseInt(startBal)
+
+      // computedPercentage *= percentInDecimal + (arrTable.length + 1)
       for (let i = 0; i < numberOfMonths; i++) {
+        const computeTotalValue =
+          previousValue + previousValue * (monthlyPercent / 100)
         arrTable.push({
           month: arrTable.length + 1,
+          previous: previousValue.toFixed(2),
           percentage: monthlyPercent,
-          previous: computedPercentage,
+          total: computeTotalValue.toFixed(2),
         })
-        computedPercentage += percentInDecimal
+        previousValue = previousValue + previousValue * (monthlyPercent / 100)
+        // computedPercentage
       }
       setResultsTable(arrTable)
     } else {
@@ -45,6 +53,8 @@ const ForexCompoundingCalculator = () => {
     }
   }
 
+  // set table default value. we can only take this when we figure out the code above XD
+  useEffect(() => {}, [])
   return (
     <div>
       <Jumbotron />
