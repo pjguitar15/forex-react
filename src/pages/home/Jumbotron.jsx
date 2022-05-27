@@ -38,7 +38,7 @@ const Jumbotron = () => {
               Forex Economic Calendar
             </h1>
             <p className='raleway-400-italic text-white text-center'>
-              Forex Economic Calender
+              Forex Economic Calendar
             </p>
           </>
         ) : (

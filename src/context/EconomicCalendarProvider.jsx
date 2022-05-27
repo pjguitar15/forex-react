@@ -125,11 +125,11 @@ export const EconomicCalendarProvider = ({ children }) => {
 
     // year, month, yesterdayDay, tomorrow = currentDay + 2
 
-    // Axios.get(
-    //   `https://fcsapi.com/api-v3/forex/economy_cal?symbol=USD,JPY&from=${dayYesterday.year}-${dayYesterday.month}-${dayYesterday.day}&to=${dayAfterTomorrow.year}-${dayAfterTomorrow.month}-${dayAfterTomorrow.day}&access_key=ljGMMLSmGSGesPELqL5G`
-    // ).then((res) => {
-    //   setCalendarApiValue(res.data.response)
-    // })
+    Axios.get(
+      `https://fcsapi.com/api-v3/forex/economy_cal?symbol=USD,JPY&from=${dayYesterday.year}-${dayYesterday.month}-${dayYesterday.day}&to=${dayAfterTomorrow.year}-${dayAfterTomorrow.month}-${dayAfterTomorrow.day}&access_key=rKmhF75y9SvJnVcKqHensNm`
+    ).then((res) => {
+      setCalendarApiValue(res.data.response)
+    })
     // console.log(calendarApiValue)
   }, [])
 

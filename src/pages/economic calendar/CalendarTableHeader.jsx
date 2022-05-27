@@ -6,7 +6,7 @@ const CalendarTableHeader = () => {
       <div className='col-6 p-0'>
         <div className='d-flex align-content-center justify-content-center'>
           <div
-            className='text-center py-3 me-1'
+            className='text-center py-3 me-1 fw-bold'
             style={{ width: '10%', background: '#fff', color: '#666666' }}
           >
             GMT
