@@ -31,7 +31,6 @@ const ForexCompoundingCalculator = () => {
       const percentInDecimal = monthlyPercent / 100
       let computedPercentage = parseInt(startBal)
       for (let i = 0; i < numberOfMonths; i++) {
-        console.log(computedPercentage)
         arrTable.push({
           month: arrTable.length + 1,
           percentage: monthlyPercent,

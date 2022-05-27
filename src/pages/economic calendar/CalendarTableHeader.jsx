@@ -1,56 +1,53 @@
 import React from 'react'
 
-const CalendarItem = ({ item }) => {
+const CalendarTableHeader = () => {
   return (
     <div className='row calendar-small-text my-1'>
       <div className='col-6 p-0'>
         <div className='d-flex align-content-center justify-content-center'>
           <div
             className='text-center py-3 me-1'
-            style={{ width: '10%', background: '#D1D1D1', color: '#666666' }}
+            style={{ width: '10%', background: '#fff', color: '#666666' }}
           >
-            {item.date.slice(10, 16)}
+            GMT
           </div>
           <div
             className='bg-light text-center py-3 me-1'
             style={{ width: '10%' }}
-          >
-            {item.country}
-          </div>
+          ></div>
           <div
-            className='bg-light text-start py-3 ps-4 me-1'
-            style={{ width: '80%', color: '#1191C0' }}
+            className='bg-light text-start py-3 ps-4 me-1 fw-bold'
+            style={{ width: '80%' }}
           >
-            {item.title}
+            Event
           </div>
         </div>
       </div>
       <div className='col-6 p-0'>
-        {' '}
         <div className='d-flex align-content-center justify-content-center'>
           <div
-            className='text-center py-3 me-1'
-            style={{ width: '10%', background: '#E6CBCB' }}
+            className='text-center py-3 me-1 fw-bold'
+            style={{ width: '10%', background: '#fff' }}
           >
-            GMT
+            Vol.
           </div>
           <div
-            className='text-center py-3 me-1'
-            style={{ width: '26%', background: '#C3DEDE', color: '#333333' }}
+            className='text-center py-3 me-1 fw-bold'
+            style={{ width: '26%', background: '#fff', color: '#333333' }}
           >
-            {item.actual}
+            Actual
           </div>
           <div
-            className='text-center py-3 me-1'
-            style={{ width: '26%', background: '#BEEDC9' }}
+            className='text-center py-3 me-1 fw-bold'
+            style={{ width: '26%', background: '#fff' }}
           >
-            GMT
+            Consensus
           </div>
           <div
-            className='text-center py-3 me-1'
-            style={{ width: '26%', background: '#F6ECD4' }}
+            className='text-center py-3 me-1 fw-bold'
+            style={{ width: '26%', background: '#fff' }}
           >
-            {item.previous}
+            Previous
           </div>
           <div
             className='bg-light text-center py-3 me-1'
@@ -62,4 +59,4 @@ const CalendarItem = ({ item }) => {
   )
 }
 
-export default CalendarItem
+export default CalendarTableHeader

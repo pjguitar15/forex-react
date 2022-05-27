@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Container } from 'react-bootstrap'
 import { useLocation } from 'react-router-dom'
 import forexBg from '../../assets/forex.jpg'
@@ -26,7 +26,7 @@ const Jumbotron = () => {
               Beast,
             </p>
             <p className='text-center jumbotron-content'>
-              Email: email@domain.com Website: www.websitename.com
+              Email: email@domain.com Website: www.bullishbeast.com
             </p>
           </>
         ) : (

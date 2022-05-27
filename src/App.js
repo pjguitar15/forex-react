@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './styles.css'
 // context
 import { ContextProvider } from './context/ContextProvider';
+import { EconomicCalendarProvider } from './context/EconomicCalendarProvider'
 // components
 import HomeNavbar from './components/HomeNavbar'
 import BlogNavbar from './components/BlogNavbar'
@@ -20,22 +21,24 @@ function App() {
     <div>
       <Router>
         <ContextProvider>
-          <Routes>
-            {/* Home - Blog posts */}
-            <Route path='/' element={<><HomeNavbar /><Home /></>} />
-            <Route path='/add' element={<AddItemsToFirebase />} />
-            <Route path='/blog/:id' element={<><BlogNavbar /><BlogSlug /></>} />
+          <EconomicCalendarProvider>
+            <Routes>
+              {/* Home - Blog posts */}
+              <Route path='/' element={<><HomeNavbar /><Home /></>} />
+              <Route path='/add' element={<AddItemsToFirebase />} />
+              <Route path='/blog/:id' element={<><BlogNavbar /><BlogSlug /></>} />
 
-            {/* Category Slug */}
-            <Route path='/blog/categories/:id' element={<><BlogNavbar /><CategoryItems /></>} />
+              {/* Category Slug */}
+              <Route path='/blog/categories/:id' element={<><BlogNavbar /><CategoryItems /></>} />
 
-            {/* Economic Calendar */}
-            <Route path='/economic-calendar' element={<><HomeNavbar /><EconomicCalendar /></>} />
+              {/* Economic Calendar */}
+              <Route path='/economic-calendar' element={<><HomeNavbar /><EconomicCalendar /></>} />
 
-            {/* Forex Compounding Calculator */}
-            <Route path='/compounding-calculator' element={<><HomeNavbar /><ForexCompoundingCalculator /></>} />
+              {/* Forex Compounding Calculator */}
+              <Route path='/compounding-calculator' element={<><HomeNavbar /><ForexCompoundingCalculator /></>} />
 
-          </Routes>
+            </Routes>
+          </EconomicCalendarProvider>
         </ContextProvider>
       </Router>
       <Footer />
