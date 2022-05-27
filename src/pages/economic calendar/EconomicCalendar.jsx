@@ -116,7 +116,7 @@ const EconomicCalendar = () => {
         {/* Display yesterday items here */}
         {/* {console.log(testValue[0].date.slice(0, 10))} */}
 
-        {calendarApiValue
+        {testValue
           .filter((item) => item.date.slice(0, 10) === yesterdayDateToString)
           .map((item, index) => (
             <CalendarItem key={index} item={item} />
@@ -126,7 +126,7 @@ const EconomicCalendar = () => {
           {todayDate.dayOfWeek}, {todayDate.currMonth} {todayDate.dayOfMonth}
         </h6>
         {/* Display today items here */}
-        {calendarApiValue
+        {testValue
           .filter((item) => item.date.slice(0, 10) === todayDateToString)
           .map((item, index) => (
             <CalendarItem key={index} item={item} />
@@ -138,7 +138,7 @@ const EconomicCalendar = () => {
         </h6>
 
         {/* Display tomorrow's items here */}
-        {calendarApiValue
+        {testValue
           .filter((item) => item.date.slice(0, 10) === tomorrowDateToString)
           .map((item, index) => (
             <CalendarItem key={index} item={item} />
