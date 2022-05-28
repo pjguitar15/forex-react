@@ -15,6 +15,7 @@ import AddItemsToFirebase from './AddItemsToFirebase';
 import CategoryItems from './pages/home/blog/CategoryPage/CategoryItems';
 import EconomicCalendar from './pages/economic calendar/EconomicCalendar';
 import ForexCompoundingCalculator from './pages/forex-compounding-calculator/ForexCompoundingCalculator';
+import CurrencyCoverter from './pages/currency-converter/CurrencyCoverter';
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
 
               {/* Forex Compounding Calculator */}
               <Route path='/compounding-calculator' element={<><HomeNavbar /><ForexCompoundingCalculator /></>} />
+
+              {/* Forex Compounding Calculator */}
+              <Route path='/currency-converter' element={<><BlogNavbar /><CurrencyCoverter /></>} />
 
             </Routes>
           </EconomicCalendarProvider>

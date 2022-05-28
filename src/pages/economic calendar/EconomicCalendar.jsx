@@ -95,10 +95,6 @@ const EconomicCalendar = () => {
     // 2022-05-25 05:00:00
   }, [])
 
-  useEffect(() => {
-    console.log(yesterdayDateToString)
-  }, [yesterdayDateToString])
-
   return (
     <>
       <Jumbotron />

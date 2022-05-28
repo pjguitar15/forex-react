@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Jumbotron from '../home/Jumbotron'
 import Calculator from './Calculator'
+import Chart from './Chart'
 import Table from './Table'
 
 const ForexCompoundingCalculator = () => {
@@ -29,9 +30,7 @@ const ForexCompoundingCalculator = () => {
       // each increment previousValue will add up to its percentage
       let arrTable = []
       const percentInDecimal = monthlyPercent / 100
-      console.log(percentInDecimal)
       let previousValue = parseInt(startBal)
-      let totalValue = parseInt(startBal)
 
       // computedPercentage *= percentInDecimal + (arrTable.length + 1)
       for (let i = 0; i < numberOfMonths; i++) {
@@ -54,7 +53,39 @@ const ForexCompoundingCalculator = () => {
   }
 
   // set table default value. we can only take this when we figure out the code above XD
-  useEffect(() => {}, [])
+  useEffect(() => {
+    const startBal = 11
+    const monthlyPercent = 10
+    const monthlyPercentAbs = monthlyPercent / 100 + 1
+    const numberOfMonths = 10
+
+    const calculateResult = (
+      startBal * Math.pow(monthlyPercentAbs, numberOfMonths)
+    ).toFixed(2)
+
+    setResult(calculateResult)
+
+    // create an array with size of numberOfMonths value
+    // each increment previousValue will add up to its percentage
+    let arrTable = []
+    const percentInDecimal = monthlyPercent / 100
+    let previousValue = parseInt(startBal)
+
+    // computedPercentage *= percentInDecimal + (arrTable.length + 1)
+    for (let i = 0; i < numberOfMonths; i++) {
+      const computeTotalValue =
+        previousValue + previousValue * (monthlyPercent / 100)
+      arrTable.push({
+        month: arrTable.length + 1,
+        previous: previousValue.toFixed(2),
+        percentage: monthlyPercent,
+        total: computeTotalValue.toFixed(2),
+      })
+      previousValue = previousValue + previousValue * (monthlyPercent / 100)
+      // computedPercentage
+    }
+    setResultsTable(arrTable)
+  }, [])
   return (
     <div>
       <Jumbotron />
@@ -88,6 +119,7 @@ const ForexCompoundingCalculator = () => {
 
           {/* table here */}
           <div className='col-lg-8 py-3 px-4'>
+            <Chart />
             {/* Table headers */}
             <div className='row text-start raleway-700'>
               <div className='col-3 p-1'>
