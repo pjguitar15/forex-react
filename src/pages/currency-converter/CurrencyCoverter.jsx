@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Button, Container } from 'react-bootstrap'
 
 const CurrencyCoverter = () => {
+  const [selectLoading, setSelectLoading] = useState(false)
   const [currencyOptions, setCurrencyOptions] = useState([])
   const [inputValue, setInputValue] = useState()
   const [firstSelectValue, setFirstSelectValue] = useState('')
@@ -17,10 +18,14 @@ const CurrencyCoverter = () => {
     headers: myHeaders,
   }
   useEffect(() => {
+    setSelectLoading(true)
     fetch('https://api.apilayer.com/exchangerates_data/symbols', requestOptions)
       .then((response) => response.json())
       .then((result) => setCurrencyOptions(result.symbols))
-      .catch((error) => console.log(currencyOptions))
+      .then(() => {
+        setSelectLoading(false)
+      })
+      .catch((error) => setSelectLoading(false))
   }, [])
 
   const convertHandler = () => {
@@ -61,11 +66,15 @@ const CurrencyCoverter = () => {
                   className='form-control p-3'
                   type='select'
                 >
-                  {Object.keys(currencyOptions).map((item, index) => (
-                    <option key={index} value={item}>
-                      {item}
-                    </option>
-                  ))}
+                  {selectLoading ? (
+                    <option>LOADING...</option>
+                  ) : (
+                    Object.keys(currencyOptions).map((item, index) => (
+                      <option key={index} value={item}>
+                        {item}
+                      </option>
+                    ))
+                  )}
                 </select>
               </div>
               <div className='col-6'>
@@ -74,11 +83,15 @@ const CurrencyCoverter = () => {
                   className='form-control p-3'
                   type='select'
                 >
-                  {Object.keys(currencyOptions).map((item, index) => (
-                    <option key={index} value={item}>
-                      {item}
-                    </option>
-                  ))}
+                  {selectLoading ? (
+                    <option>LOADING...</option>
+                  ) : (
+                    Object.keys(currencyOptions).map((item, index) => (
+                      <option key={index} value={item}>
+                        {item}
+                      </option>
+                    ))
+                  )}
                 </select>
               </div>
             </div>

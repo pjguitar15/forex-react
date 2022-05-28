@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   AreaChart,
   Area,
@@ -9,40 +9,33 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 
-const Chart = () => {
+const Chart = ({ chartData }) => {
   const data = [
     {
       name: '1',
       uv: 2.25,
-      pv: 2400,
-      amt: 2400,
     },
     {
       name: '2',
       uv: 2.19,
-      pv: 1398,
-      amt: 2210,
     },
     {
       name: '3',
       uv: 2.12,
-      pv: 9800,
-      amt: 2290,
     },
     {
       name: '4',
       uv: 2.06,
-      pv: 3908,
-      amt: 2000,
     },
   ]
+
   return (
     <div style={{ width: '100%' }} className='bg-light py-3 rounded shadow m-0'>
       <ResponsiveContainer width='100%' height={200}>
         <AreaChart
           width={500}
           height={200}
-          data={data}
+          data={chartData}
           syncId='anyId'
           margin={{
             top: 10,

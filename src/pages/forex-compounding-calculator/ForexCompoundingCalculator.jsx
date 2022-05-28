@@ -11,6 +11,7 @@ const ForexCompoundingCalculator = () => {
   const [numberOfMonthsInput, setNumberOfMonthsInput] = useState()
   const [showWarningAlert, setShowWarningAlert] = useState(false)
   const [resultsTable, setResultsTable] = useState([])
+  const [chartData, setChartData] = useState([])
 
   const calculate = (e) => {
     e.preventDefault()
@@ -86,6 +87,14 @@ const ForexCompoundingCalculator = () => {
     }
     setResultsTable(arrTable)
   }, [])
+
+  useEffect(() => {
+    let newArr = []
+    resultsTable.forEach((item) => {
+      newArr.push({ name: item.month, uv: item.previous })
+    })
+    setChartData(newArr)
+  }, [resultsTable])
   return (
     <div>
       <Jumbotron />
@@ -119,7 +128,7 @@ const ForexCompoundingCalculator = () => {
 
           {/* table here */}
           <div className='col-lg-8 py-3 px-4'>
-            <Chart />
+            <Chart chartData={chartData} />
             {/* Table headers */}
             <div className='row text-start raleway-700'>
               <div className='col-3 p-1'>
