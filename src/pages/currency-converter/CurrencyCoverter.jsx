@@ -103,7 +103,7 @@ const CurrencyCoverter = () => {
           </div>
           <div className='my-3'>
             <h1 className='display-3 fw-5 text-center'>
-              {conversionResult ? conversionResult : '0.00'}
+              ${conversionResult ? conversionResult : '0.00'}
             </h1>
             <div className='form-text text-center'>
               Rates {today.toDateString()}

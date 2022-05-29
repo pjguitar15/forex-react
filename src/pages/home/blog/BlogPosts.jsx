@@ -18,7 +18,9 @@ const BlogPosts = () => {
         ) : (
           firebaseData
             .slice(0, 6)
-            .map((item, index) => <BlogCard key={index} item={item} />)
+            .map((item, index) => (
+              <BlogCard loading={loading} key={index} item={item} />
+            ))
         )}
       </div>
     </>

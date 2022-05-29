@@ -5,10 +5,10 @@ import Chart from './Chart'
 import Table from './Table'
 
 const ForexCompoundingCalculator = () => {
-  const [result, setResult] = useState()
-  const [startBalanceInput, setStartBalanceInput] = useState()
-  const [percentPerMonthInput, setPercentPerMonthInput] = useState()
-  const [numberOfMonthsInput, setNumberOfMonthsInput] = useState()
+  const [result, setResult] = useState(0)
+  const [startBalanceInput, setStartBalanceInput] = useState(11)
+  const [percentPerMonthInput, setPercentPerMonthInput] = useState(10)
+  const [numberOfMonthsInput, setNumberOfMonthsInput] = useState(10)
   const [showWarningAlert, setShowWarningAlert] = useState(false)
   const [resultsTable, setResultsTable] = useState([])
   const [chartData, setChartData] = useState([])
@@ -30,7 +30,6 @@ const ForexCompoundingCalculator = () => {
       // create an array with size of numberOfMonths value
       // each increment previousValue will add up to its percentage
       let arrTable = []
-      const percentInDecimal = monthlyPercent / 100
       let previousValue = parseInt(startBal)
 
       // computedPercentage *= percentInDecimal + (arrTable.length + 1)
@@ -73,7 +72,7 @@ const ForexCompoundingCalculator = () => {
     let previousValue = parseInt(startBal)
 
     // computedPercentage *= percentInDecimal + (arrTable.length + 1)
-    for (let i = 0; i < numberOfMonths; i++) {
+    for (let i = 0; i <= numberOfMonths; i++) {
       const computeTotalValue =
         previousValue + previousValue * (monthlyPercent / 100)
       arrTable.push({
@@ -91,9 +90,10 @@ const ForexCompoundingCalculator = () => {
   useEffect(() => {
     let newArr = []
     resultsTable.forEach((item) => {
-      newArr.push({ name: item.month, uv: item.previous })
+      newArr.push({ name: item.month, uv: item.total })
     })
     setChartData(newArr)
+    console.log(newArr)
   }, [resultsTable])
   return (
     <div>

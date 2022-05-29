@@ -10,25 +10,6 @@ import {
 } from 'recharts'
 
 const Chart = ({ chartData }) => {
-  const data = [
-    {
-      name: '1',
-      uv: 2.25,
-    },
-    {
-      name: '2',
-      uv: 2.19,
-    },
-    {
-      name: '3',
-      uv: 2.12,
-    },
-    {
-      name: '4',
-      uv: 2.06,
-    },
-  ]
-
   return (
     <div style={{ width: '100%' }} className='bg-light py-3 rounded shadow m-0'>
       <ResponsiveContainer width='100%' height={200}>

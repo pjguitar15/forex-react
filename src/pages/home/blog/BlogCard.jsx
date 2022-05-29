@@ -1,20 +1,18 @@
 import React from 'react'
-import cardImg from '../../../assets/card-img.jpg'
 import RoundButton from '../../../components/blog-components/RoundButton'
 import { useNavigate } from 'react-router-dom'
 
-const BlogCard = ({ item }) => {
+const BlogCard = ({ item, loading }) => {
   const navigate = useNavigate()
   return (
     <div className='col-lg-4 col-md-6 mx-auto my-3'>
       {/* image */}
       <div
         onClick={() => navigate(`/blog/${item.id}`)}
-        className='col-12 blog-img-parent'
+      className='col-12 blog-img-parent'
         style={{ height: '12rem' }}
       >
         <div
-          // src={item.img}
           className='w-100 h-100 blog-item-img'
           style={{
             background: `url(${item.img})`,
@@ -22,9 +20,6 @@ const BlogCard = ({ item }) => {
           alt='cardItem'
         >
           <div className='inner-btn-parent text-white text-center d-flex align-items-center justify-content-center'>
-            {/* <Button className='inner-btn me-2' variant='light'>
-              Test
-            </Button> */}
             <RoundButton />
           </div>
         </div>

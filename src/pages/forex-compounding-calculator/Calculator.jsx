@@ -54,11 +54,7 @@ const Calculator = ({
         <Alert show={showWarningAlert} variant='warning mt-2 mb-0' size='md'>
           Please fill up all the fields
         </Alert>
-        <Alert
-          show={result !== undefined}
-          variant='success mt-2 mb-0'
-          size='md'
-        >
+        <Alert show={result !== undefined} variant='info mt-2 mb-0' size='md'>
           Result: <b>${result}</b>
         </Alert>
         <Form.Group className='py-3'>
