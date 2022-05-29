@@ -16,7 +16,9 @@ const Calculator = ({
     <>
       <Form onSubmit={calculate}>
         <Form.Group className='py-2'>
-          <Form.Text className='text-light'>Start Balance</Form.Text>
+          <Form.Text className='text-light raleway-700'>
+            Start Balance
+          </Form.Text>
           <Form.Control
             value={startBalanceInput}
             onChange={(e) => {
@@ -28,7 +30,9 @@ const Calculator = ({
           />
         </Form.Group>
         <Form.Group className='py-2'>
-          <Form.Text className='text-light'>Percent per month, %:</Form.Text>
+          <Form.Text className='text-light raleway-700'>
+            Percent per month, %:
+          </Form.Text>
           <Form.Control
             type='number'
             placeholder='Enter percent per month'
@@ -40,7 +44,9 @@ const Calculator = ({
           />
         </Form.Group>
         <Form.Group className='py-2'>
-          <Form.Text className='text-light'>Number of Months:</Form.Text>
+          <Form.Text className='text-light raleway-700'>
+            Number of Months:
+          </Form.Text>
           <Form.Control
             type='number'
             placeholder='Enter number of months'
@@ -54,12 +60,12 @@ const Calculator = ({
         <Alert show={showWarningAlert} variant='warning mt-2 mb-0' size='md'>
           Please fill up all the fields
         </Alert>
+        <Button type='submit' size='lg' className='col-12 my-2'>
+          Calculate
+        </Button>
         <Alert show={result !== undefined} variant='info mt-2 mb-0' size='md'>
           Result: <b>${result}</b>
         </Alert>
-        <Form.Group className='py-3'>
-          <Button type='submit'>Calculate</Button>
-        </Form.Group>
       </Form>
     </>
   )

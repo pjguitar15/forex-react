@@ -58,9 +58,10 @@ const BreadCrumbs = ({ id }) => {
                 >
                   Home
                 </span>
-                <span className='text-muted mx-3'>
-                  <i className='fa-solid fa-chevron-right'></i>
-                </span>
+                <span
+                  className='iconify mx-2 text-muted'
+                  data-icon='entypo:chevron-thin-right'
+                ></span>
                 <span
                   onClick={() => tagClicked(item.tag)}
                   className='text-muted raleway-400 text-capitalize'
@@ -68,9 +69,10 @@ const BreadCrumbs = ({ id }) => {
                 >
                   {item.tag}
                 </span>
-                <span className='text-muted mx-3'>
-                  <i className='fa-solid fa-chevron-right'></i>
-                </span>
+                <span
+                  className='iconify mx-2 text-muted'
+                  data-icon='entypo:chevron-thin-right'
+                ></span>
                 <span
                   className='raleway-400 fw-bold'
                   style={{ color: '#505050', fontSize: '14px' }}

@@ -90,10 +90,9 @@ const ForexCompoundingCalculator = () => {
   useEffect(() => {
     let newArr = []
     resultsTable.forEach((item) => {
-      newArr.push({ name: item.month, uv: item.total })
+      newArr.push({ name: item.month, total: item.total })
     })
     setChartData(newArr)
-    console.log(newArr)
   }, [resultsTable])
   return (
     <div>

@@ -24,10 +24,10 @@ const CategoryBreadcrumbs = ({ firebaseData, loading, id }) => {
           >
             Home
           </span>
-          <span className='text-muted mx-3'>
-            {/* <i className='bi bi-caret-right-fill'></i> */}
-            <i className='fa-solid fa-chevron-right'></i>
-          </span>
+          <span
+            className='iconify mx-2 text-muted'
+            data-icon='entypo:chevron-thin-right'
+          ></span>
           <span
             className='raleway-400 fw-bold'
             style={{ color: '#505050', fontSize: '14px' }}

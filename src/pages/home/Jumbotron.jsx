@@ -50,7 +50,7 @@ const Jumbotron = () => {
               Forex Compounding Calculator
             </h1>
             <p className='raleway-400-italic text-white text-center'>
-              Forex Compounding Calculator
+              Forex Compounding Interest Calculator
             </p>
           </>
         ) : (

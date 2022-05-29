@@ -43,7 +43,8 @@ const BlogNavbar = () => {
               onClick={() => navigate('/')}
               className={`navbar-brand-style text-dark text-uppercase`}
             >
-              Bullish Beast
+              Bullish Beast{' '}
+              
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>

@@ -3,8 +3,9 @@ import { Button, Container } from 'react-bootstrap'
 
 const CurrencyCoverter = () => {
   const [selectLoading, setSelectLoading] = useState(false)
+  const [convertLoading, setConvertLoading] = useState(false)
   const [currencyOptions, setCurrencyOptions] = useState([])
-  const [inputValue, setInputValue] = useState()
+  const [inputValue, setInputValue] = useState(0)
   const [firstSelectValue, setFirstSelectValue] = useState('')
   const [secondSelectValue, setSecondSelectValue] = useState('')
   const [conversionResult, setConversionResult] = useState()
@@ -29,18 +30,20 @@ const CurrencyCoverter = () => {
   }, [])
 
   const convertHandler = () => {
+    setConvertLoading(true)
     fetch(
       `https://api.apilayer.com/exchangerates_data/convert?to=${secondSelectValue}&from=${firstSelectValue}&amount=${inputValue}`,
       requestOptions
     )
       .then((response) => response.json())
       .then((result) => setConversionResult(result.result))
+      .then(() => setConvertLoading(false))
       .catch((error) => console.log('error', error))
   }
 
   let today = new Date()
   return (
-    <div className='py-5'>
+    <div className='py-5' style={{ background: '#606060' }}>
       <Container className='py-5 '>
         <div className='border rounded bg-light'>
           <h4
@@ -51,6 +54,7 @@ const CurrencyCoverter = () => {
           </h4>
           <div className='px-4'>
             <div className='my-3'>
+              <div className='small'>Value</div>
               <input
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
@@ -61,6 +65,7 @@ const CurrencyCoverter = () => {
             </div>
             <div className='row'>
               <div className='col-6'>
+                <div className='small'>From</div>
                 <select
                   onChange={(e) => setFirstSelectValue(e.target.value)}
                   className='form-control p-3'
@@ -78,6 +83,7 @@ const CurrencyCoverter = () => {
                 </select>
               </div>
               <div className='col-6'>
+                <div className='small'>To</div>
                 <select
                   onChange={(e) => setSecondSelectValue(e.target.value)}
                   className='form-control p-3'
@@ -97,13 +103,17 @@ const CurrencyCoverter = () => {
             </div>
           </div>
           <div className='text-center'>
-            <Button className='mt-4' onClick={convertHandler}>
-              Convert
+            <Button
+              disabled={convertLoading}
+              className='mt-4'
+              onClick={convertHandler}
+            >
+              {convertLoading ? 'Converting...' : 'Convert'}
             </Button>
           </div>
           <div className='my-3'>
             <h1 className='display-3 fw-5 text-center'>
-              ${conversionResult ? conversionResult : '0.00'}
+              {conversionResult ? conversionResult : '0.00'}
             </h1>
             <div className='form-text text-center'>
               Rates {today.toDateString()}

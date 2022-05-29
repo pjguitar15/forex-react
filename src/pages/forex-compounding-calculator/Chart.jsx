@@ -25,11 +25,16 @@ const Chart = ({ chartData }) => {
             bottom: 0,
           }}
         >
-          <CartesianGrid strokeDasharray='3 3' />
+          <CartesianGrid strokeDasharray='2 2' />
           <XAxis dataKey='name' />
           <YAxis />
           <Tooltip />
-          <Area type='monotone' dataKey='uv' stroke='#0C8ACA' fill='#5598BA' />
+          <Area
+            type='monotone'
+            dataKey='total'
+            stroke='#0C8ACA'
+            fill='#5598BA'
+          />
         </AreaChart>
       </ResponsiveContainer>
     </div>
