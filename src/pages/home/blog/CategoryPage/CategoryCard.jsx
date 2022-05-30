@@ -21,7 +21,7 @@ const CategoryCard = ({ item }) => {
             }}
             alt='cardItem'
           >
-            <div className='inner-btn-parent text-white text-center d-flex align-items-center justify-content-center'>
+            <div className='inner-btn-parent w-100 text-white text-center d-flex align-items-center justify-content-center'>
               <RoundButton />
             </div>
           </div>

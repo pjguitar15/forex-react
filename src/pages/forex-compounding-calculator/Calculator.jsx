@@ -63,8 +63,13 @@ const Calculator = ({
         <Button type='submit' size='lg' className='col-12 my-2'>
           Calculate
         </Button>
-        <Alert show={result !== undefined} variant='info mt-2 mb-0' size='md'>
-          Result: <b>${result}</b>
+        <Alert
+          show={result !== undefined}
+          variant='info mt-2 mb-0 raleway-700'
+          size='md'
+          style={{ fontSize: '18px' }}
+        >
+          Result: ${result}
         </Alert>
       </Form>
     </>

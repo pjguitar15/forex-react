@@ -70,8 +70,12 @@ const BreadCrumbs = ({ id }) => {
                 ></span>
                 <span
                   onClick={() => tagClicked(item.tag)}
-                  className='text-muted raleway-400 text-capitalize'
-                  style={{ fontSize: '14px', cursor: 'pointer' }}
+                  className='text-muted raleway-400'
+                  style={{
+                    fontSize: '14px',
+                    cursor: 'pointer',
+                    textTransform: 'capitalize',
+                  }}
                 >
                   {item.tag}
                 </span>

@@ -123,6 +123,10 @@
   .my-container {
     padding: 0 30px;
   }
+  .inner-btn-parent:hover {
+    box-shadow: inset 0 0 0 1000px rgba(49, 115, 255, 0.507) !important;
+    background-size: 22rem !important;
+  }
 }
 
 /* md */

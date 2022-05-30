@@ -120,16 +120,14 @@ export const EconomicCalendarProvider = ({ children }) => {
       day: dayAfterTomorrowDay,
       year: dayAfterTomorrowYear,
     })
-    // console.log(currentDay)
-    // console.log(currentYear)
-
     // year, month, yesterdayDay, tomorrow = currentDay + 2
 
-    Axios.get(
-      `https://fcsapi.com/api-v3/forex/economy_cal?symbol=USD,JPY&from=${dayYesterday.year}-${dayYesterday.month}-${dayYesterday.day}&to=${dayAfterTomorrow.year}-${dayAfterTomorrow.month}-${dayAfterTomorrow.day}&access_key=ljGMMLSmGSGesPELqL5G`
-    ).then((res) => {
-      setCalendarApiValue(res.data.response)
-    })
+    Axios.get(`https://forexcalendarjson.000webhostapp.com/`)
+      .then((res) => {
+        res.json()
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err))
     // console.log(calendarApiValue)
   }, [])
 
