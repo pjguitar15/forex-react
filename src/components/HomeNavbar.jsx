@@ -29,6 +29,7 @@ const MyNavbar = () => {
       {/* Brand: Bullish Beast */}
       {/* Logo Font: Raleway, Navlinks font: Montserrat */}
       <Navbar
+        variant={`${navbar ? 'light' : 'dark'}`}
         className={`border-bottom border-muted fixed-top navbar-main ${
           navbar ? 'bg-white' : ''
         }`}

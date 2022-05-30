@@ -1,27 +1,28 @@
 import React from 'react'
 import RoundButton from '../../../components/blog-components/RoundButton'
 import { useNavigate } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 const BlogCard = ({ item, loading }) => {
   const navigate = useNavigate()
   return (
     <div className='col-lg-4 col-md-6 mx-auto my-3'>
-      {/* image */}
       <div
         onClick={() => navigate(`/blog/${item.id}`)}
-      className='col-12 blog-img-parent'
+        className='col-12 blog-img-parent blog-item-img'
         style={{ height: '12rem' }}
       >
-        <div
-          className='w-100 h-100 blog-item-img'
-          style={{
-            background: `url(${item.img})`,
-          }}
-          alt='cardItem'
-        >
-          <div className='inner-btn-parent text-white text-center d-flex align-items-center justify-content-center'>
-            <RoundButton />
-          </div>
+        {/* image */}
+        <LazyLoadImage
+          height={'100%'}
+          width={'100%'}
+          alt={item.img}
+          effect='blur'
+          src={item.img}
+        />
+        <div className='inner-btn-parent w-100 text-white text-center d-flex align-items-center justify-content-center'>
+          <RoundButton />
         </div>
       </div>
       {/* title */}

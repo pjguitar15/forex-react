@@ -127,8 +127,8 @@
 
 /* md */
 @media (min-width: 576px) {
-  .blog-item-img:hover {
-    box-shadow: inset 0 0 0 1000px rgba(49, 115, 255, 0.507);
+  .inner-btn-parent:hover {
+    box-shadow: inset 0 0 0 1000px rgba(49, 115, 255, 0.507) !important;
     background-size: 22rem !important;
   }
 
@@ -139,8 +139,8 @@
 
 /* lg */
 @media (min-width: 992px) {
-  .blog-item-img:hover {
-    box-shadow: inset 0 0 0 1000px rgba(49, 115, 255, 0.507);
+  .inner-btn-parent:hover {
+    box-shadow: inset 0 0 0 1000px rgba(49, 115, 255, 0.507) !important;
     background-size: 22rem !important;
   }
 

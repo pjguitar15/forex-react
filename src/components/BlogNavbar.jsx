@@ -30,6 +30,7 @@ const BlogNavbar = () => {
         {/* Brand: Bullish Beast */}
         {/* Logo Font: Raleway, Navlinks font: Montserrat */}
         <Navbar
+          variant='light'
           className={`border-bottom navbar-main bg-white ${
             navbar ? 'fixed-top' : ''
           }`}
@@ -44,7 +45,6 @@ const BlogNavbar = () => {
               className={`navbar-brand-style text-dark text-uppercase`}
             >
               Bullish Beast{' '}
-              
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
