@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Container } from 'react-bootstrap'
+import { Spinner, Container } from 'react-bootstrap'
 import axios from 'axios'
 
 const CurrencyCoverter = () => {
@@ -25,26 +25,12 @@ const CurrencyCoverter = () => {
         for (let i = 0; i < allKeys.length; i++) {
           newArr[i] = { itemKey: allKeys[i], itemValue: allValues[i] }
         }
-        console.log(newArr)
         setCurrencyOptions(newArr)
       })
       .then(() => {
         setSelectLoading()
       })
   }, [])
-
-  const convertHandler = () => {
-    setConvertLoading(true)
-    axios
-      .get(
-        `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${firstSelectValue}/${secondSelectValue}.json`
-      )
-      .then((res) => {
-        const result = Object.values(res.data)[1]
-        setConversionResult(result * inputValue)
-      })
-      .then(() => setConvertLoading(false))
-  }
 
   let today = new Date()
 
@@ -77,8 +63,8 @@ const CurrencyCoverter = () => {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 type='number'
-                style={{ fontSize: '26px' }}
-                className='form-control p-3 raleway-700'
+                style={{ fontSize: '32px' }}
+                className='form-control py-2 mt-2 px-3 raleway-600'
                 placeholder='Enter amount'
               />
             </div>
@@ -87,7 +73,7 @@ const CurrencyCoverter = () => {
                 <div className='small'>From</div>
                 <select
                   onChange={(e) => setFirstSelectValue(e.target.value)}
-                  className='form-control p-3 raleway-700'
+                  className='form-control p-3 raleway-700 mt-2'
                   type='select'
                 >
                   {currencyOptions
@@ -112,7 +98,7 @@ const CurrencyCoverter = () => {
                 <div className='small'>To</div>
                 <select
                   onChange={(e) => setSecondSelectValue(e.target.value)}
-                  className='form-control p-3 raleway-700'
+                  className='form-control p-3 raleway-700 mt-2'
                   type='select'
                 >
                   {currencyOptions
@@ -136,9 +122,15 @@ const CurrencyCoverter = () => {
             </div>
           </div>
           <div className='my-3'>
-            <h1 className='display-3 fw-5 text-center'>
-              {conversionResult ? conversionResult.toFixed(4) : '0.00'}
-            </h1>
+            {convertLoading ? (
+              <div className='text-center my-5'>
+                <Spinner animation='border' />
+              </div>
+            ) : (
+              <h1 className='display-3 fw-5 text-center'>
+                {conversionResult.toFixed(4)}
+              </h1>
+            )}
             <div className='form-text text-center'>
               Rates {today.toDateString()}
             </div>
