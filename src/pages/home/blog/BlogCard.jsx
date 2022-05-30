@@ -15,6 +15,7 @@ const BlogCard = ({ item, loading }) => {
       >
         {/* image */}
         <LazyLoadImage
+          style={{ objectFit: 'cover' }}
           height={'100%'}
           width={'100%'}
           alt={item.img}

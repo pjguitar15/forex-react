@@ -1,47 +1,65 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Container } from 'react-bootstrap'
+import axios from 'axios'
 
 const CurrencyCoverter = () => {
   const [selectLoading, setSelectLoading] = useState(false)
   const [convertLoading, setConvertLoading] = useState(false)
   const [currencyOptions, setCurrencyOptions] = useState([])
-  const [inputValue, setInputValue] = useState(0)
-  const [firstSelectValue, setFirstSelectValue] = useState('')
-  const [secondSelectValue, setSecondSelectValue] = useState('')
-  const [conversionResult, setConversionResult] = useState()
+  const [inputValue, setInputValue] = useState(100)
+  const [firstSelectValue, setFirstSelectValue] = useState('zar')
+  const [secondSelectValue, setSecondSelectValue] = useState('usd')
+  const [conversionResult, setConversionResult] = useState(0)
 
-  var myHeaders = new Headers()
-  myHeaders.append('apikey', 'xXnxL3gGFh87LGqB3Oi2ny0smEzsXIcF')
-
-  var requestOptions = {
-    method: 'GET',
-    redirect: 'follow',
-    headers: myHeaders,
-  }
   useEffect(() => {
     setSelectLoading(true)
-    fetch('https://api.apilayer.com/exchangerates_data/symbols', requestOptions)
-      .then((response) => response.json())
-      .then((result) => setCurrencyOptions(result.symbols))
-      .then(() => {
-        setSelectLoading(false)
+    axios
+      .get(
+        'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json'
+      )
+      .then((res) => {
+        let newArr = []
+        const allKeys = Object.keys(res.data)
+        const allValues = Object.values(res.data)
+
+        for (let i = 0; i < allKeys.length; i++) {
+          newArr[i] = { itemKey: allKeys[i], itemValue: allValues[i] }
+        }
+        console.log(newArr)
+        setCurrencyOptions(newArr)
       })
-      .catch((error) => setSelectLoading(false))
+      .then(() => {
+        setSelectLoading()
+      })
   }, [])
 
   const convertHandler = () => {
     setConvertLoading(true)
-    fetch(
-      `https://api.apilayer.com/exchangerates_data/convert?to=${secondSelectValue}&from=${firstSelectValue}&amount=${inputValue}`,
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => setConversionResult(result.result))
+    axios
+      .get(
+        `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${firstSelectValue}/${secondSelectValue}.json`
+      )
+      .then((res) => {
+        const result = Object.values(res.data)[1]
+        setConversionResult(result * inputValue)
+      })
       .then(() => setConvertLoading(false))
-      .catch((error) => console.log('error', error))
   }
 
   let today = new Date()
+
+  useEffect(() => {
+    setConvertLoading(true)
+    axios
+      .get(
+        `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${firstSelectValue}/${secondSelectValue}.json`
+      )
+      .then((res) => {
+        const result = Object.values(res.data)[1]
+        setConversionResult(result * inputValue)
+      })
+      .then(() => setConvertLoading(false))
+  }, [firstSelectValue, secondSelectValue, inputValue])
   return (
     <div className='py-5' style={{ background: '#606060' }}>
       <Container className='py-5 '>
@@ -59,7 +77,8 @@ const CurrencyCoverter = () => {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 type='number'
-                className='form-control p-3'
+                style={{ fontSize: '26px' }}
+                className='form-control p-3 raleway-700'
                 placeholder='Enter amount'
               />
             </div>
@@ -68,15 +87,22 @@ const CurrencyCoverter = () => {
                 <div className='small'>From</div>
                 <select
                   onChange={(e) => setFirstSelectValue(e.target.value)}
-                  className='form-control p-3'
+                  className='form-control p-3 raleway-700'
                   type='select'
                 >
+                  {currencyOptions
+                    .filter((item) => item.itemValue === 'South African rand')
+                    .map((item, index) => (
+                      <option key={index} value={item.itemKey}>
+                        {item.itemValue}
+                      </option>
+                    ))}
                   {selectLoading ? (
                     <option>LOADING...</option>
                   ) : (
-                    Object.keys(currencyOptions).map((item, index) => (
-                      <option key={index} value={item}>
-                        {item}
+                    currencyOptions.map((item, index) => (
+                      <option key={index} value={item.itemKey}>
+                        {item.itemValue}
                       </option>
                     ))
                   )}
@@ -86,15 +112,22 @@ const CurrencyCoverter = () => {
                 <div className='small'>To</div>
                 <select
                   onChange={(e) => setSecondSelectValue(e.target.value)}
-                  className='form-control p-3'
+                  className='form-control p-3 raleway-700'
                   type='select'
                 >
+                  {currencyOptions
+                    .filter((item) => item.itemValue === 'United States dollar')
+                    .map((item, index) => (
+                      <option key={index} value={item.itemKey}>
+                        {item.itemValue}
+                      </option>
+                    ))}
                   {selectLoading ? (
                     <option>LOADING...</option>
                   ) : (
-                    Object.keys(currencyOptions).map((item, index) => (
-                      <option key={index} value={item}>
-                        {item}
+                    currencyOptions.slice(1).map((item, index) => (
+                      <option key={index} value={item.itemKey}>
+                        {item.itemValue}
                       </option>
                     ))
                   )}
@@ -102,18 +135,9 @@ const CurrencyCoverter = () => {
               </div>
             </div>
           </div>
-          <div className='text-center'>
-            <Button
-              disabled={convertLoading}
-              className='mt-4'
-              onClick={convertHandler}
-            >
-              {convertLoading ? 'Converting...' : 'Convert'}
-            </Button>
-          </div>
           <div className='my-3'>
             <h1 className='display-3 fw-5 text-center'>
-              {conversionResult ? conversionResult : '0.00'}
+              {conversionResult ? conversionResult.toFixed(4) : '0.00'}
             </h1>
             <div className='form-text text-center'>
               Rates {today.toDateString()}
