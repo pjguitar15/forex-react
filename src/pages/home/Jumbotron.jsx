@@ -22,8 +22,8 @@ const Jumbotron = () => {
         {location.pathname === '/' ? (
           <>
             <p className='text-center jumbotron-content'>
-              Bullish Beast Ltd has ceased trading, investors please contact RES
-              Corporate Services Limited,
+              Bullish Beast (Pty) Ltd has ceased trading, investors please
+              contact RFIT Rocket Financial Investment Traders,
             </p>
             <p className='text-center jumbotron-content'>
               Email: digby@rescorporate.co.nz Website: www.rescorporate.co.nz

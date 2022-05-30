@@ -16,6 +16,7 @@ import CategoryItems from './pages/home/blog/CategoryPage/CategoryItems';
 import EconomicCalendar from './pages/economic calendar/EconomicCalendar';
 import ForexCompoundingCalculator from './pages/forex-compounding-calculator/ForexCompoundingCalculator';
 import CurrencyCoverter from './pages/currency-converter/CurrencyCoverter';
+import ErrorPage from './pages/ErrorPage';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
             <Routes>
               {/* Home - Blog posts */}
               <Route path='/' element={<><HomeNavbar /><Home /></>} />
-              <Route path='/add' element={<AddItemsToFirebase />} />
+              {/* <Route path='/add' element={<AddItemsToFirebase />} /> */}
               <Route path='/blog/:id' element={<><BlogNavbar /><BlogSlug /></>} />
 
               {/* Category Slug */}
@@ -41,6 +42,9 @@ function App() {
               {/* Forex Compounding Calculator */}
               <Route path='/currency-converter' element={<><BlogNavbar /><CurrencyCoverter /></>} />
 
+
+              {/* Error page */}
+              <Route path='*' element={<ErrorPage />} />
             </Routes>
           </EconomicCalendarProvider>
         </ContextProvider>

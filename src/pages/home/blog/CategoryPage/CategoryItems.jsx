@@ -22,7 +22,7 @@ const CategoryItems = () => {
       />
       <Container>
         <div className='row'>
-          <div className='col-9'>
+          <div className='col-md-9'>
             {/* Category Cards here */}
             <div className='row'>
               {loading ? (
@@ -62,7 +62,7 @@ const CategoryItems = () => {
               )}
             </div>
           </div>
-          <div className='col-3 mt-3'>
+          <div className='col-12 col-md-3 mt-3 mb-5 mb-md-0'>
             {/* Category list on the right */}
             <Categories />
           </div>

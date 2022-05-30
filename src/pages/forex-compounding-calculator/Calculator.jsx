@@ -60,7 +60,12 @@ const Calculator = ({
         <Alert show={showWarningAlert} variant='warning mt-2 mb-0' size='md'>
           Please fill up all the fields
         </Alert>
-        <Button type='submit' size='lg' className='col-12 my-2'>
+        <Button
+          style={{ background: '#0090FF' }}
+          type='submit'
+          size='lg'
+          className='col-12 my-2 py-3 rounded-0'
+        >
           Calculate
         </Button>
         <Alert
