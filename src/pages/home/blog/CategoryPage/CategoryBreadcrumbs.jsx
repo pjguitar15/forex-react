@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const CategoryBreadcrumbs = ({ firebaseData, loading, id }) => {
+  const [currentCategory, setCurrentCategory] = useState('')
+  const location = useLocation()
+  useEffect(() => {
+    const splitItem = location.pathname.slice(17).split('-')
+    const joinItems = splitItem.join(' ')
+    setCurrentCategory(joinItems)
+  }, [location])
   const navigate = useNavigate()
   return (
     <div className='bg-light py-5'>
@@ -29,11 +36,10 @@ const CategoryBreadcrumbs = ({ firebaseData, loading, id }) => {
             data-icon='entypo:chevron-thin-right'
           ></span>
           <span
-            className='raleway-400 fw-bold'
+            className='raleway-400 fw-bold text-capitalize'
             style={{ color: '#505050', fontSize: '14px' }}
           >
-            {/* {data.title} */}
-            Test
+            {currentCategory}
           </span>
         </div>
       </Container>
