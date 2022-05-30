@@ -46,14 +46,20 @@ const BreadCrumbs = ({ id }) => {
         firebaseData
           .filter((item) => item.id === id)
           .map((item, index) => (
-            <Container key={index} className='d-flex justify-content-between'>
-              <h4 className='raleway-700 m-0' style={{ color: '#505050' }}>
+            <Container
+              key={index}
+              className='d-lg-flex justify-content-between'
+            >
+              <h4
+                className='raleway-700 m-0 mb-2 mb-md-0'
+                style={{ color: '#505050' }}
+              >
                 Blog Post
               </h4>
               <div>
                 <span
                   onClick={() => navigate('/')}
-                  className='text-muted raleway-400'
+                  className='text-muted text-capitalize raleway-400'
                   style={{ fontSize: '14px', cursor: 'pointer' }}
                 >
                   Home
@@ -74,7 +80,7 @@ const BreadCrumbs = ({ id }) => {
                   data-icon='entypo:chevron-thin-right'
                 ></span>
                 <span
-                  className='raleway-400 fw-bold'
+                  className='raleway-400 fw-bold text-capitalize'
                   style={{ color: '#505050', fontSize: '14px' }}
                 >
                   {item.title}

@@ -130,16 +130,16 @@ const ForexCompoundingCalculator = () => {
             <Chart chartData={chartData} />
             {/* Table headers */}
             <div className='row text-start raleway-700'>
-              <div className='col-3 p-1'>
+              <div className='col-2 p-1 text-center'>
                 <div className='p-3'>Month</div>
               </div>
-              <div className='col-3 p-1'>
+              <div className='col-4 p-1 text-center'>
                 <div className='p-3'>Previous</div>
               </div>
-              <div className='col-3 p-1'>
+              <div className='col-2 p-1 text-center'>
                 <div className='p-3'>%</div>
               </div>
-              <div className='col-3 p-1'>
+              <div className='col-4 p-1 text-center'>
                 <div className='p-3'>Total</div>
               </div>
             </div>

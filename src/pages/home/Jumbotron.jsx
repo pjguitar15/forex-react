@@ -22,11 +22,11 @@ const Jumbotron = () => {
         {location.pathname === '/' ? (
           <>
             <p className='text-center jumbotron-content'>
-              Bullish Beast has ceased trading, investors please contact Bullish
-              Beast,
+              Bullish Beast Ltd has ceased trading, investors please contact RES
+              Corporate Services Limited,
             </p>
             <p className='text-center jumbotron-content'>
-              Email: email@domain.com Website: www.bullishbeast.com
+              Email: digby@rescorporate.co.nz Website: www.rescorporate.co.nz
             </p>
           </>
         ) : (

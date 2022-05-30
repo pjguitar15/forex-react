@@ -28,6 +28,7 @@ const DisplayCurrentItem = ({ firebaseData, loading }) => {
               <p
                 className='raleway-400'
                 style={{
+                  textAlign: 'justify',
                   fontSize: '14px',
                   lineHeight: '25px',
                   color: '#686868',

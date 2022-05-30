@@ -10,7 +10,7 @@ const Categories = () => {
       </div>
       <div
         onClick={() => navigate(`/blog/categories/cryptocurrency`)}
-        className='px-0py-2 raleway-400'
+        className='px-4 px-lg-0 raleway-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>CRYPTOCURRENCY</p>
@@ -18,7 +18,7 @@ const Categories = () => {
       <hr />
       <div
         onClick={() => navigate(`/blog/categories/how-to-guide`)}
-        className='px-0py-2 raleway-400'
+        className='px-4 px-lg-0 raleway-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>HOW TO GUIDE</p>
@@ -26,7 +26,7 @@ const Categories = () => {
       <hr />
       <div
         onClick={() => navigate(`/blog/categories/lifestyle`)}
-        className='px-0py-2 raleway-400'
+        className='px-4 px-lg-0 raleway-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>LIFESTYLE</p>
@@ -34,7 +34,7 @@ const Categories = () => {
       <hr />
       <div
         onClick={() => navigate(`/blog/categories/make-money-online`)}
-        className='px-0py-2 raleway-400'
+        className='px-4 px-lg-0 raleway-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>MAKE MONEY ONLINE</p>
@@ -42,7 +42,7 @@ const Categories = () => {
       <hr />
       <div
         onClick={() => navigate(`/blog/categories/technical-analysis`)}
-        className='px-0py-2 raleway-400'
+        className='px-4 px-lg-0 raleway-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>TECHNICAL ANALYSIS</p>
@@ -50,7 +50,7 @@ const Categories = () => {
       <hr />
       <div
         onClick={() => navigate(`/blog/categories/traders-education`)}
-        className='px-0py-2 raleway-400'
+        className='px-4 px-lg-0 raleway-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>TRADERS EDUCATION</p>
@@ -58,7 +58,7 @@ const Categories = () => {
       <hr />
       <div
         onClick={() => navigate(`/blog/categories/uncategorized`)}
-        className='px-0py-2 raleway-400'
+        className='px-4 px-lg-0 raleway-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>UNCATEGORIZED</p>

@@ -22,9 +22,9 @@ const Footer = () => {
         Restricted Regions: Bullish Beast does not provide services for
         citizens/residents of certain regions, such as Canada, Cuba, Iran, Iraq,
         Myanmar, North Korea, Sudan, Syria, The United States. We Only accept
-        New Zealand clients who are defined as ‘Wholesale Investor’ or ‘Eligible
-        Investor’ as per New Zealand law for Financial Services Providers Act
-        FSPA 2008.
+        South Africa clients who are defined as ‘Wholesale Investor’ or
+        ‘Eligible Investor’ as per South Africa law for Financial Services
+        Providers Act FSPA 2008.
       </p>
       {/* All raleway, Size 12px, 22px line height, Color: #999999 */}
     </div>

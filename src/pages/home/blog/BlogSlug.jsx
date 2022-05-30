@@ -17,7 +17,7 @@ const BlogSlug = () => {
       <BreadCrumbs id={id} />
       <Container>
         <div className='row py-5'>
-          <div className='col-lg-9 pe-5'>
+          <div className='col-lg-9 pe-md-5'>
             <DisplayCurrentItem loading={loading} firebaseData={firebaseData} />
             <hr className='my-5' />
             <RelatedPosts />
