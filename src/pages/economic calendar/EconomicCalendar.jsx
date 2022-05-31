@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Jumbotron from '../home/Jumbotron'
 import CalendarItem from './CalendarItem'
 import CalendarTableHeader from './CalendarTableHeader'
+import ScriptTag from 'react-script-tag'
 
 // import context
 import { useGetCalendarApi } from '../../context/EconomicCalendarProvider'
@@ -103,42 +104,57 @@ const EconomicCalendar = () => {
         <h3 className='raleway-700 m-0 mb-3 text-white'>
           Forex Economic Calendar
         </h3>
-        <CalendarTableHeader />
+
+        {/* <CalendarTableHeader /> */}
+
+        {/* widget here */}
+        {/* <script
+          type='text/javascript'
+          src='https://widgets.myfxbook.com/scripts/fxCalendar.js'
+        ></script> */}
+        <ScriptTag
+          isHydrating={true}
+          type='text/javascript'
+          src='https://widgets.myfxbook.com/scripts/fxCalendar.js'
+        />
+
+        {/* end of widget */}
+
         {/* <CalendarItem /> */}
-        <h6 className='arial text-uppercase text-white text-center my-4'>
+        {/* <h6 className='arial text-uppercase text-white text-center my-4'>
           {yesterdayDate.dayOfWeek}, {yesterdayDate.currMonth}{' '}
           {yesterdayDate.dayOfMonth}
-        </h6>
+        </h6> */}
         {/* Display yesterday items here */}
         {/* {console.log(testValue[0].date.slice(0, 10))} */}
 
-        {testValue
+        {/* {testValue
           .filter((item) => item.date.slice(0, 10) === yesterdayDateToString)
           .map((item, index) => (
             <CalendarItem key={index} item={item} />
-          ))}
+          ))} */}
 
-        <h6 className='arial text-uppercase text-white text-center my-4'>
+        {/* <h6 className='arial text-uppercase text-white text-center my-4'>
           {todayDate.dayOfWeek}, {todayDate.currMonth} {todayDate.dayOfMonth}
-        </h6>
+        </h6> */}
         {/* Display today items here */}
-        {testValue
+        {/* {testValue
           .filter((item) => item.date.slice(0, 10) === todayDateToString)
           .map((item, index) => (
             <CalendarItem key={index} item={item} />
-          ))}
+          ))} */}
 
-        <h6 className='arial text-uppercase text-white text-center my-4'>
+        {/* <h6 className='arial text-uppercase text-white text-center my-4'>
           {dateAfterTomorrowDate.dayOfWeek}, {dateAfterTomorrowDate.currMonth}{' '}
           {dateAfterTomorrowDate.dayOfMonth}
-        </h6>
+        </h6> */}
 
         {/* Display tomorrow's items here */}
-        {testValue
+        {/* {testValue
           .filter((item) => item.date.slice(0, 10) === tomorrowDateToString)
           .map((item, index) => (
             <CalendarItem key={index} item={item} />
-          ))}
+          ))} */}
       </div>
     </>
   )
