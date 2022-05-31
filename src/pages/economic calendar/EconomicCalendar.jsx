@@ -116,7 +116,7 @@ const EconomicCalendar = () => {
           src='https://widgets.myfxbook.com/scripts/fxCalendar.js'
         ></script> */}
         {isWidgetLoading ? (
-          <div className='text-center'>
+          <div className='text-center' style={{ marginTop: '50px' }}>
             <Spinner
               style={{ height: '7rem', width: '7rem' }}
               animation='border'

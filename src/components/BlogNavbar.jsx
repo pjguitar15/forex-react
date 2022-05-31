@@ -65,7 +65,15 @@ const BlogNavbar = () => {
                   className={`link-style montserrat mx-3 text-muted `}
                   to='/currency-converter'
                 >
-                  Currency Converter
+                  <span
+                    style={
+                      location.pathname === '/currency-converter'
+                        ? { color: '#0090FF' }
+                        : { color: '' }
+                    }
+                  >
+                    Currency Converter
+                  </span>
                 </Link>
               </Nav>
             </Navbar.Collapse>

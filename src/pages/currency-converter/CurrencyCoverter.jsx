@@ -58,7 +58,7 @@ const CurrencyCoverter = () => {
           </h4>
           <div className='px-4'>
             <div className='my-3'>
-              <div className='small'>Value</div>
+              <div className='small'>Amount</div>
               <input
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
@@ -75,6 +75,7 @@ const CurrencyCoverter = () => {
                   onChange={(e) => setFirstSelectValue(e.target.value)}
                   className='form-control p-3 raleway-700 mt-2'
                   type='select'
+                  style={{ fontSize: '18px' }}
                 >
                   {currencyOptions
                     .filter((item) => item.itemValue === 'South African rand')
@@ -100,6 +101,7 @@ const CurrencyCoverter = () => {
                   onChange={(e) => setSecondSelectValue(e.target.value)}
                   className='form-control p-3 raleway-700 mt-2'
                   type='select'
+                  style={{ fontSize: '18px' }}
                 >
                   {currencyOptions
                     .filter((item) => item.itemValue === 'United States dollar')

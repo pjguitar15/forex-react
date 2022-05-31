@@ -126,7 +126,7 @@ const ForexCompoundingCalculator = () => {
           </div>
 
           {/* table here */}
-          <div className='col-lg-8 py-3 px-4'>
+          <div className='col-lg-8 py-3 px-0 px-md-5'>
             <Chart chartData={chartData} />
             {/* Table headers */}
             <div className='row text-start raleway-700'>

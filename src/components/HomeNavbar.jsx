@@ -57,12 +57,27 @@ const MyNavbar = () => {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ms-auto'>
               <Link
-                className={`link-style montserrat mx-3 ${
+                className={`link-style montserrat mx-3  ${
                   navbar ? 'text-muted' : 'text-light'
                 }`}
                 to='/economic-calendar'
+                // style={
+                //   location.pathname === '/economic-calendar'
+                //     ? {
+                //         color: 'blue !important',
+                //       }
+                //     : { color: 'blue !important' }
+                // }
               >
-                Economic Calendar
+                <span
+                  style={
+                    (navbar && location.pathname) === '/economic-calendar'
+                      ? { color: '#0090FF' }
+                      : { color: '' }
+                  }
+                >
+                  Economic Calendar
+                </span>
               </Link>
               <Link
                 className={`link-style montserrat mx-3 ${
@@ -70,7 +85,15 @@ const MyNavbar = () => {
                 }`}
                 to='/compounding-calculator'
               >
-                Compounding Calculator
+                <span
+                  style={
+                    (navbar && location.pathname) === '/compounding-calculator'
+                      ? { color: '#0090FF' }
+                      : { color: '' }
+                  }
+                >
+                  Compounding Calculator
+                </span>
               </Link>
               <Link
                 className={`link-style montserrat mx-3 ${
