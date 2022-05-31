@@ -21,9 +21,9 @@ const Footer = () => {
       >
         Restricted Regions: Bullish Beast does not provide services for
         citizens/residents of certain regions, such as Jamaica, Cuba, Iran,
-        Iraq, Myanmar, North Korea, Sudan, Syria, The UAE. We Only accept South
-        Africa clients who are defined as ‘Wholesale Investor’ or ‘Eligible
-        Investor’ as per South Africa law for Financial Services Providers Act
+        Iraq, Myanmar, North Korea, Sudan, Syria, The UAE. We accept International Clients and South
+        African clients who are defined as ‘Wholesale Investor’ or ‘Eligible
+        Investor’ as per South African law for Financial Services Providers Act
         FSCA.
       </p>
       {/* All raleway, Size 12px, 22px line height, Color: #999999 */}
