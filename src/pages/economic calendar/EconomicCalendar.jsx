@@ -3,11 +3,14 @@ import Jumbotron from '../home/Jumbotron'
 import CalendarItem from './CalendarItem'
 import CalendarTableHeader from './CalendarTableHeader'
 import ScriptTag from 'react-script-tag'
+import { Spinner } from 'react-bootstrap'
 
 // import context
 import { useGetCalendarApi } from '../../context/EconomicCalendarProvider'
 
 const EconomicCalendar = () => {
+  // widget loading
+  const [isWidgetLoading, setIsWidgetLoading] = useState(true)
   const [yesterdayDate, setYesterdayDate] = useState({})
   // I use this to combine all the day, month, and year values to become string
   // to be able to check the matching conditions for the API
@@ -112,7 +115,21 @@ const EconomicCalendar = () => {
           type='text/javascript'
           src='https://widgets.myfxbook.com/scripts/fxCalendar.js'
         ></script> */}
+        {isWidgetLoading ? (
+          <div className='text-center'>
+            <Spinner
+              style={{ height: '7rem', width: '7rem' }}
+              animation='border'
+              size='xl'
+              variant='light'
+            />
+          </div>
+        ) : (
+          ''
+        )}
+
         <ScriptTag
+          onLoad={() => setTimeout(() => setIsWidgetLoading(false), 2500)}
           isHydrating={true}
           type='text/javascript'
           src='https://widgets.myfxbook.com/scripts/fxCalendar.js'
