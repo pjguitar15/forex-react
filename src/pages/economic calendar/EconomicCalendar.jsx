@@ -4,6 +4,7 @@ import CalendarItem from './CalendarItem'
 import CalendarTableHeader from './CalendarTableHeader'
 import ScriptTag from 'react-script-tag'
 import { Spinner, Container } from 'react-bootstrap'
+import LiveMarket from './LiveMarket'
 
 // import context
 import { useGetCalendarApi } from '../../context/EconomicCalendarProvider'
@@ -102,12 +103,22 @@ const EconomicCalendar = () => {
   return (
     <div style={{ background: '#606060' }}>
       <Jumbotron />
+      <LiveMarket isWidgetLoading={isWidgetLoading} />
+      <hr />
+      <div className='mx-md-5 p-2'>
+        <h3 className='raleway-700 m-0 mb-3 text-white'>
+          Forex Economic Calendar
+        </h3>
+        <ScriptTag
+          onLoad={() => setTimeout(() => setIsWidgetLoading(false), 2500)}
+          isHydrating={true}
+          type='text/javascript'
+          src='https://widgets.myfxbook.com/scripts/fxCalendar.js'
+        />
+      </div>
       <Container>
         <div className='py-4'>
           {/* Table */}
-          <h3 className='raleway-700 m-0 mb-3 text-white'>
-            Forex Economic Calendar
-          </h3>
 
           {/* <CalendarTableHeader /> */}
 
@@ -128,51 +139,6 @@ const EconomicCalendar = () => {
           ) : (
             ''
           )}
-
-          <ScriptTag
-            onLoad={() => setTimeout(() => setIsWidgetLoading(false), 2500)}
-            isHydrating={true}
-            type='text/javascript'
-            src='https://widgets.myfxbook.com/scripts/fxCalendar.js'
-          />
-
-          {/* end of widget */}
-
-          {/* <CalendarItem /> */}
-          {/* <h6 className='arial text-uppercase text-white text-center my-4'>
-          {yesterdayDate.dayOfWeek}, {yesterdayDate.currMonth}{' '}
-          {yesterdayDate.dayOfMonth}
-        </h6> */}
-          {/* Display yesterday items here */}
-          {/* {console.log(testValue[0].date.slice(0, 10))} */}
-
-          {/* {testValue
-          .filter((item) => item.date.slice(0, 10) === yesterdayDateToString)
-          .map((item, index) => (
-            <CalendarItem key={index} item={item} />
-          ))} */}
-
-          {/* <h6 className='arial text-uppercase text-white text-center my-4'>
-          {todayDate.dayOfWeek}, {todayDate.currMonth} {todayDate.dayOfMonth}
-        </h6> */}
-          {/* Display today items here */}
-          {/* {testValue
-          .filter((item) => item.date.slice(0, 10) === todayDateToString)
-          .map((item, index) => (
-            <CalendarItem key={index} item={item} />
-          ))} */}
-
-          {/* <h6 className='arial text-uppercase text-white text-center my-4'>
-          {dateAfterTomorrowDate.dayOfWeek}, {dateAfterTomorrowDate.currMonth}{' '}
-          {dateAfterTomorrowDate.dayOfMonth}
-        </h6> */}
-
-          {/* Display tomorrow's items here */}
-          {/* {testValue
-          .filter((item) => item.date.slice(0, 10) === tomorrowDateToString)
-          .map((item, index) => (
-            <CalendarItem key={index} item={item} />
-          ))} */}
         </div>
       </Container>
     </div>
