@@ -23,10 +23,10 @@ const Jumbotron = () => {
           <>
             <p className='text-center jumbotron-content'>
               Bullish Beast (Pty) Ltd has ceased trading, investors please
-              contact RFIT Rocket Financial Investment Traders,
+              contact (RFIT) Rocket Financial Investment Traders,
             </p>
             <p className='text-center jumbotron-content'>
-              Email: digby@rescorporate.co.nz Website: www.rescorporate.co.nz
+              Email: digby@rescorporate.co.nz Website: www.bullishbeastsa.com
             </p>
           </>
         ) : (
@@ -50,7 +50,7 @@ const Jumbotron = () => {
               Forex Compounding Calculator
             </h1>
             <p className='raleway-400-italic text-white text-center'>
-              Forex Compounding Interest Calculator
+              Forex Compounding Interest Calculator s{' '}
             </p>
           </>
         ) : (
@@ -60,9 +60,6 @@ const Jumbotron = () => {
         {location.pathname === '/live-market' ? (
           <>
             <h1 className='text-center raleway-700 text-white'>Live Market</h1>
-            <p className='raleway-400-italic text-white text-center'>
-              Live Market
-            </p>
           </>
         ) : (
           ''

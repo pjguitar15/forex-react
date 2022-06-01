@@ -1,9 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate, Link } from 'react-router-dom'
 import { Container, Navbar, Nav } from 'react-bootstrap'
+import logo from '../assets/logo.jpg'
 
 const MyNavbar = () => {
   const [navbar, setNavbar] = useState(false)
+  const [windowDimenion, detectHW] = useState({
+    winWidth: window.innerWidth,
+    winHeight: window.innerHeight,
+  })
+
+  const detectSize = () => {
+    detectHW({
+      winWidth: window.innerWidth,
+      winHeight: window.innerHeight,
+    })
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', detectSize)
+
+    return () => {
+      window.removeEventListener('resize', detectSize)
+    }
+  }, [windowDimenion])
 
   // useLocation and useNavigate
   const location = useLocation()
@@ -29,9 +49,13 @@ const MyNavbar = () => {
       {/* Brand: Bullish Beast */}
       {/* Logo Font: Raleway, Navlinks font: Montserrat */}
       <Navbar
-        variant={`${navbar ? 'light' : 'dark'}`}
-        className={`border-bottom border-muted fixed-top navbar-main ${
-          navbar ? 'bg-white' : ''
+        variant={`${
+          navbar || windowDimenion.winWidth < 990 ? 'light' : 'dark'
+        }`}
+        className={`border-bottom border-muted ${
+          navbar || !(windowDimenion.winWidth < 990) ? 'fixed-top' : ''
+        } navbar-main ${
+          navbar || windowDimenion.winWidth < 990 ? 'bg-white' : ''
         }`}
         // bg='light'
         expand='lg'
@@ -48,17 +72,31 @@ const MyNavbar = () => {
             style={{ cursor: 'pointer' }}
             onClick={() => navigate('/')}
             className={`navbar-brand-style text-uppercase ${
-              navbar ? 'text-dark' : 'text-white'
+              navbar || windowDimenion.winWidth < 990
+                ? 'text-dark'
+                : 'text-white'
             }`}
           >
-            Bullish Beast
+            <div className='d-flex align-items-center justify-content-center'>
+              <div className='me-3' style={{ height: '40px' }}>
+                <img
+                  src={logo}
+                  alt='logo'
+                  className='w-100 h-100 rounded'
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+              Bullish Beast
+            </div>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ms-auto'>
               <Link
                 className={`link-style montserrat mx-3  ${
-                  navbar ? 'text-muted' : 'text-light'
+                  navbar || windowDimenion.winWidth < 990
+                    ? 'text-muted'
+                    : 'text-light'
                 }`}
                 to='/live-market'
                 // style={
@@ -81,7 +119,9 @@ const MyNavbar = () => {
               </Link>
               <Link
                 className={`link-style montserrat mx-3  ${
-                  navbar ? 'text-muted' : 'text-light'
+                  navbar || windowDimenion.winWidth < 990
+                    ? 'text-muted'
+                    : 'text-light'
                 }`}
                 to='/economic-calendar'
                 // style={
@@ -105,7 +145,9 @@ const MyNavbar = () => {
 
               <Link
                 className={`link-style montserrat mx-3 ${
-                  navbar ? 'text-muted' : 'text-light'
+                  navbar || windowDimenion.winWidth < 990
+                    ? 'text-muted'
+                    : 'text-light'
                 }`}
                 to='/currency-converter'
               >
@@ -113,7 +155,9 @@ const MyNavbar = () => {
               </Link>
               <Link
                 className={`link-style montserrat mx-3 ${
-                  navbar ? 'text-muted' : 'text-light'
+                  navbar || windowDimenion.winWidth < 990
+                    ? 'text-muted'
+                    : 'text-light'
                 }`}
                 to='/compounding-calculator'
               >
