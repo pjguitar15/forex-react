@@ -37,9 +37,6 @@ const Jumbotron = () => {
             <h1 className='text-center raleway-700 text-white'>
               Forex Economic Calendar
             </h1>
-            <p className='raleway-400-italic text-white text-center'>
-              Forex Economic Calendar
-            </p>
           </>
         ) : (
           ''
@@ -49,9 +46,6 @@ const Jumbotron = () => {
             <h1 className='text-center raleway-700 text-white'>
               Forex Compounding Calculator
             </h1>
-            <p className='raleway-400-italic text-white text-center'>
-              Forex Compounding Interest Calculator s{' '}
-            </p>
           </>
         ) : (
           ''
