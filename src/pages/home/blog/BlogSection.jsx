@@ -11,7 +11,7 @@ const BlogSection = () => {
             className='raleway-400-italic text-white'
             style={{ fontSize: '22px', letterSpacing: '8px' }}
           >
-            Bullish Beast
+            Bullish Beast (Pty) Ltd
           </p>
           <h1
             className='raleway-700 text-white'

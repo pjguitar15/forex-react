@@ -55,7 +55,6 @@ const MyNavbar = () => {
         } navbar-main ${
           navbar || windowDimenion.winWidth < 990 ? 'bg-black' : ''
         }`}
-        // bg='light'
         expand='lg'
         style={
           navbar
@@ -69,11 +68,7 @@ const MyNavbar = () => {
           <Navbar.Brand
             style={{ cursor: 'pointer' }}
             onClick={() => navigate('/')}
-            className={`navbar-brand-style text-uppercase ${
-              navbar || windowDimenion.winWidth < 990
-                ? 'text-white'
-                : 'text-white'
-            }`}
+            className={`navbar-brand-style text-uppercase text-white`}
           >
             <div className='d-flex align-items-center justify-content-center'>
               <div className='me-3' style={{ height: '40px' }}>
@@ -91,23 +86,13 @@ const MyNavbar = () => {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ms-auto'>
               <Link
-                className={`link-style montserrat mx-3`}
-                style={{ color: '#a8a8a8' }}
+                className={`link-style montserrat mx-3 text-white`}
                 to='/live-market'
               >
-                <span
-                  style={
-                    location.pathname === '/live-market'
-                      ? { color: 'white' }
-                      : { color: '' }
-                  }
-                >
-                  Live Market
-                </span>
+                Live Market
               </Link>
               <Link
-                className={`link-style montserrat mx-3`}
-                style={{ color: '#a8a8a8' }}
+                className={`link-style montserrat mx-3 text-white`}
                 to='/economic-calendar'
                 // style={
                 //   location.pathname === '/economic-calendar'
@@ -117,27 +102,17 @@ const MyNavbar = () => {
                 //     : { color: 'blue !important' }
                 // }
               >
-                <span
-                  style={
-                    location.pathname === '/economic-calendar'
-                      ? { color: 'white' }
-                      : { color: '' }
-                  }
-                >
-                  Economic Calendar
-                </span>
+                Economic Calendar
               </Link>
 
               <Link
-                className={`link-style montserrat mx-3`}
-                style={{ color: '#a8a8a8' }}
+                className={`link-style montserrat mx-3 text-white`}
                 to='/currency-converter'
               >
                 Currency Converter
               </Link>
               <Link
-                className={`link-style montserrat mx-3`}
-                style={{ color: '#a8a8a8' }}
+                className={`link-style montserrat mx-3 text-white`}
                 to='/compounding-calculator'
               >
                 <span

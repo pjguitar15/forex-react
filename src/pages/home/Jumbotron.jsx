@@ -26,7 +26,7 @@ const Jumbotron = () => {
               contact (RFIT) Rocket Financial Investment Traders,
             </p>
             <p className='text-center jumbotron-content'>
-              Email: digby@rescorporate.co.nz Website: www.bullishbeastsa.com
+              Email: info@rftraders.co.za Website: www.bullishbeastsa.com
             </p>
           </>
         ) : (

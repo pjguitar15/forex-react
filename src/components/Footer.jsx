@@ -19,7 +19,7 @@ const Footer = () => {
         className='raleway-400 m-0'
         style={{ color: '#999999', fontSize: '12px' }}
       >
-        Restricted Regions: Bullish Beast does not provide services for
+        Restricted Regions: Bullish Beast (Pty) Ltd does not provide services for
         citizens/residents of certain regions, such as Jamaica, Cuba, Iran,
         Iraq, Myanmar, North Korea, Sudan, Syria, The UAE. We accept
         International Clients and South African clients who are defined as

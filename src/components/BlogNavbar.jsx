@@ -59,37 +59,25 @@ const BlogNavbar = () => {
             <Navbar.Collapse id='basic-navbar-nav'>
               <Nav className='ms-auto'>
                 <Link
-                  className={`link-style montserrat mx-3`}
-                  style={{ color: '#a8a8a8' }}
+                  className={`link-style montserrat mx-3 text-white`}
                   to='/live-market'
                 >
                   Live Market
                 </Link>
                 <Link
-                  className={`link-style montserrat mx-3`}
-                  style={{ color: '#a8a8a8' }}
+                  className={`link-style montserrat mx-3 text-white`}
                   to='/economic-calendar'
                 >
                   Economic Calendar
                 </Link>
                 <Link
-                  className={`link-style montserrat mx-3`}
-                  style={{ color: '#a8a8a8' }}
+                  className={`link-style montserrat mx-3 text-white`}
                   to='/currency-converter'
                 >
-                  <span
-                    style={
-                      location.pathname === '/currency-converter'
-                        ? { color: 'white' }
-                        : { color: '' }
-                    }
-                  >
-                    Currency Converter
-                  </span>
+                  Currency Converter
                 </Link>
                 <Link
-                  className={`link-style montserrat mx-3`}
-                  style={{ color: '#a8a8a8' }}
+                  className={`link-style montserrat mx-3 text-white`}
                   to='/compounding-calculator'
                 >
                   Compounding Calculator
