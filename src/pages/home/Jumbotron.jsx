@@ -56,6 +56,17 @@ const Jumbotron = () => {
         ) : (
           ''
         )}
+
+        {location.pathname === '/live-market' ? (
+          <>
+            <h1 className='text-center raleway-700 text-white'>Live Market</h1>
+            <p className='raleway-400-italic text-white text-center'>
+              Live Market
+            </p>
+          </>
+        ) : (
+          ''
+        )}
       </Container>
     </div>
   )

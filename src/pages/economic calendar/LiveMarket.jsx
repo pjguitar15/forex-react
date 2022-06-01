@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
+import Jumbotron from '../home/Jumbotron'
 
-const LiveMarket = ({ isWidgetLoading }) => {
+const LiveMarket = () => {
   const [toggle, setToggle] = useState(true)
   const scriptRef = useRef()
   useEffect(() => {
@@ -214,20 +215,17 @@ const LiveMarket = ({ isWidgetLoading }) => {
   }, [toggle])
 
   return (
-    // widget 2
-    <>
+    <div className='pb-5' style={{ background: '#606060' }}>
+      <Jumbotron />
       <h3 className='raleway-700 mb-3 ms-md-5 mt-5 text-light text-light ms-3'>
         Live Market
       </h3>
-      <div
-        className='bg-light mx-md-5 mb-5 p-2 rounded'
-        style={{ height: '35rem' }}
-      >
+      <div className='bg-light mx-md-5 p-2 rounded' style={{ height: '35rem' }}>
         <div className='tradingview-widget-container' ref={scriptRef}>
           <div className='tradingview-widget-container__widget'></div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

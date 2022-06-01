@@ -17,6 +17,7 @@ import EconomicCalendar from './pages/economic calendar/EconomicCalendar';
 import ForexCompoundingCalculator from './pages/forex-compounding-calculator/ForexCompoundingCalculator';
 import CurrencyCoverter from './pages/currency-converter/CurrencyCoverter';
 import ErrorPage from './pages/ErrorPage';
+import LiveMarket from './pages/economic calendar/LiveMarket';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
 
               {/* Economic Calendar */}
               <Route path='/economic-calendar' element={<><HomeNavbar /><EconomicCalendar /></>} />
+              <Route path='/live-market' element={<><HomeNavbar /><LiveMarket /></>} />
 
               {/* Forex Compounding Calculator */}
               <Route path='/compounding-calculator' element={<><HomeNavbar /><ForexCompoundingCalculator /></>} />

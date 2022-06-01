@@ -80,6 +80,29 @@ const MyNavbar = () => {
                 </span>
               </Link>
               <Link
+                className={`link-style montserrat mx-3  ${
+                  navbar ? 'text-muted' : 'text-light'
+                }`}
+                to='/live-market'
+                // style={
+                //   location.pathname === '/economic-calendar'
+                //     ? {
+                //         color: 'blue !important',
+                //       }
+                //     : { color: 'blue !important' }
+                // }
+              >
+                <span
+                  style={
+                    (navbar && location.pathname) === '/live-market'
+                      ? { color: '#0090FF' }
+                      : { color: '' }
+                  }
+                >
+                  Live Market
+                </span>
+              </Link>
+              <Link
                 className={`link-style montserrat mx-3 ${
                   navbar ? 'text-muted' : 'text-light'
                 }`}

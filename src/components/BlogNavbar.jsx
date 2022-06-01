@@ -51,9 +51,15 @@ const BlogNavbar = () => {
               <Nav className='ms-auto'>
                 <Link
                   className={`link-style text-muted montserrat mx-3`}
-                  to='/economic-calendar'
+                  to='/live-market'
                 >
                   Economic Calendar
+                </Link>
+                <Link
+                  className={`link-style text-muted montserrat mx-3`}
+                  to='/live-market'
+                >
+                  Live Market
                 </Link>
                 <Link
                   className={`link-style montserrat mx-3 text-muted`}
