@@ -49,13 +49,11 @@ const MyNavbar = () => {
       {/* Brand: Bullish Beast */}
       {/* Logo Font: Raleway, Navlinks font: Montserrat */}
       <Navbar
-        variant={`${
-          navbar || windowDimenion.winWidth < 990 ? 'light' : 'dark'
-        }`}
-        className={`border-bottom border-muted ${
+        variant={`${navbar || windowDimenion.winWidth < 990 ? 'dark' : 'dark'}`}
+        className={`${
           navbar || !(windowDimenion.winWidth < 990) ? 'fixed-top' : ''
         } navbar-main ${
-          navbar || windowDimenion.winWidth < 990 ? 'bg-white' : ''
+          navbar || windowDimenion.winWidth < 990 ? 'bg-black' : ''
         }`}
         // bg='light'
         expand='lg'
@@ -73,7 +71,7 @@ const MyNavbar = () => {
             onClick={() => navigate('/')}
             className={`navbar-brand-style text-uppercase ${
               navbar || windowDimenion.winWidth < 990
-                ? 'text-dark'
+                ? 'text-white'
                 : 'text-white'
             }`}
           >
@@ -93,24 +91,14 @@ const MyNavbar = () => {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ms-auto'>
               <Link
-                className={`link-style montserrat mx-3  ${
-                  navbar || windowDimenion.winWidth < 990
-                    ? 'text-muted'
-                    : 'text-light'
-                }`}
+                className={`link-style montserrat mx-3`}
+                style={{ color: '#a8a8a8' }}
                 to='/live-market'
-                // style={
-                //   location.pathname === '/economic-calendar'
-                //     ? {
-                //         color: 'blue !important',
-                //       }
-                //     : { color: 'blue !important' }
-                // }
               >
                 <span
                   style={
-                    (navbar && location.pathname) === '/live-market'
-                      ? { color: '#0090FF' }
+                    location.pathname === '/live-market'
+                      ? { color: 'white' }
                       : { color: '' }
                   }
                 >
@@ -118,11 +106,8 @@ const MyNavbar = () => {
                 </span>
               </Link>
               <Link
-                className={`link-style montserrat mx-3  ${
-                  navbar || windowDimenion.winWidth < 990
-                    ? 'text-muted'
-                    : 'text-light'
-                }`}
+                className={`link-style montserrat mx-3`}
+                style={{ color: '#a8a8a8' }}
                 to='/economic-calendar'
                 // style={
                 //   location.pathname === '/economic-calendar'
@@ -134,8 +119,8 @@ const MyNavbar = () => {
               >
                 <span
                   style={
-                    (navbar && location.pathname) === '/economic-calendar'
-                      ? { color: '#0090FF' }
+                    location.pathname === '/economic-calendar'
+                      ? { color: 'white' }
                       : { color: '' }
                   }
                 >
@@ -144,27 +129,21 @@ const MyNavbar = () => {
               </Link>
 
               <Link
-                className={`link-style montserrat mx-3 ${
-                  navbar || windowDimenion.winWidth < 990
-                    ? 'text-muted'
-                    : 'text-light'
-                }`}
+                className={`link-style montserrat mx-3`}
+                style={{ color: '#a8a8a8' }}
                 to='/currency-converter'
               >
                 Currency Converter
               </Link>
               <Link
-                className={`link-style montserrat mx-3 ${
-                  navbar || windowDimenion.winWidth < 990
-                    ? 'text-muted'
-                    : 'text-light'
-                }`}
+                className={`link-style montserrat mx-3`}
+                style={{ color: '#a8a8a8' }}
                 to='/compounding-calculator'
               >
                 <span
                   style={
-                    (navbar && location.pathname) === '/compounding-calculator'
-                      ? { color: '#0090FF' }
+                    location.pathname === '/compounding-calculator'
+                      ? { color: 'white' }
                       : { color: '' }
                   }
                 >

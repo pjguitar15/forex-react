@@ -49,11 +49,8 @@ const CurrencyCoverter = () => {
   return (
     <div className='py-5' style={{ background: '#606060' }}>
       <Container className='py-5 '>
-        <div className='border rounded bg-light'>
-          <h4
-            className='text-light py-3 text-center'
-            style={{ background: '#018FFD' }}
-          >
+        <div className='rounded bg-light'>
+          <h4 className='text-light py-3 text-center bg-dark'>
             Currency Converter
           </h4>
           <div className='px-4'>

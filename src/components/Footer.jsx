@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className='bg-dark p-5 text-white text-center'>
+    <div className='bg-black p-5 text-white text-center'>
       <p
         className='raleway-400 mb-3'
         style={{ color: '#999999', fontSize: '12px' }}
@@ -21,10 +21,10 @@ const Footer = () => {
       >
         Restricted Regions: Bullish Beast does not provide services for
         citizens/residents of certain regions, such as Jamaica, Cuba, Iran,
-        Iraq, Myanmar, North Korea, Sudan, Syria, The UAE. We accept International Clients and South
-        African clients who are defined as ‘Wholesale Investor’ or ‘Eligible
-        Investor’ as per South African law for Financial Services Providers Act
-        FSCA.
+        Iraq, Myanmar, North Korea, Sudan, Syria, The UAE. We accept
+        International Clients and South African clients who are defined as
+        ‘Wholesale Investor’ or ‘Eligible Investor’ as per South African law for
+        Financial Services Providers Act FSCA.
       </p>
       {/* All raleway, Size 12px, 22px line height, Color: #999999 */}
     </div>
