@@ -53,19 +53,13 @@ const BlogNavbar = () => {
                   className={`link-style text-muted montserrat mx-3`}
                   to='/live-market'
                 >
-                  Economic Calendar
+                  Live Market
                 </Link>
                 <Link
                   className={`link-style text-muted montserrat mx-3`}
                   to='/live-market'
                 >
-                  Live Market
-                </Link>
-                <Link
-                  className={`link-style montserrat mx-3 text-muted`}
-                  to='/compounding-calculator'
-                >
-                  Compounding Calculator
+                  Economic Calendar
                 </Link>
                 <Link
                   className={`link-style montserrat mx-3 text-muted `}
@@ -80,7 +74,14 @@ const BlogNavbar = () => {
                   >
                     Currency Converter
                   </span>
+                </Link> 
+                <Link
+                  className={`link-style montserrat mx-3 text-muted`}
+                  to='/compounding-calculator'
+                >
+                  Compounding Calculator
                 </Link>
+                
               </Nav>
             </Navbar.Collapse>
           </Container>

@@ -103,7 +103,7 @@ const EconomicCalendar = () => {
   return (
     <div style={{ background: '#606060' }}>
       <Jumbotron />
-      <div className='mx-md-5 p-2'>
+      <div className='m-md-5 p-2'>
         <h3 className='raleway-700 m-0 mb-3 text-white'>
           Forex Economic Calendar
         </h3>

@@ -60,29 +60,6 @@ const MyNavbar = () => {
                 className={`link-style montserrat mx-3  ${
                   navbar ? 'text-muted' : 'text-light'
                 }`}
-                to='/economic-calendar'
-                // style={
-                //   location.pathname === '/economic-calendar'
-                //     ? {
-                //         color: 'blue !important',
-                //       }
-                //     : { color: 'blue !important' }
-                // }
-              >
-                <span
-                  style={
-                    (navbar && location.pathname) === '/economic-calendar'
-                      ? { color: '#0090FF' }
-                      : { color: '' }
-                  }
-                >
-                  Economic Calendar
-                </span>
-              </Link>
-              <Link
-                className={`link-style montserrat mx-3  ${
-                  navbar ? 'text-muted' : 'text-light'
-                }`}
                 to='/live-market'
                 // style={
                 //   location.pathname === '/economic-calendar'
@@ -103,6 +80,38 @@ const MyNavbar = () => {
                 </span>
               </Link>
               <Link
+                className={`link-style montserrat mx-3  ${
+                  navbar ? 'text-muted' : 'text-light'
+                }`}
+                to='/economic-calendar'
+                // style={
+                //   location.pathname === '/economic-calendar'
+                //     ? {
+                //         color: 'blue !important',
+                //       }
+                //     : { color: 'blue !important' }
+                // }
+              >
+                <span
+                  style={
+                    (navbar && location.pathname) === '/economic-calendar'
+                      ? { color: '#0090FF' }
+                      : { color: '' }
+                  }
+                >
+                  Economic Calendar
+                </span>
+              </Link>
+
+              <Link
+                className={`link-style montserrat mx-3 ${
+                  navbar ? 'text-muted' : 'text-light'
+                }`}
+                to='/currency-converter'
+              >
+                Currency Converter
+              </Link>
+              <Link
                 className={`link-style montserrat mx-3 ${
                   navbar ? 'text-muted' : 'text-light'
                 }`}
@@ -117,14 +126,6 @@ const MyNavbar = () => {
                 >
                   Compounding Calculator
                 </span>
-              </Link>
-              <Link
-                className={`link-style montserrat mx-3 ${
-                  navbar ? 'text-muted' : 'text-light'
-                }`}
-                to='/currency-converter'
-              >
-                Currency Converter
               </Link>
             </Nav>
           </Navbar.Collapse>
