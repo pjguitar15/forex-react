@@ -119,7 +119,9 @@
 }
 
 .currency-converter,
-.compounding-calculator {
+.compounding-calculator,
+.live-market,
+.economic-calendar {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
     url('./assets/back-gold-bg.jpg');
   background-position: bottom center;

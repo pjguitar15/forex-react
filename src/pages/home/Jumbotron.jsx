@@ -22,8 +22,8 @@ const Jumbotron = () => {
         {location.pathname === '/' ? (
           <>
             <p className='text-center jumbotron-content'>
-              Bullish Beast (Pty) Ltd has ceased trading, investors please
-              contact (RFIT) Rocket Financial Investment Traders,
+              Bullish Beast has ceased trading, investors please contact (RFIT)
+              Rocket Financial Investment Traders,
             </p>
             <p className='text-center jumbotron-content'>
               Email: info@rftraders.co.za Website: www.bullishbeastsa.com

@@ -19,7 +19,7 @@ const RelatedPosts = () => {
             </Spinner>
           </div>
         ) : (
-          firebaseData.slice(0, 3).map((item, index) => (
+          firebaseData.slice(2, 5).map((item, index) => (
             <div
               onClick={() => navigate(`/blog/${item.id}`)}
               style={{ cursor: 'pointer' }}

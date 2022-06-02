@@ -5,6 +5,8 @@ import Chart from './Chart'
 import Table from './Table'
 
 const ForexCompoundingCalculator = () => {
+  const [lastTotalValue, setLastTotalValue] = useState(0)
+
   const [result, setResult] = useState(0)
   const [startBalanceInput, setStartBalanceInput] = useState(11)
   const [percentPerMonthInput, setPercentPerMonthInput] = useState(10)
@@ -15,6 +17,7 @@ const ForexCompoundingCalculator = () => {
 
   const calculate = (e) => {
     e.preventDefault()
+
     if (startBalanceInput && percentPerMonthInput && numberOfMonthsInput) {
       const startBal = startBalanceInput
       const monthlyPercent = percentPerMonthInput
@@ -25,6 +28,7 @@ const ForexCompoundingCalculator = () => {
         startBal * Math.pow(monthlyPercentAbs, numberOfMonths)
       ).toFixed(2)
 
+      // SET RESULTS HERE
       setResult(calculateResult)
 
       // create an array with size of numberOfMonths value
@@ -33,7 +37,7 @@ const ForexCompoundingCalculator = () => {
       let previousValue = parseInt(startBal)
 
       // computedPercentage *= percentInDecimal + (arrTable.length + 1)
-      for (let i = 0; i < numberOfMonths; i++) {
+      for (let i = 0; i <= numberOfMonths; i++) {
         const computeTotalValue =
           previousValue + previousValue * (monthlyPercent / 100)
         arrTable.push({
@@ -45,6 +49,8 @@ const ForexCompoundingCalculator = () => {
         previousValue = previousValue + previousValue * (monthlyPercent / 100)
         // computedPercentage
       }
+
+      // SET TABLE HERE
       setResultsTable(arrTable)
     } else {
       setResult()
@@ -52,7 +58,6 @@ const ForexCompoundingCalculator = () => {
     }
   }
 
-  // set table default value. we can only take this when we figure out the code above XD
   useEffect(() => {
     const startBal = 11
     const monthlyPercent = 10
@@ -94,6 +99,17 @@ const ForexCompoundingCalculator = () => {
     })
     setChartData(newArr)
   }, [resultsTable])
+
+  useEffect(() => {
+    // CHANGE DOMAIN VALUE HERE
+    let lastValue = 0
+    chartData.forEach((item) => {
+      lastValue = item.total
+    })
+    console.log('LAST VALUE: ' + lastValue)
+    const computed = lastValue * 2
+    setLastTotalValue(computed.toFixed(2))
+  }, [chartData])
   return (
     <div>
       <Jumbotron />
@@ -124,7 +140,7 @@ const ForexCompoundingCalculator = () => {
 
           {/* table here */}
           <div className='col-lg-8 py-3 px-0 px-md-5'>
-            <Chart chartData={chartData} />
+            <Chart lastTotalValue={lastTotalValue} chartData={chartData} />
             {/* Table headers */}
             <div className='row text-start raleway-700'>
               <div className='col-2 p-1 text-center'>

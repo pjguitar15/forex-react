@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Jumbotron from '../home/Jumbotron'
 import CalendarItem from './CalendarItem'
 import CalendarTableHeader from './CalendarTableHeader'
@@ -101,7 +101,7 @@ const EconomicCalendar = () => {
   }, [])
 
   return (
-    <div style={{ background: '#606060' }}>
+    <div className='economic-calendar'>
       <Jumbotron />
 
       <div className='p-md-5 p-2'>
@@ -128,15 +128,18 @@ const EconomicCalendar = () => {
         />
       </div>
       <Container>
-        {/* Table */}
-
-        {/* <CalendarTableHeader /> */}
-
-        {/* widget here */}
-        {/* <script
-          type='text/javascript'
-          src='https://widgets.myfxbook.com/scripts/fxCalendar.js'
-        ></script> */}
+        <script type='text/javascript'>
+          {/* var fxcalendar_config = {
+                gridselector: "#fxst_grid",
+                filterselector: "#fxst_filter",
+                columns: "None",
+                showeventlink: "1", // if you want to disable event link, put a "0"
+                showcountrylink: "1",  // if you want to disable country link, put a "0"
+                culture: "en-us", // display culture
+                countryurl: "country_en-us.aspx?id=", // your own page
+                eventurl: "event_en-us.aspx?id=" // your own page
+            }; */}
+        </script>
       </Container>
     </div>
   )

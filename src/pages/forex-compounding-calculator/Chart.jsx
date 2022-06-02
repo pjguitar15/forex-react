@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   AreaChart,
   Area,
@@ -9,13 +9,15 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 
-const Chart = ({ chartData }) => {
+const Chart = ({ chartData, lastTotalValue }) => {
+  const [lastTotalValueDoubled, setLastTotalValueDoubled] = useState(0)
+  useEffect(() => {
+    setLastTotalValueDoubled(lastTotalValue + 500)
+  }, [lastTotalValue])
   return (
-    <div style={{ width: '100%' }} className='bg-light py-3 rounded shadow m-0'>
-      <ResponsiveContainer width='100%' height={200}>
+    <div className='bg-light py-3 rounded shadow m-0'>
+      <ResponsiveContainer width='100%' height={335}>
         <AreaChart
-          width={500}
-          height={200}
           data={chartData}
           syncId='anyId'
           margin={{
@@ -25,10 +27,16 @@ const Chart = ({ chartData }) => {
             bottom: 0,
           }}
         >
-          <CartesianGrid strokeDasharray='2 2' />
+          <CartesianGrid strokeDasharray='3 2' />
           <XAxis dataKey='name' />
-          <YAxis dataKey='total' type='name' domain={['dataMin', 'dataMax']} />
+          <YAxis
+            width={80}
+            dataKey={'total'}
+            type='number'
+            domain={[0, lastTotalValueDoubled]}
+          />
           <Tooltip />
+          {console.log(lastTotalValueDoubled)}
           <Area
             type='monotone'
             dataKey='total'
