@@ -47,10 +47,10 @@ const CurrencyCoverter = () => {
       .then(() => setConvertLoading(false))
   }, [firstSelectValue, secondSelectValue, inputValue])
   return (
-    <div className='py-5' style={{ background: '#606060' }}>
+    <div className='py-5 currency-converter'>
       <Container className='py-5 '>
-        <div className='rounded bg-light'>
-          <h4 className='text-light py-3 text-center bg-dark'>
+        <div className='rounded bg-light shadow'>
+          <h4 className='text-light text-uppercase py-3 text-center bg-black'>
             Currency Converter
           </h4>
           <div className='px-4'>
@@ -61,7 +61,7 @@ const CurrencyCoverter = () => {
                 onChange={(e) => setInputValue(e.target.value)}
                 type='number'
                 style={{ fontSize: '32px' }}
-                className='form-control py-2 mt-2 px-3 raleway-600'
+                className='form-control border-3 border-muted py-2 mt-2 px-3 raleway-600'
                 placeholder='Enter amount'
               />
             </div>
@@ -70,7 +70,7 @@ const CurrencyCoverter = () => {
                 <div className='small'>From</div>
                 <select
                   onChange={(e) => setFirstSelectValue(e.target.value)}
-                  className='form-control p-3 raleway-700 mt-2'
+                  className='form-control p-3 raleway-700 mt-2 border-3 border-muted'
                   type='select'
                   style={{ fontSize: '18px' }}
                 >
@@ -78,7 +78,7 @@ const CurrencyCoverter = () => {
                     .filter((item) => item.itemValue === 'South African rand')
                     .map((item, index) => (
                       <option key={index} value={item.itemKey}>
-                        {item.itemValue}
+                        {item.itemKey.toUpperCase()}
                       </option>
                     ))}
                   {selectLoading ? (
@@ -86,7 +86,7 @@ const CurrencyCoverter = () => {
                   ) : (
                     currencyOptions.map((item, index) => (
                       <option key={index} value={item.itemKey}>
-                        {item.itemValue}
+                        {item.itemKey.toUpperCase()}
                       </option>
                     ))
                   )}
@@ -96,7 +96,7 @@ const CurrencyCoverter = () => {
                 <div className='small'>To</div>
                 <select
                   onChange={(e) => setSecondSelectValue(e.target.value)}
-                  className='form-control p-3 raleway-700 mt-2'
+                  className='form-control p-3 raleway-700 mt-2 border-3 border-muted'
                   type='select'
                   style={{ fontSize: '18px' }}
                 >
@@ -104,7 +104,7 @@ const CurrencyCoverter = () => {
                     .filter((item) => item.itemValue === 'United States dollar')
                     .map((item, index) => (
                       <option key={index} value={item.itemKey}>
-                        {item.itemValue}
+                        {item.itemKey.toUpperCase()}
                       </option>
                     ))}
                   {selectLoading ? (
@@ -112,7 +112,7 @@ const CurrencyCoverter = () => {
                   ) : (
                     currencyOptions.slice(1).map((item, index) => (
                       <option key={index} value={item.itemKey}>
-                        {item.itemValue}
+                        {item.itemKey.toUpperCase()}
                       </option>
                     ))
                   )}
@@ -130,7 +130,7 @@ const CurrencyCoverter = () => {
                 {conversionResult.toFixed(4)}
               </h1>
             )}
-            <div className='form-text text-center'>
+            <div className='form-text text-center pb-4'>
               Rates {today.toDateString()}
             </div>
           </div>

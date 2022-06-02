@@ -82,7 +82,10 @@ const MyNavbar = () => {
               Bullish Beast
             </div>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+          <Navbar.Toggle
+            className='custom-toggler'
+            aria-controls='basic-navbar-nav'
+          />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ms-auto'>
               <Link

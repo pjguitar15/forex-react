@@ -97,10 +97,7 @@ const ForexCompoundingCalculator = () => {
   return (
     <div>
       <Jumbotron />
-      <div
-        className='py-5 text-light my-container'
-        style={{ background: '#554D4D' }}
-      >
+      <div className='py-5 text-light my-container compounding-calculator'>
         <h5 className='raleway-700 mb-3'>Forex Compounding Calculator</h5>
         <p className='raleway-400' style={{ fontSize: '12px' }}>
           Forex Compounding Calculator calculates monthly interest earnings

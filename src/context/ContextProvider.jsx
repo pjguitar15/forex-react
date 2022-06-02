@@ -40,6 +40,8 @@ export const ContextProvider = ({ children }) => {
       setLoading(false)
     }
     getData()
+
+    console.log(firebaseData)
   }, [])
 
   const value = {

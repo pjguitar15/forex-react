@@ -103,10 +103,23 @@ const EconomicCalendar = () => {
   return (
     <div style={{ background: '#606060' }}>
       <Jumbotron />
-      <div className='m-md-5 p-2'>
+
+      <div className='p-md-5 p-2'>
         <h3 className='raleway-700 m-0 mb-3 text-white'>
           Forex Economic Calendar
         </h3>
+        {isWidgetLoading ? (
+          <div className='text-center' style={{ marginTop: '50px' }}>
+            <Spinner
+              style={{ height: '7rem', width: '7rem' }}
+              animation='border'
+              size='xl'
+              variant='light'
+            />
+          </div>
+        ) : (
+          ''
+        )}
         <ScriptTag
           onLoad={() => setTimeout(() => setIsWidgetLoading(false), 2500)}
           isHydrating={true}
@@ -115,29 +128,15 @@ const EconomicCalendar = () => {
         />
       </div>
       <Container>
-        <div className='py-4'>
-          {/* Table */}
+        {/* Table */}
 
-          {/* <CalendarTableHeader /> */}
+        {/* <CalendarTableHeader /> */}
 
-          {/* widget here */}
-          {/* <script
+        {/* widget here */}
+        {/* <script
           type='text/javascript'
           src='https://widgets.myfxbook.com/scripts/fxCalendar.js'
         ></script> */}
-          {isWidgetLoading ? (
-            <div className='text-center' style={{ marginTop: '50px' }}>
-              <Spinner
-                style={{ height: '7rem', width: '7rem' }}
-                animation='border'
-                size='xl'
-                variant='light'
-              />
-            </div>
-          ) : (
-            ''
-          )}
-        </div>
       </Container>
     </div>
   )

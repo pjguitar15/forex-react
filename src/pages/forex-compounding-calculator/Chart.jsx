@@ -27,7 +27,7 @@ const Chart = ({ chartData }) => {
         >
           <CartesianGrid strokeDasharray='2 2' />
           <XAxis dataKey='name' />
-          <YAxis />
+          <YAxis dataKey='total' type='name' domain={['dataMin', 'dataMax']} />
           <Tooltip />
           <Area
             type='monotone'
