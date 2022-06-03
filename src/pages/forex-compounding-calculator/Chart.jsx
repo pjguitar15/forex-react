@@ -10,14 +10,18 @@ import {
 } from 'recharts'
 
 const Chart = ({ chartData, lastTotalValue }) => {
-  const [lastTotalValueDoubled, setLastTotalValueDoubled] = useState(0)
   useEffect(() => {
-    setLastTotalValueDoubled(lastTotalValue + 500)
+    console.log('Value sent to Chart: ' + lastTotalValue)
   }, [lastTotalValue])
   return (
     <div className='bg-light py-3 rounded shadow m-0'>
-      <ResponsiveContainer width='100%' height={335}>
+      <ResponsiveContainer
+        // key={`rc_${chartData.length}`}
+        width='100%'
+        height={335}
+      >
         <AreaChart
+          // key={`lc_${chartData.length}`}
           data={chartData}
           syncId='anyId'
           margin={{
@@ -33,11 +37,12 @@ const Chart = ({ chartData, lastTotalValue }) => {
             width={80}
             dataKey={'total'}
             type='number'
-            domain={[0, lastTotalValueDoubled]}
+            domain={[0, lastTotalValue]}
+            allowDataOverflow={true}
           />
           <Tooltip />
-          {console.log(lastTotalValueDoubled)}
           <Area
+            // key={`l_${chartData.length}`}
             type='monotone'
             dataKey='total'
             stroke='#0C8ACA'

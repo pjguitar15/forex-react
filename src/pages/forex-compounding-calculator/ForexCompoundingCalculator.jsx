@@ -24,9 +24,9 @@ const ForexCompoundingCalculator = () => {
       const monthlyPercentAbs = monthlyPercent / 100 + 1
       const numberOfMonths = numberOfMonthsInput
 
-      const calculateResult = (
-        startBal * Math.pow(monthlyPercentAbs, numberOfMonths)
-      ).toFixed(2)
+      const calculateResult = parseFloat(
+        (startBal * Math.pow(monthlyPercentAbs, numberOfMonths)).toFixed(2)
+      )
 
       // SET RESULTS HERE
       setResult(calculateResult)
@@ -42,9 +42,9 @@ const ForexCompoundingCalculator = () => {
           previousValue + previousValue * (monthlyPercent / 100)
         arrTable.push({
           month: arrTable.length + 1,
-          previous: previousValue.toFixed(2),
+          previous: parseFloat(previousValue.toFixed(2)),
           percentage: monthlyPercent,
-          total: computeTotalValue.toFixed(2),
+          total: parseFloat(computeTotalValue.toFixed(2)),
         })
         previousValue = previousValue + previousValue * (monthlyPercent / 100)
         // computedPercentage
@@ -59,21 +59,20 @@ const ForexCompoundingCalculator = () => {
   }
 
   useEffect(() => {
-    const startBal = 11
-    const monthlyPercent = 10
+    const startBal = startBalanceInput
+    const monthlyPercent = percentPerMonthInput
     const monthlyPercentAbs = monthlyPercent / 100 + 1
-    const numberOfMonths = 10
+    const numberOfMonths = numberOfMonthsInput
 
-    const calculateResult = (
-      startBal * Math.pow(monthlyPercentAbs, numberOfMonths)
-    ).toFixed(2)
+    const calculateResult = parseFloat(
+      (startBal * Math.pow(monthlyPercentAbs, numberOfMonths)).toFixed(2)
+    )
 
     setResult(calculateResult)
 
     // create an array with size of numberOfMonths value
     // each increment previousValue will add up to its percentage
     let arrTable = []
-    const percentInDecimal = monthlyPercent / 100
     let previousValue = parseInt(startBal)
 
     // computedPercentage *= percentInDecimal + (arrTable.length + 1)
@@ -82,9 +81,9 @@ const ForexCompoundingCalculator = () => {
         previousValue + previousValue * (monthlyPercent / 100)
       arrTable.push({
         month: arrTable.length + 1,
-        previous: previousValue.toFixed(2),
+        previous: parseFloat(previousValue.toFixed(2)),
         percentage: monthlyPercent,
-        total: computeTotalValue.toFixed(2),
+        total: parseFloat(computeTotalValue.toFixed(2)),
       })
       previousValue = previousValue + previousValue * (monthlyPercent / 100)
       // computedPercentage
@@ -98,18 +97,21 @@ const ForexCompoundingCalculator = () => {
       newArr.push({ name: item.month, total: item.total })
     })
     setChartData(newArr)
+
+    console.log('componentDidMount: ' + JSON.stringify(resultsTable))
   }, [resultsTable])
 
   useEffect(() => {
     // CHANGE DOMAIN VALUE HERE
+    // ERROR HERE!!!
     let lastValue = 0
-    chartData.forEach((item) => {
-      lastValue = item.total
-    })
+    for (let i = 0; i < chartData.length; i++) {
+      lastValue = chartData[i].total
+    }
     console.log('LAST VALUE: ' + lastValue)
-    const computed = lastValue * 2
-    setLastTotalValue(computed.toFixed(2))
+    setLastTotalValue(lastValue)
   }, [chartData])
+
   return (
     <div>
       <Jumbotron />
