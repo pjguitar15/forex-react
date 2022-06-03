@@ -14,7 +14,6 @@ const ForexCompoundingCalculator = () => {
   const [showWarningAlert, setShowWarningAlert] = useState(false)
   const [resultsTable, setResultsTable] = useState([])
   const [chartData, setChartData] = useState([])
-
   const calculate = (e) => {
     e.preventDefault()
 
