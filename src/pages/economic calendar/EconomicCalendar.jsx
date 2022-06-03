@@ -95,9 +95,6 @@ const EconomicCalendar = () => {
     setTomorrowDateToString(
       yearToString3 + '-' + conditionalMonth3 + '-' + splitDayAfterTomorrow[2]
     )
-
-    // console.log(calendarApiValue[0].date)
-    // 2022-05-25 05:00:00
   }, [])
 
   return (

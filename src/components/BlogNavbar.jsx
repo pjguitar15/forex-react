@@ -72,9 +72,14 @@ const BlogNavbar = () => {
                   />
                 </div>
                 {windowDimenion.winWidth < 990 ? (
-                  <span className='fw-bold' style={{ fontSize: '14px' }}>
-                    Bullish Beast (Pty) Ltd
-                  </span>
+                  <div>
+                    <div className='fw-bold' style={{ fontSize: '16px' }}>
+                      Bullish Beast
+                    </div>
+                    <div className='fw-bold' style={{ fontSize: '16px' }}>
+                      (Pty) Ltd
+                    </div>
+                  </div>
                 ) : (
                   <div>
                     <div className='fw-bold' style={{ fontSize: '16px' }}>

@@ -5,6 +5,7 @@ import logo from '../assets/logo.jpg'
 
 const MyNavbar = () => {
   const [navbar, setNavbar] = useState(false)
+  const [isToggled, setIsToggled] = useState(false)
   const [windowDimenion, detectHW] = useState({
     winWidth: window.innerWidth,
     winHeight: window.innerHeight,
@@ -56,6 +57,7 @@ const MyNavbar = () => {
           navbar || windowDimenion.winWidth < 990 ? 'bg-black' : ''
         }`}
         expand='lg'
+        expanded={isToggled}
         style={
           navbar
             ? { padding: `16px` }
@@ -80,9 +82,14 @@ const MyNavbar = () => {
                 />
               </div>
               {windowDimenion.winWidth < 990 ? (
-                <span className='fw-bold' style={{ fontSize: '14px' }}>
-                  Bullish Beast (Pty) Ltd
-                </span>
+                <div>
+                  <div className='fw-bold' style={{ fontSize: '16px' }}>
+                    Bullish Beast
+                  </div>
+                  <div className='fw-bold' style={{ fontSize: '16px' }}>
+                    (Pty) Ltd
+                  </div>
+                </div>
               ) : (
                 <div>
                   <div className='fw-bold' style={{ fontSize: '16px' }}>
@@ -96,11 +103,12 @@ const MyNavbar = () => {
             </div>
           </Navbar.Brand>
           <Navbar.Toggle
+            onClick={() => setIsToggled(true)}
             className='custom-toggler'
             aria-controls='basic-navbar-nav'
           />
           <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='ms-auto'>
+            <Nav onClick={() => setIsToggled(false)} className='ms-auto'>
               <Link
                 className={`link-style montserrat mx-3 text-white`}
                 to='/live-market'

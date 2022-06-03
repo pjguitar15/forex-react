@@ -96,8 +96,6 @@ const ForexCompoundingCalculator = () => {
       newArr.push({ name: item.month, total: item.total })
     })
     setChartData(newArr)
-
-    console.log('componentDidMount: ' + JSON.stringify(resultsTable))
   }, [resultsTable])
 
   useEffect(() => {
@@ -107,7 +105,6 @@ const ForexCompoundingCalculator = () => {
     for (let i = 0; i < chartData.length; i++) {
       lastValue = chartData[i].total
     }
-    console.log('LAST VALUE: ' + lastValue)
     setLastTotalValue(lastValue)
   }, [chartData])
 

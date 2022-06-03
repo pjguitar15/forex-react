@@ -10,9 +10,6 @@ import {
 } from 'recharts'
 
 const Chart = ({ chartData, lastTotalValue }) => {
-  useEffect(() => {
-    console.log('Value sent to Chart: ' + lastTotalValue)
-  }, [lastTotalValue])
   return (
     <div className='bg-light py-3 rounded shadow m-0'>
       <ResponsiveContainer
