@@ -16,12 +16,6 @@ const AddItemsToFirebase = () => {
   const { createUser } = useBlog()
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log(titleInput)
-    console.log(authorInput)
-    console.log(dateInput)
-    console.log(contentInput)
-    console.log(selectInput)
-    console.log(imageSelected[0])
     // how to use axios. this is inside uploadImage function
     const formData = new FormData()
     formData.append('file', imageSelected[0])

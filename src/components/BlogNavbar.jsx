@@ -5,6 +5,8 @@ import logo from '../assets/logo.jpg'
 
 const BlogNavbar = () => {
   const [navbar, setNavbar] = useState(false)
+  const [isToggled, setIsToggled] = useState(false)
+
   const [windowDimenion, detectHW] = useState({
     winWidth: window.innerWidth,
     winHeight: window.innerHeight,
@@ -54,6 +56,7 @@ const BlogNavbar = () => {
           className={`navbar-main bg-black ${navbar ? 'fixed-top' : ''}`}
           // bg='light'
           expand='lg'
+          expanded={isToggled}
           style={navbar ? { padding: `16px` } : { padding: `30px` }}
         >
           <Container>
@@ -92,9 +95,12 @@ const BlogNavbar = () => {
                 )}
               </div>
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls='basic-navbar-nav' />
+            <Navbar.Toggle
+              onClick={() => setIsToggled(!isToggled)}
+              aria-controls='basic-navbar-nav'
+            />
             <Navbar.Collapse id='basic-navbar-nav'>
-              <Nav className='ms-auto'>
+              <Nav onClick={() => setIsToggled(false)} className='ms-auto'>
                 <Link
                   className={`link-style montserrat mx-3 text-white`}
                   to='/live-market'

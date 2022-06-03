@@ -93,14 +93,13 @@ const ForexCompoundingCalculator = () => {
   useEffect(() => {
     let newArr = []
     resultsTable.forEach((item) => {
-      newArr.push({ name: item.month, total: item.total })
+      newArr.push({ name: item.month, total: item.previous })
     })
     setChartData(newArr)
   }, [resultsTable])
 
   useEffect(() => {
     // CHANGE DOMAIN VALUE HERE
-    // ERROR HERE!!!
     let lastValue = 0
     for (let i = 0; i < chartData.length; i++) {
       lastValue = chartData[i].total

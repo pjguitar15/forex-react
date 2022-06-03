@@ -103,7 +103,7 @@ const MyNavbar = () => {
             </div>
           </Navbar.Brand>
           <Navbar.Toggle
-            onClick={() => setIsToggled(true)}
+            onClick={() => setIsToggled(!isToggled)}
             className='custom-toggler'
             aria-controls='basic-navbar-nav'
           />

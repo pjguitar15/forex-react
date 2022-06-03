@@ -41,7 +41,6 @@ export const ContextProvider = ({ children }) => {
     }
     getData()
 
-    console.log(firebaseData)
   }, [])
 
   const value = {
