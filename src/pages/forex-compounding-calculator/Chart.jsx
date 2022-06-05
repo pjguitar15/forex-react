@@ -31,6 +31,9 @@ const Chart = ({ chartData, lastTotalValue }) => {
           <CartesianGrid strokeDasharray='3 2' />
           <XAxis dataKey='name' />
           <YAxis
+            interval={0}
+            // interval='preserveStartEnd'
+            tickCount={chartData.length < 19 ? chartData.length : 19}
             width={80}
             dataKey={'total'}
             type='number'
