@@ -70,25 +70,20 @@ const LiveMarket = () => {
             title: 'Commodities',
             symbols: [
               {
-                s: 'MCX:GOLD1!',
+                s: 'COMEX:GC1!',
+                d: 'Gold',
               },
               {
-                s: 'MCX:SILVER1!',
+                s: 'NYMEX:CL1!',
+                d: 'Crude Oil',
               },
               {
-                s: 'MCX:COPPER1!',
+                s: 'NYMEX:NG1!',
+                d: 'Natural Gas',
               },
               {
-                s: 'MCX:CRUDEOIL1!',
-              },
-              {
-                s: 'MOEX:BR1!',
-              },
-              {
-                s: 'MCX:NATURALGAS1!',
-              },
-              {
-                s: 'ICEUS:KC1!',
+                s: 'CBOT:ZC1!',
+                d: 'Corn',
               },
             ],
             originalTitle: 'Commodities',
