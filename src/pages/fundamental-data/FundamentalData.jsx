@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
-import Jumbotron from '../home/Jumbotron'
 import { Container } from 'react-bootstrap'
+import Jumbotron from '../home/Jumbotron'
 
-// import context
-
-const EconomicCalendar = () => {
+const FundamentalData = () => {
   const [toggle, setToggle] = useState(true)
   const scriptRef = useRef()
   useEffect(() => {
@@ -15,12 +13,12 @@ const EconomicCalendar = () => {
     if (toggle === false) {
       const script = document.createElement('script')
       script.src =
-        'https://s3.tradingview.com/external-embedding/embed-widget-events.js'
+        'https://s3.tradingview.com/external-embedding/embed-widget-financials.js'
       script.async = true
       script.innerHTML = JSON.stringify({
         width: '100%',
         height: '500',
-        colorTheme: 'light',
+        colorTheme: 'dark',
         isTransparent: false,
         locale: 'en',
         importanceFilter: '-1,0,1',
@@ -28,21 +26,20 @@ const EconomicCalendar = () => {
       scriptRef.current.appendChild(script)
     }
   }, [toggle])
-
-  // context
-
   return (
-    <div className='economic-calendar'>
+    <div>
       <Jumbotron />
-
-      <div className='p-md-5 p-2'>
-        <div className='tradingview-widget-container' ref={scriptRef}>
-          <div className='tradingview-widget-container__widget'></div>
-        </div>
+      <div className='bg-dark'>
+        <Container>
+          <div className='py-5'>
+            <div className='tradingview-widget-container' ref={scriptRef}>
+              <div className='tradingview-widget-container__widget'></div>
+            </div>
+          </div>
+        </Container>
       </div>
-      <Container></Container>
     </div>
   )
 }
 
-export default EconomicCalendar
+export default FundamentalData

@@ -19,6 +19,15 @@ import CurrencyCoverter from './pages/currency-converter/CurrencyCoverter';
 import ErrorPage from './pages/ErrorPage';
 import LiveMarket from './pages/economic calendar/LiveMarket';
 import About from './pages/about/About';
+import RealTimeChart from './pages/real-time-chart/RealTimeChart';
+import Screener from './pages/screener/Screener'
+import CryptocurrencyMarket from './pages/cryptocurrency-market/CryptocurrencyMarket';
+import FundamentalData from './pages/fundamental-data/FundamentalData';
+import MarketData from './pages/market-data/MarketData';
+import StockMarket from './pages/stock-market/StockMarket';
+import SymbolOverview from './pages/symbol-overview/SymbolOverview';
+import ForexCrossRates from './pages/forex-cross-rates/ForexCrossRates';
+import ForexHeatMap from './pages/forex-heat-map/ForexHeatMap';
 
 function App() {
   return (
@@ -40,6 +49,16 @@ function App() {
               {/* Economic Calendar */}
               <Route path='/economic-calendar' element={<><HomeNavbar /><EconomicCalendar /></>} />
               <Route path='/live-market' element={<><HomeNavbar /><LiveMarket /></>} />
+              <Route path='/real-time-chart' element={<><HomeNavbar /><RealTimeChart /></>} />
+              <Route path='/screener' element={<><HomeNavbar /><Screener /></>} />
+              <Route path='/cryptocurrency-market' element={<><HomeNavbar /><CryptocurrencyMarket /></>} />
+              <Route path='/fundamental-data' element={<><HomeNavbar /><FundamentalData /></>} />
+              <Route path='/market-data' element={<><HomeNavbar /><MarketData /></>} />
+              <Route path='/stock-market' element={<><HomeNavbar /><StockMarket /></>} />
+              <Route path='/symbol-overview' element={<><HomeNavbar /><SymbolOverview /></>} />
+              <Route path='/forex-cross-rates' element={<><HomeNavbar /><ForexCrossRates /></>} />
+              <Route path='/forex-heat-map' element={<><HomeNavbar /><ForexHeatMap /></>} />
+
 
               {/* Forex Compounding Calculator */}
               <Route path='/compounding-calculator' element={<><HomeNavbar /><ForexCompoundingCalculator /></>} />

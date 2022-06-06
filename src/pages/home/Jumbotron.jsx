@@ -58,6 +58,89 @@ const Jumbotron = () => {
         ) : (
           ''
         )}
+
+        {location.pathname === '/real-time-chart' ? (
+          <>
+            <h1 className='text-center raleway-700 text-white'>
+              Real Time Chart
+            </h1>
+          </>
+        ) : (
+          ''
+        )}
+
+        {location.pathname === '/screener' ? (
+          <>
+            <h1 className='text-center raleway-700 text-white'>Screener</h1>
+          </>
+        ) : (
+          ''
+        )}
+
+        {location.pathname === '/cryptocurrency-market' ? (
+          <>
+            <h1 className='text-center raleway-700 text-white'>
+              Cryptocurrency Market
+            </h1>
+          </>
+        ) : (
+          ''
+        )}
+
+        {location.pathname === '/fundamental-data' ? (
+          <>
+            <h1 className='text-center raleway-700 text-white'>
+              Fundamental Data
+            </h1>
+          </>
+        ) : (
+          ''
+        )}
+
+        {location.pathname === '/market-data' ? (
+          <>
+            <h1 className='text-center raleway-700 text-white'>Market Data</h1>
+          </>
+        ) : (
+          ''
+        )}
+        {location.pathname === '/stock-market' ? (
+          <>
+            <h1 className='text-center raleway-700 text-white'>Stock Market</h1>
+          </>
+        ) : (
+          ''
+        )}
+
+        {location.pathname === '/symbol-overview' ? (
+          <>
+            <h1 className='text-center raleway-700 text-white'>
+              Symbol Overview
+            </h1>
+          </>
+        ) : (
+          ''
+        )}
+
+        {location.pathname === '/forex-cross-rates' ? (
+          <>
+            <h1 className='text-center raleway-700 text-white'>
+              Forex Cross Rates
+            </h1>
+          </>
+        ) : (
+          ''
+        )}
+
+        {location.pathname === '/forex-heat-map' ? (
+          <>
+            <h1 className='text-center raleway-700 text-white'>
+              Forex Heat Map
+            </h1>
+          </>
+        ) : (
+          ''
+        )}
       </Container>
     </div>
   )

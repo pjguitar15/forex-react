@@ -16,7 +16,7 @@ const LiveMarket = () => {
       script.async = true
       /* JSON-ENCODED SETTINGS STRING FROM EMBED CODE */
       script.innerHTML = JSON.stringify({
-        colorTheme: 'light',
+        colorTheme: 'dark',
         dateRange: '12M',
         showChart: true,
         locale: 'en',
@@ -239,7 +239,7 @@ const LiveMarket = () => {
       </h3> */}
       {/* Start of Trading View Widget */}
       <div
-        className='bg-light p-1 my-3 col-lg-11 mx-auto rounded'
+        className='bg-dark p-1 my-3 col-lg-11 mx-auto rounded'
         style={{ height: '40rem' }}
       >
         <div className='tradingview-widget-container' ref={scriptRef}>

@@ -49,7 +49,7 @@ const CurrencyCoverter = () => {
   return (
     <div className='py-5 currency-converter'>
       <Container className='py-5'>
-        <div className='rounded bg-light shadow mt-5'>
+        <div className='rounded bg-dark shadow mt-5'>
           <h4 className='text-light text-uppercase py-3 text-center bg-black'>
             Currency Converter
           </h4>
@@ -132,7 +132,7 @@ const CurrencyCoverter = () => {
                 <Spinner animation='border' />
               </div>
             ) : (
-              <h1 className='display-3 fw-5 text-center'>
+              <h1 className='display-3 fw-5 text-light text-center'>
                 {conversionResult.toFixed(4)}
               </h1>
             )}
