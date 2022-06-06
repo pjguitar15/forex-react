@@ -10,134 +10,42 @@ import LiveMarket from './LiveMarket'
 import { useGetCalendarApi } from '../../context/EconomicCalendarProvider'
 
 const EconomicCalendar = () => {
-  // widget loading
-  const [isWidgetLoading, setIsWidgetLoading] = useState(true)
-  const [yesterdayDate, setYesterdayDate] = useState({})
-  // I use this to combine all the day, month, and year values to become string
-  // to be able to check the matching conditions for the API
-  const [yesterdayDateToString, setYesterdayDateToString] = useState('')
-  const [todayDateToString, setTodayDateToString] = useState('')
-  const [tomorrowDateToString, setTomorrowDateToString] = useState('')
-
-  const [todayDate, setTodayDate] = useState({})
-  const [dateAfterTomorrowDate, setDateAfterTomorrowDate] = useState({})
-
-  // context
-  const { calendarApiValue, testValue } = useGetCalendarApi()
+  const [toggle, setToggle] = useState(true)
+  const scriptRef = useRef()
+  useEffect(() => {
+    setToggle(!toggle)
+  }, [])
 
   useEffect(() => {
-    let today = new Date()
+    if (toggle === false) {
+      const script = document.createElement('script')
+      script.src =
+        'https://s3.tradingview.com/external-embedding/embed-widget-events.js'
+      script.async = true
+      script.innerHTML = JSON.stringify({
+        width: '100%',
+        height: '500',
+        colorTheme: 'light',
+        isTransparent: false,
+        locale: 'en',
+        importanceFilter: '-1,0,1',
+      })
+      scriptRef.current.appendChild(script)
+    }
+  }, [toggle])
 
-    const todayFromTodayClass = today.toDateString()
-    const splitToday = todayFromTodayClass.split(' ')
-
-    setTodayDate({
-      dayOfWeek: splitToday[0],
-      currMonth: splitToday[1],
-      dayOfMonth: splitToday[2],
-      currMonthInNum: today.getMonth() + 1,
-      currYear: today.getFullYear(),
-    })
-
-    // should be like this 2022-05-26
-    const takeMonth = today.getMonth() + 1
-    const yearToString = '' + today.getFullYear()
-    const monthToString = '' + takeMonth
-    const conditionalMonth =
-      monthToString.length === 1 ? '0' + monthToString : monthToString
-
-    setTodayDateToString(
-      yearToString + '-' + conditionalMonth + '-' + splitToday[2]
-    )
-
-    // yesterday
-    today.setDate(today.getDate() - 1)
-    const yesterday = today.toDateString()
-    const splitYester = yesterday.split(' ')
-    setYesterdayDate({
-      dayOfWeek: splitYester[0],
-      currMonth: splitYester[1],
-      dayOfMonth: splitYester[2],
-      currMonthInNum: today.getMonth() + 1,
-      currYear: today.getFullYear(),
-    })
-
-    // should be like this 2022-05-26
-    const takeMonth2 = today.getMonth() + 1
-    const yearToString2 = '' + today.getFullYear()
-    const monthToString2 = '' + takeMonth2
-    const conditionalMonth2 =
-      monthToString2.length === 1 ? '0' + monthToString2 : monthToString2
-
-    setYesterdayDateToString(
-      yearToString2 + '-' + conditionalMonth2 + '-' + splitYester[2]
-    )
-
-    // day after tomorrow
-    today.setDate(today.getDate() + 2)
-    const dayAfterTomorrow = today.toDateString()
-    const splitDayAfterTomorrow = dayAfterTomorrow.split(' ')
-    setDateAfterTomorrowDate({
-      dayOfWeek: splitDayAfterTomorrow[0],
-      currMonth: splitDayAfterTomorrow[1],
-      dayOfMonth: splitDayAfterTomorrow[2],
-      currMonthInNum: today.getMonth() + 1,
-      currYear: today.getFullYear(),
-    })
-
-    // should be like this 2022-05-26
-    const takeMonth3 = today.getMonth() + 1
-    const yearToString3 = '' + today.getFullYear()
-    const monthToString3 = '' + takeMonth3
-    const conditionalMonth3 =
-      monthToString3.length === 1 ? '0' + monthToString3 : monthToString3
-
-    setTomorrowDateToString(
-      yearToString3 + '-' + conditionalMonth3 + '-' + splitDayAfterTomorrow[2]
-    )
-  }, [])
+  // context
 
   return (
     <div className='economic-calendar'>
       <Jumbotron />
 
       <div className='p-md-5 p-2'>
-        <h3 className='raleway-700 m-0 mb-3 text-white'>
-          Forex Economic Calendar
-        </h3>
-        {isWidgetLoading ? (
-          <div className='text-center' style={{ marginTop: '50px' }}>
-            <Spinner
-              style={{ height: '7rem', width: '7rem' }}
-              animation='border'
-              size='xl'
-              variant='light'
-            />
-          </div>
-        ) : (
-          ''
-        )}
-        <ScriptTag
-          onLoad={() => setTimeout(() => setIsWidgetLoading(false), 2500)}
-          isHydrating={true}
-          type='text/javascript'
-          src='https://widgets.myfxbook.com/scripts/fxCalendar.js'
-        />
+        <div className='tradingview-widget-container' ref={scriptRef}>
+          <div className='tradingview-widget-container__widget'></div>
+        </div>
       </div>
-      <Container>
-        <script type='text/javascript'>
-          {/* var fxcalendar_config = {
-                gridselector: "#fxst_grid",
-                filterselector: "#fxst_filter",
-                columns: "None",
-                showeventlink: "1", // if you want to disable event link, put a "0"
-                showcountrylink: "1",  // if you want to disable country link, put a "0"
-                culture: "en-us", // display culture
-                countryurl: "country_en-us.aspx?id=", // your own page
-                eventurl: "event_en-us.aspx?id=" // your own page
-            }; */}
-        </script>
-      </Container>
+      <Container></Container>
     </div>
   )
 }

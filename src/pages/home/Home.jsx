@@ -2,6 +2,7 @@ import React from 'react'
 // import sections
 import Jumbotron from './Jumbotron'
 import BlogSection from './blog/BlogSection'
+import TickerTape from '../../components/TickerTape'
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Jumbotron />
       {/* Test scroll */}
       <BlogSection />
+      <TickerTape />
     </div>
   )
 }

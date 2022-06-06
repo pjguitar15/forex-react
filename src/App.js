@@ -18,6 +18,7 @@ import ForexCompoundingCalculator from './pages/forex-compounding-calculator/For
 import CurrencyCoverter from './pages/currency-converter/CurrencyCoverter';
 import ErrorPage from './pages/ErrorPage';
 import LiveMarket from './pages/economic calendar/LiveMarket';
+import About from './pages/about/About';
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
             <Routes>
               {/* Home - Blog posts */}
               <Route path='/' element={<><HomeNavbar /><Home /></>} />
+              {/* About page */}
+              <Route path='/about' element={<><HomeNavbar /><About /></>} />
               {/* <Route path='/add' element={<AddItemsToFirebase />} /> */}
               <Route path='/blog/:id' element={<><BlogNavbar /><BlogSlug /></>} />
 

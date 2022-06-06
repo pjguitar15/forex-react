@@ -36,7 +36,7 @@ const ForexCompoundingCalculator = () => {
       let previousValue = parseInt(startBal)
 
       // computedPercentage *= percentInDecimal + (arrTable.length + 1)
-      for (let i = 0; i <= numberOfMonths; i++) {
+      for (let i = 0; i < numberOfMonths; i++) {
         const computeTotalValue =
           previousValue + previousValue * (monthlyPercent / 100)
         arrTable.push({
@@ -75,7 +75,7 @@ const ForexCompoundingCalculator = () => {
     let previousValue = parseInt(startBal)
 
     // computedPercentage *= percentInDecimal + (arrTable.length + 1)
-    for (let i = 0; i <= numberOfMonths; i++) {
+    for (let i = 0; i < numberOfMonths; i++) {
       const computeTotalValue =
         previousValue + previousValue * (monthlyPercent / 100)
       arrTable.push({
@@ -93,7 +93,7 @@ const ForexCompoundingCalculator = () => {
   useEffect(() => {
     let newArr = []
     resultsTable.forEach((item) => {
-      newArr.push({ name: item.month, total: item.previous })
+      newArr.push({ name: item.month, total: item.total })
     })
     setChartData(newArr)
   }, [resultsTable])

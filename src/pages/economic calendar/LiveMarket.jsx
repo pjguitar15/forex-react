@@ -67,8 +67,16 @@ const LiveMarket = () => {
             originalTitle: 'Indices',
           },
           {
-            title: 'Commodities',
+            title: 'Futures',
             symbols: [
+              {
+                s: 'CME_MINI:ES1!',
+                d: 'S&P 500',
+              },
+              {
+                s: 'CME:6E1!',
+                d: 'Euro',
+              },
               {
                 s: 'COMEX:GC1!',
                 d: 'Gold',
@@ -86,7 +94,37 @@ const LiveMarket = () => {
                 d: 'Corn',
               },
             ],
-            originalTitle: 'Commodities',
+            originalTitle: 'Futures',
+          },
+          {
+            title: 'Bonds',
+            symbols: [
+              {
+                s: 'CME:GE1!',
+                d: 'Eurodollar',
+              },
+              {
+                s: 'CBOT:ZB1!',
+                d: 'T-Bond',
+              },
+              {
+                s: 'CBOT:UB1!',
+                d: 'Ultra T-Bond',
+              },
+              {
+                s: 'EUREX:FGBL1!',
+                d: 'Euro Bund',
+              },
+              {
+                s: 'EUREX:FBTP1!',
+                d: 'Euro BTP',
+              },
+              {
+                s: 'EUREX:FGBM1!',
+                d: 'Euro BOBL',
+              },
+            ],
+            originalTitle: 'Bonds',
           },
           {
             title: 'Forex',
@@ -119,54 +157,71 @@ const LiveMarket = () => {
             originalTitle: 'Forex',
           },
           {
-            title: 'Crypto',
-            symbols: [
-              {
-                s: 'BITSTAMP:BTCUSD',
-              },
-              {
-                s: 'FTX:SHIBUSD',
-              },
-              {
-                s: 'COINBASE:ETHUSD',
-              },
-              {
-                s: 'BITFINEX:SANUSD',
-              },
-              {
-                s: 'COINBASE:CROUSD',
-              },
-              {
-                s: 'COINBASE:GALAUSD',
-              },
-              {
-                s: 'BINANCE:DOGEUSD',
-              },
-            ],
-          },
-          {
             title: 'Stocks',
             symbols: [
               {
                 s: 'NASDAQ:AAPL',
               },
               {
-                s: 'NASDAQ:GOOGL',
+                s: 'AMEX:SPY',
               },
               {
                 s: 'NASDAQ:TSLA',
               },
               {
+                s: 'NASDAQ:QQQ',
+              },
+              {
+                s: 'NSE:RELIANCE',
+              },
+              {
                 s: 'NASDAQ:AMZN',
               },
+            ],
+          },
+          {
+            title: 'Crypto',
+            symbols: [
               {
-                s: 'NASDAQ:NFLX',
+                s: 'BINANCE:BTCUSDT',
               },
               {
-                s: 'NASDAQ:FB',
+                s: 'BITSTAMP:BTCUSD',
               },
               {
-                s: 'NYSE:BAC',
+                s: 'COINBASE:BTCUSD',
+              },
+              {
+                s: 'BINANCE:BTCUSDTPERP',
+              },
+              {
+                s: 'BINANCE:ETHUSDT',
+              },
+              {
+                s: 'BINANCE:SOLUSDT',
+              },
+            ],
+          },
+          {
+            title: 'Economy',
+            symbols: [
+              {
+                s: 'FRED:SP500',
+              },
+              {
+                s: 'FRED:FEDFUNDS',
+              },
+              {
+                s: 'ECONOMICS:USIRYY',
+              },
+              {
+                s: 'ECONOMICS:USINTR',
+              },
+              {
+                s: 'FRED:T10YIE',
+              },
+              {
+                s: 'FRED:T10Y2Y',
               },
             ],
           },
@@ -182,62 +237,16 @@ const LiveMarket = () => {
       {/* <h3 className='raleway-700 mb-3 ms-md-5 mt-5 text-center text-lg-start text-light text-light'>
         Live Market
       </h3> */}
-      <div className='row w-100 pt-3'>
-        {/* Start of investing.com widget */}
-        {/* <div className='col-12 col-md-auto mx-auto p-3'>
-          <div className='mx-auto'>
-            <iframe
-              src='https://ssltsw.investing.com?lang=62&forex=1,2,3,5,7,9,10&commodities=8830,8836,8831,8849,8833,8862,8832&indices=23660,166,172,27,179,175,170&stocks=345,346,347,348,349,350,352&tabs=1,2,3,4'
-              width='100%'
-              height='467'
-            ></iframe>
-          </div>
-          <div
-            className='poweredBy'
-            style={{
-              fontFamily: 'arial,helvetica,sans-serif',
-              direction: 'ltr',
-            }}
-          >
-            <span
-              style={{
-                fontSize: '11px',
-                color: 'rgb(51, 51, 51)',
-                textDecoration: 'none',
-              }}
-              data-darkreader-inline-color=''
-            >
-              Technical Summary Widget Powered by{' '}
-              <a
-                href='https://ph.investing.com/'
-                rel='nofollow'
-                target='_blank'
-                style={{
-                  fontSize: '11px',
-                  color: 'rgb(6, 82, 157)',
-                  fontWeight: 'bold',
-                }}
-                className='underline_link'
-                data-darkreader-inline-color=''
-              >
-                Investing.com
-              </a>
-            </span>
-          </div>
-        </div> */}
-        {/* End of Investing.com Widget */}
-
-        {/* Start of Trading View Widget */}
-        <div
-          className='bg-light p-1 my-3 col-10 mx-auto'
-          style={{ height: '40rem' }}
-        >
-          <div className='tradingview-widget-container' ref={scriptRef}>
-            <div className='tradingview-widget-container__widget'></div>
-          </div>
+      {/* Start of Trading View Widget */}
+      <div
+        className='bg-light p-1 my-3 col-lg-11 mx-auto rounded'
+        style={{ height: '40rem' }}
+      >
+        <div className='tradingview-widget-container' ref={scriptRef}>
+          <div className='tradingview-widget-container__widget'></div>
         </div>
-        {/* End of trading view widget */}
       </div>
+      {/* End of trading view widget */}
     </div>
   )
 }

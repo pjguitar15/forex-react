@@ -53,20 +53,55 @@ const BlogNavbar = () => {
         {/* Logo Font: Raleway, Navlinks font: Montserrat */}
         <Navbar
           variant='dark'
-          className={`navbar-main bg-black ${navbar ? 'fixed-top' : ''}`}
+          className={`navbar-main bg-black fixed-top`}
           // bg='light'
-          expand='lg'
+          expand='xl'
           expanded={isToggled}
-          style={navbar ? { padding: `16px` } : { padding: `30px` }}
+          style={
+            navbar || windowDimenion.winWidth < 990
+              ? { padding: `16px`, height: isToggled ? '100vh' : '' }
+              : {
+                  padding: `30px`,
+                }
+          }
         >
           <Container>
+            <div>
+              <Navbar.Toggle
+                onClick={() => setIsToggled(!isToggled)}
+                className={`custom-toggler border-0 shadow-none ${
+                  windowDimenion.winWidth < 990 && !isToggled
+                    ? 'd-block'
+                    : 'd-none'
+                }`}
+                aria-controls='basic-navbar-nav'
+              />
+            </div>
+            <div className='me-auto'>
+              <div
+                className={`${
+                  windowDimenion.winWidth < 990 ? 'd-block' : 'd-none'
+                } ${!isToggled ? 'd-none' : 'd-block'}`}
+              >
+                <div
+                  onClick={() => setIsToggled(false)}
+                  className='text-white'
+                  style={{ cursor: 'pointer' }}
+                >
+                  ✖
+                </div>
+              </div>
+              <hr className='text-light' />
+            </div>
             <Navbar.Brand
               style={{ cursor: 'pointer' }}
               onClick={() => navigate('/')}
-              className={`navbar-brand-style text-white text-uppercase`}
+              className={`navbar-brand-style text-uppercase text-white ${
+                windowDimenion.winWidth < 990 ? 'd-none' : 'd-block'
+              }`}
             >
               <div className='d-flex align-items-center justify-content-center'>
-                <div className='me-3' style={{ height: '40px' }}>
+                <div className='me-3' style={{ height: '50px' }}>
                   <img
                     src={logo}
                     alt='logo'
@@ -74,33 +109,43 @@ const BlogNavbar = () => {
                     style={{ objectFit: 'cover' }}
                   />
                 </div>
-                {windowDimenion.winWidth < 990 ? (
-                  <div>
-                    <div className='fw-bold' style={{ fontSize: '16px' }}>
-                      Bullish Beast
-                    </div>
-                    <div className='fw-bold' style={{ fontSize: '16px' }}>
-                      (Pty) Ltd
-                    </div>
-                  </div>
-                ) : (
-                  <div>
-                    <div className='fw-bold' style={{ fontSize: '16px' }}>
-                      Bullish Beast
-                    </div>
-                    <div className='fw-bold' style={{ fontSize: '16px' }}>
-                      (Pty) Ltd
-                    </div>
-                  </div>
-                )}
               </div>
             </Navbar.Brand>
-            <Navbar.Toggle
-              onClick={() => setIsToggled(!isToggled)}
-              aria-controls='basic-navbar-nav'
-            />
+            <div className='d-flex flex-reverse justify-content-between'>
+              {/* on small device */}
+              <Navbar.Brand
+                style={{ cursor: 'pointer' }}
+                onClick={() => navigate('/')}
+                className={`navbar-brand-style  text-uppercase text-white ${
+                  windowDimenion.winWidth < 990 ? 'd-block' : 'd-none'
+                } ${isToggled ? 'd-none' : 'd-block'}`}
+              >
+                <div className='d-flex align-items-center justify-content-center'>
+                  <div className='me-3' style={{ height: '50px' }}>
+                    <img
+                      src={logo}
+                      alt='logo'
+                      className='w-100 h-100 rounded'
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                </div>
+              </Navbar.Brand>
+            </div>
+
             <Navbar.Collapse id='basic-navbar-nav'>
               <Nav onClick={() => setIsToggled(false)} className='ms-auto'>
+                <Link
+                  className={`link-style montserrat mx-3 text-white`}
+                  to='/about'
+                  style={
+                    windowDimenion.winWidth < 1200
+                      ? { fontSize: '12px' }
+                      : { fontSize: '14px' }
+                  }
+                >
+                  About
+                </Link>
                 <Link
                   className={`link-style montserrat mx-3 text-white`}
                   to='/live-market'
