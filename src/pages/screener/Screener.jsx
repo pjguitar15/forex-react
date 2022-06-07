@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Container } from 'react-bootstrap'
+import LoadingDots from '../../components/LoadingDots'
 import Jumbotron from '../home/Jumbotron'
 
 const Screener = () => {
   const [toggle, setToggle] = useState(true)
   const scriptRef = useRef()
   useEffect(() => {
-    setToggle(!toggle)
+    setToggle(false)
   }, [])
+
 
   useEffect(() => {
     if (toggle === false) {
@@ -33,7 +35,7 @@ const Screener = () => {
       <Jumbotron />
       <div className='bg-dark'>
         <Container>
-          <div className='py-5 shadow'>
+          <div className={`py-5 shadow `}>
             <div className='tradingview-widget-container' ref={scriptRef}>
               <div className='tradingview-widget-container__widget'></div>
             </div>

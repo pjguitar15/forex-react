@@ -28,6 +28,7 @@ import StockMarket from './pages/stock-market/StockMarket';
 import SymbolOverview from './pages/symbol-overview/SymbolOverview';
 import ForexCrossRates from './pages/forex-cross-rates/ForexCrossRates';
 import ForexHeatMap from './pages/forex-heat-map/ForexHeatMap';
+import LoginPage from './pages/login/LoginPage';
 
 function App() {
   return (
@@ -66,6 +67,7 @@ function App() {
               {/* Forex Compounding Calculator */}
               <Route path='/currency-converter' element={<><BlogNavbar /><CurrencyCoverter /></>} />
 
+              <Route path='/login' element={<><BlogNavbar /><LoginPage /></>} />
 
               {/* Error page */}
               <Route path='*' element={<ErrorPage />} />

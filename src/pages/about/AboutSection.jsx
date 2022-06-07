@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 // assets
 import sa from '../../assets/sa.jpg'
+import sa2 from '../../assets/sa2.jpg'
 
 const AboutSection = () => {
+  const [isLoaded, setIsLoaded] = useState(false)
+  useEffect(() => {
+    setTimeout(() => setIsLoaded(true), 1000)
+  }, [])
   return (
     <div className='d-flex bg-black align-items-center justify-content-center px-5 py-5'>
       <div
@@ -11,7 +16,19 @@ const AboutSection = () => {
       >
         <div className='col-md-5'>
           <div>
-            <img className='w-100 h-100' src={sa} alt='about' />
+            <img
+              // effect='blur'
+              className={`w-100 h-100 ${isLoaded ? 'd-block' : 'd-none'}`}
+              src={sa}
+              alt='about'
+            />
+            <img
+              src={sa2}
+              className={`w-100 h-100 blurred ${
+                isLoaded ? 'd-none' : 'd-block'
+              }`}
+              alt='blurred'
+            />
           </div>
         </div>
         <div className='col-md-7 px-md-5 mt-4 mt-md-0'>

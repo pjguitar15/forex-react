@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { Nav, Navbar, Container } from 'react-bootstrap'
+import { Button, Nav, Navbar, Container } from 'react-bootstrap'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.jpg'
 
 const BlogNavbar = () => {
   const [navbar, setNavbar] = useState(false)
   const [isToggled, setIsToggled] = useState(false)
+  const [isMobileMarketClicked, setIsMobileMarketClicked] = useState(false)
 
-  const [windowDimenion, detectHW] = useState({
+  const [windowDimension, detectHW] = useState({
     winWidth: window.innerWidth,
     winHeight: window.innerHeight,
   })
@@ -29,7 +30,7 @@ const BlogNavbar = () => {
     return () => {
       window.removeEventListener('resize', detectSize)
     }
-  }, [windowDimenion])
+  }, [windowDimension])
 
   // scrolls back to top when location is changed
   useEffect(() => {
@@ -58,7 +59,7 @@ const BlogNavbar = () => {
           expand='xl'
           expanded={isToggled}
           style={
-            navbar || windowDimenion.winWidth < 990
+            navbar || windowDimension.winWidth < 990
               ? { padding: `16px`, height: isToggled ? '100vh' : '' }
               : {
                   padding: `30px`,
@@ -70,7 +71,7 @@ const BlogNavbar = () => {
               <Navbar.Toggle
                 onClick={() => setIsToggled(!isToggled)}
                 className={`custom-toggler border-0 shadow-none ${
-                  windowDimenion.winWidth < 990 && !isToggled
+                  windowDimension.winWidth < 990 && !isToggled
                     ? 'd-block'
                     : 'd-none'
                 }`}
@@ -80,7 +81,7 @@ const BlogNavbar = () => {
             <div className='me-auto'>
               <div
                 className={`${
-                  windowDimenion.winWidth < 990 ? 'd-block' : 'd-none'
+                  windowDimension.winWidth < 990 ? 'd-block' : 'd-none'
                 } ${!isToggled ? 'd-none' : 'd-block'}`}
               >
                 <div
@@ -97,7 +98,7 @@ const BlogNavbar = () => {
               style={{ cursor: 'pointer' }}
               onClick={() => navigate('/')}
               className={`navbar-brand-style text-uppercase text-white ${
-                windowDimenion.winWidth < 990 ? 'd-none' : 'd-block'
+                windowDimension.winWidth < 990 ? 'd-none' : 'd-block'
               }`}
             >
               <div className='d-flex align-items-center justify-content-center'>
@@ -117,7 +118,7 @@ const BlogNavbar = () => {
                 style={{ cursor: 'pointer' }}
                 onClick={() => navigate('/')}
                 className={`navbar-brand-style  text-uppercase text-white ${
-                  windowDimenion.winWidth < 990 ? 'd-block' : 'd-none'
+                  windowDimension.winWidth < 990 ? 'd-block' : 'd-none'
                 } ${isToggled ? 'd-none' : 'd-block'}`}
               >
                 <div className='d-flex align-items-center justify-content-center'>
@@ -134,62 +135,284 @@ const BlogNavbar = () => {
             </div>
 
             <Navbar.Collapse id='basic-navbar-nav'>
-              <Nav onClick={() => setIsToggled(false)} className='ms-auto'>
+              <Nav className='ms-auto'>
                 <Link
+                  onClick={() => setIsToggled(false)}
                   className={`link-style montserrat mx-3 text-white`}
                   to='/about'
-                  style={
-                    windowDimenion.winWidth < 1200
-                      ? { fontSize: '12px' }
-                      : { fontSize: '14px' }
-                  }
+                  style={{ fontSize: '14px' }}
                 >
                   About
                 </Link>
-                <Link
-                  className={`link-style montserrat mx-3 text-white`}
-                  to='/live-market'
-                  style={
-                    windowDimenion.winWidth < 1200
-                      ? { fontSize: '12px' }
-                      : { fontSize: '14px' }
-                  }
+                <div
+                  className='parent-dropdown'
+                  style={{ position: 'relative', display: 'inline-block' }}
                 >
-                  Live Market
-                </Link>
+                  <div
+                    onClick={() =>
+                      setIsMobileMarketClicked(!isMobileMarketClicked)
+                    }
+                    className={`link-style live-market-link montserrat mx-3 text-white`}
+                    style={{
+                      fontSize: '14px',
+                      zIndex: '1',
+                      cursor: 'pointer',
+                      transition: 'all 0.3 ease-in-out',
+                    }}
+                  >
+                    Market <i className='ms-1 bi bi-chevron-down'></i>
+                  </div>
+                  {/* Dropdown menu here only show on medium device */}
+                  {windowDimension.winWidth >= 990 ? (
+                    <div
+                      className='my-dropdown rounded'
+                      style={{
+                        width: '15rem',
+                      }}
+                    >
+                      <div
+                        onClick={() => navigate('/live-market')}
+                        className='py-2 my-sub-menu px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Live Market
+                      </div>
+                      {/* <div
+                      onClick={() => navigate('/real-time-chart')}
+                      className='py-2 my-sub-menu px-4 mx-auto w-100 bg-dark'
+                      style={{ cursor: 'pointer' }}
+                    >
+                      Real Time Chart
+                    </div> */}
+                      <div
+                        onClick={() => navigate('/screener')}
+                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Screener
+                      </div>
+                      <div
+                        onClick={() => navigate('/cryptocurrency-market')}
+                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Cryptocurrency Market
+                      </div>
+                      <div
+                        onClick={() => navigate('/fundamental-data')}
+                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Fundamental Data
+                      </div>
+                      <div
+                        onClick={() => navigate('/market-data')}
+                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Market Data
+                      </div>
+                      <div
+                        onClick={() => navigate('/stock-market')}
+                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Stock Market
+                      </div>
+                      {/* <div
+                      onClick={() => navigate('/symbol-overview')}
+                      className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+                      style={{ cursor: 'pointer' }}
+                    >
+                      Symbol Overview
+                    </div> */}
+
+                      <div
+                        onClick={() => navigate('/forex-cross-rates')}
+                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Forex Cross Rates
+                      </div>
+
+                      <div
+                        onClick={() => navigate('/forex-heat-map')}
+                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Forex Heat Map
+                      </div>
+                    </div>
+                  ) : (
+                    // MOBILE VIEW
+                    <div
+                      className={`my-dropdown-mb rounded`}
+                      style={{
+                        width: '15rem',
+                        display: isMobileMarketClicked ? 'block' : 'none',
+                      }}
+                    >
+                      <div
+                        onClick={() => {
+                          navigate('/live-market')
+                          setIsToggled(false)
+                          setIsMobileMarketClicked(false)
+                        }}
+                        className='py-2 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Live Market
+                      </div>
+                      {/* <div
+                      onClick={() => {
+                        navigate('/real-time-chart')
+                        setIsToggled(false)
+                        setIsMobileMarketClicked(false)
+                      }}
+                      className='py-2 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
+                      style={{ cursor: 'pointer' }}
+                    >
+                      Real Time Chart
+                    </div> */}
+                      <div
+                        onClick={() => {
+                          navigate('/screener')
+                          setIsToggled(false)
+                          setIsMobileMarketClicked(false)
+                        }}
+                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Screener
+                      </div>
+                      <div
+                        onClick={() => {
+                          navigate('/cryptocurrency-market')
+                          setIsToggled(false)
+                          setIsMobileMarketClicked(false)
+                        }}
+                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Cryptocurrency Market
+                      </div>
+                      <div
+                        onClick={() => {
+                          navigate('/fundamental-data')
+                          setIsToggled(false)
+                          setIsMobileMarketClicked(false)
+                        }}
+                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Fundamental Data
+                      </div>
+                      <div
+                        onClick={() => {
+                          navigate('/market-data')
+                          setIsToggled(false)
+                          setIsMobileMarketClicked(false)
+                        }}
+                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Market Data
+                      </div>
+                      <div
+                        onClick={() => {
+                          navigate('/stock-market')
+                          setIsToggled(false)
+                          setIsMobileMarketClicked(false)
+                        }}
+                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Stock Market
+                      </div>
+                      {/* <div
+                      onClick={() => {
+                        navigate('/symbol-overview')
+                        setIsToggled(false)
+                        setIsMobileMarketClicked(false)
+                      }}
+                      className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
+                      style={{ cursor: 'pointer' }}
+                    >
+                      Symbol Overview
+                    </div> */}
+
+                      <div
+                        onClick={() => {
+                          navigate('/forex-cross-rates')
+                          setIsToggled(false)
+                          setIsMobileMarketClicked(false)
+                        }}
+                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Forex Cross Rates
+                      </div>
+
+                      <div
+                        onClick={() => {
+                          navigate('/forex-heat-map')
+                          setIsToggled(false)
+                          setIsMobileMarketClicked(false)
+                        }}
+                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Forex Heat Map
+                      </div>
+                    </div>
+                  )}
+                </div>
                 <Link
+                  onClick={() => setIsToggled(false)}
                   className={`link-style montserrat mx-3 text-white`}
                   to='/economic-calendar'
-                  style={
-                    windowDimenion.winWidth < 1200
-                      ? { fontSize: '12px' }
-                      : { fontSize: '14px' }
-                  }
+                  style={{ fontSize: '14px' }}
                 >
                   Economic Calendar
                 </Link>
+
                 <Link
+                  onClick={() => setIsToggled(false)}
                   className={`link-style montserrat mx-3 text-white`}
                   to='/currency-converter'
-                  style={
-                    windowDimenion.winWidth < 1200
-                      ? { fontSize: '12px' }
-                      : { fontSize: '14px' }
-                  }
+                  style={{ fontSize: '14px' }}
                 >
                   Currency Converter
                 </Link>
                 <Link
+                  onClick={() => setIsToggled(false)}
                   className={`link-style montserrat mx-3 text-white`}
                   to='/compounding-calculator'
-                  style={
-                    windowDimenion.winWidth < 1200
-                      ? { fontSize: '12px' }
-                      : { fontSize: '14px' }
-                  }
+                  style={{ fontSize: '14px' }}
                 >
-                  Compounding Calculator
+                  <span
+                    style={
+                      location.pathname === '/compounding-calculator'
+                        ? { color: 'white' }
+                        : { color: '' }
+                    }
+                  >
+                    Compounding Calculator
+                  </span>
                 </Link>
+                <Button
+                  onClick={() => {
+                    navigate('/login')
+                    setIsToggled(false)
+                  }}
+                  variant='outline-light'
+                  size='sm'
+                  className={`mx-3 raleway-400 ${
+                    windowDimension.winWidth < 990 ? 'mt-2' : ''
+                  }`}
+                >
+                  Login
+                </Button>
               </Nav>
             </Navbar.Collapse>
           </Container>

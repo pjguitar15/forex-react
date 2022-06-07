@@ -1,22 +1,90 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import { useLocation } from 'react-router-dom'
 import forexBg from '../../assets/forex.jpg'
+import economicCalendarBg from '../../assets/economic-calendar-bg.jpg'
+import liveMarketBg from '../../assets/live-market-bg.jpg'
+import screenerBg from '../../assets/screener-bg.jpg'
+import cryptoBg from '../../assets/cryptocurrency-bg.jpg'
+import fundamentalBg from '../../assets/fundamental-bg.jpg'
+import marketDataBg from '../../assets/market-data-bg.jpg'
+import stockMarketBg from '../../assets/stock-market-bg.jpg'
+import forexCrossRateBg from '../../assets/forex-cross-rate-bg.jpg'
+import forexHeatMapBg from '../../assets/forex-heat-map-bg.jpg'
 
 const Jumbotron = () => {
+  const [bgImage, setBgImage] = useState('')
   const location = useLocation()
+
+  useEffect(() => {
+    console.log(location.pathname)
+    // compounding calculator
+    // home and economic calendar
+    // live market
+    // screener
+    // cryptocurrency
+    // fundamental
+    // market data
+    // stock market
+    // forex cross rates
+    // forex heat map
+    switch (location.pathname) {
+      case '/compounding-calculator':
+        // code block
+        setBgImage(
+          'https://res.cloudinary.com/philcob/image/upload/v1653550133/card-img_zlfruh.jpg'
+        )
+        break
+      case '/':
+        // code block
+        setBgImage(forexBg)
+        break
+      case '/economic-calendar':
+        // code block
+        setBgImage(economicCalendarBg)
+        break
+      case '/live-market':
+        // code block
+        setBgImage(liveMarketBg)
+        break
+      case '/screener':
+        // code block
+        setBgImage(screenerBg)
+        break
+      case '/cryptocurrency-market':
+        // code block
+        setBgImage(cryptoBg)
+        break
+      case '/fundamental-data':
+        // code block
+        setBgImage(fundamentalBg)
+        break
+      case '/market-data':
+        // code block
+        setBgImage(marketDataBg)
+        break
+      case '/stock-market':
+        // code block
+        setBgImage(stockMarketBg)
+        break
+      case '/forex-cross-rates':
+        // code block
+        setBgImage(forexCrossRateBg)
+        break
+      case '/forex-heat-map':
+        // code block
+        setBgImage(forexHeatMapBg)
+        break
+      default:
+      // code block
+    }
+  }, [])
   return (
     <div
       className='my-jumbotron'
-      style={
-        location.pathname === '/compounding-calculator'
-          ? {
-              background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://res.cloudinary.com/philcob/image/upload/v1653550133/card-img_zlfruh.jpg')`,
-            }
-          : {
-              background: `url(${forexBg})`,
-            }
-      }
+      style={{
+        background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${bgImage})`,
+      }}
     >
       <Container>
         {location.pathname === '/' ? (

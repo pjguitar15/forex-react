@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react'
+import LoadingDots from '../../components/LoadingDots'
 import Jumbotron from '../home/Jumbotron'
 
 const LiveMarket = () => {
+  const [isLoading, setIsLoading] = useState(true)
   const [toggle, setToggle] = useState(true)
   const scriptRef = useRef()
   useEffect(() => {
     setToggle(!toggle)
+    setTimeout(() => setIsLoading(false), 1000)
   }, [])
 
   useEffect(() => {
@@ -238,8 +241,12 @@ const LiveMarket = () => {
         Live Market
       </h3> */}
       {/* Start of Trading View Widget */}
+      {isLoading ? <LoadingDots /> : ''}
+
       <div
-        className='bg-dark p-1 my-3 col-lg-11 mx-auto rounded'
+        className={`${
+          isLoading ? 'd-none' : 'd-block'
+        } bg-dark p-1 my-3 col-lg-11 mx-auto rounded`}
         style={{ height: '40rem' }}
       >
         <div className='tradingview-widget-container' ref={scriptRef}>

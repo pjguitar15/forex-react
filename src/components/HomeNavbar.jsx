@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate, Link } from 'react-router-dom'
-import { Container, Navbar, Nav } from 'react-bootstrap'
+import { Container, Navbar, Nav, Button } from 'react-bootstrap'
 import logo from '../assets/logo.jpg'
 import '../styles.css'
 
@@ -8,7 +8,7 @@ const MyNavbar = () => {
   const [navbar, setNavbar] = useState(false)
   const [isToggled, setIsToggled] = useState(false)
   const [isMobileMarketClicked, setIsMobileMarketClicked] = useState(false)
-  const [windowDimenion, detectHW] = useState({
+  const [windowDimension, detectHW] = useState({
     winWidth: window.innerWidth,
     winHeight: window.innerHeight,
   })
@@ -26,7 +26,7 @@ const MyNavbar = () => {
     return () => {
       window.removeEventListener('resize', detectSize)
     }
-  }, [windowDimenion])
+  }, [windowDimension])
 
   // useLocation and useNavigate
   const location = useLocation()
@@ -49,23 +49,23 @@ const MyNavbar = () => {
   window.addEventListener('scroll', scrollListener)
   return (
     <div>
-      {/* Brand: Bullish Beast */}
-      {/* Logo Font: Raleway, Navlinks font: Montserrat */}
       <Navbar
-        variant={`${navbar || windowDimenion.winWidth < 990 ? 'dark' : 'dark'}`}
+        variant={`${
+          navbar || windowDimension.winWidth < 990 ? 'dark' : 'dark'
+        }`}
         className={`fixed-top ${
-          navbar || !(windowDimenion.winWidth < 990) ? 'fixed-top' : ''
+          navbar || !(windowDimension.winWidth < 990) ? 'fixed-top' : ''
         } navbar-main ${
-          navbar || windowDimenion.winWidth < 990 ? 'bg-black' : ''
+          navbar || windowDimension.winWidth < 990 ? 'bg-black' : ''
         }`}
         expand='lg'
         expanded={isToggled}
         style={
-          navbar || windowDimenion.winWidth < 990
+          navbar || windowDimension.winWidth < 990
             ? {
                 padding: `16px`,
                 height:
-                  isToggled && windowDimenion.winWidth < 990 ? '100vh' : '',
+                  isToggled && windowDimension.winWidth < 990 ? '100vh' : '',
               }
             : {
                 padding: `30px`,
@@ -77,7 +77,7 @@ const MyNavbar = () => {
             <Navbar.Toggle
               onClick={() => setIsToggled(!isToggled)}
               className={`custom-toggler border-0 shadow-none ${
-                windowDimenion.winWidth < 990 && !isToggled
+                windowDimension.winWidth < 990 && !isToggled
                   ? 'd-block'
                   : 'd-none'
               }`}
@@ -87,7 +87,7 @@ const MyNavbar = () => {
           <div className='me-auto'>
             <div
               className={`${
-                windowDimenion.winWidth < 990 ? 'd-block' : 'd-none'
+                windowDimension.winWidth < 990 ? 'd-block' : 'd-none'
               } ${!isToggled ? 'd-none' : 'd-block'}`}
             >
               <div
@@ -104,7 +104,7 @@ const MyNavbar = () => {
             style={{ cursor: 'pointer' }}
             onClick={() => navigate('/')}
             className={`navbar-brand-style text-uppercase text-white ${
-              windowDimenion.winWidth < 990 ? 'd-none' : 'd-block'
+              windowDimension.winWidth < 990 ? 'd-none' : 'd-block'
             }`}
           >
             <div className='d-flex align-items-center justify-content-center'>
@@ -124,7 +124,7 @@ const MyNavbar = () => {
               style={{ cursor: 'pointer' }}
               onClick={() => navigate('/')}
               className={`navbar-brand-style  text-uppercase text-white ${
-                windowDimenion.winWidth < 990 ? 'd-block' : 'd-none'
+                windowDimension.winWidth < 990 ? 'd-block' : 'd-none'
               } ${isToggled ? 'd-none' : 'd-block'}`}
             >
               <div className='d-flex align-items-center justify-content-center'>
@@ -168,7 +168,7 @@ const MyNavbar = () => {
                   Market <i className='ms-1 bi bi-chevron-down'></i>
                 </div>
                 {/* Dropdown menu here only show on medium device */}
-                {windowDimenion.winWidth >= 990 ? (
+                {windowDimension.winWidth >= 990 ? (
                   <div
                     className='my-dropdown rounded'
                     style={{
@@ -405,6 +405,19 @@ const MyNavbar = () => {
                   Compounding Calculator
                 </span>
               </Link>
+              <Button
+                onClick={() => {
+                  navigate('/login')
+                  setIsToggled(false)
+                }}
+                variant='outline-light'
+                size='sm'
+                className={`mx-3 raleway-400 ${
+                  windowDimension.winWidth < 990 ? 'mt-2' : ''
+                }`}
+              >
+                Login
+              </Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
