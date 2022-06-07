@@ -6,6 +6,26 @@ import { useNavigate } from 'react-router-dom'
 import { useBlog } from '../../../context/ContextProvider'
 
 const BreadCrumbs = ({ id }) => {
+  const [windowDimension, detectHW] = useState({
+    winWidth: window.innerWidth,
+    winHeight: window.innerHeight,
+  })
+
+  const detectSize = () => {
+    detectHW({
+      winWidth: window.innerWidth,
+      winHeight: window.innerHeight,
+    })
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', detectSize)
+
+    return () => {
+      window.removeEventListener('resize', detectSize)
+    }
+  }, [windowDimension])
+
   const { firebaseData, loading } = useBlog()
   const navigate = useNavigate()
 
@@ -35,7 +55,10 @@ const BreadCrumbs = ({ id }) => {
     }
   }
   return (
-    <div className='bg-light py-5'>
+    <div
+      className='bg-light pb-5'
+      style={{ paddingTop: windowDimension.winWidth < 990 ? '120px' : '170px' }}
+    >
       {loading ? (
         <div className='text-center mb-5'>
           <Spinner animation='border' size='lg' role='status'>

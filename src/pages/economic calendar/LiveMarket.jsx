@@ -235,7 +235,7 @@ const LiveMarket = () => {
   }, [toggle])
 
   return (
-    <div className='pb-5 live-market'>
+    <div className='pb-5 bg-dark'>
       <Jumbotron />
       {/* <h3 className='raleway-700 mb-3 ms-md-5 mt-5 text-center text-lg-start text-light text-light'>
         Live Market

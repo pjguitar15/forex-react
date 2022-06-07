@@ -143,6 +143,16 @@ const MyNavbar = () => {
             <Nav className='ms-auto'>
               <Link
                 onClick={() => setIsToggled(false)}
+                className={`${
+                  windowDimension.winWidth < 990 ? 'd-block' : 'd-none'
+                } link-style montserrat mx-3 text-white`}
+                to='/'
+                style={{ fontSize: '14px' }}
+              >
+                Home
+              </Link>
+              <Link
+                onClick={() => setIsToggled(false)}
                 className={`link-style montserrat mx-3 text-white`}
                 to='/about'
                 style={{ fontSize: '14px' }}

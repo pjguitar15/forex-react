@@ -50,7 +50,7 @@
 }
 
 .my-jumbotron {
-  height: 65vh;
+  /* height: 65vh; */
   width: 100%;
   background: url('./assets/forex.jpg');
   background-position: center !important;
@@ -223,7 +223,7 @@
 }
 
 .about-card {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(3, 3, 3, 0.918);
   cursor: pointer;
 }
 
@@ -235,4 +235,9 @@
 
 .blurred {
   filter: blur(4px);
+}
+
+.gradient-line {
+  background-color: #ffe53b;
+  background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
 }

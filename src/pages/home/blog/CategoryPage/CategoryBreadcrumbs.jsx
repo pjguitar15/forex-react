@@ -4,6 +4,26 @@ import { useNavigate, useLocation } from 'react-router-dom'
 
 const CategoryBreadcrumbs = ({ firebaseData, loading, id }) => {
   const [currentCategory, setCurrentCategory] = useState('')
+  const [windowDimension, detectHW] = useState({
+    winWidth: window.innerWidth,
+    winHeight: window.innerHeight,
+  })
+
+  const detectSize = () => {
+    detectHW({
+      winWidth: window.innerWidth,
+      winHeight: window.innerHeight,
+    })
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', detectSize)
+
+    return () => {
+      window.removeEventListener('resize', detectSize)
+    }
+  }, [windowDimension])
+
   const location = useLocation()
   useEffect(() => {
     const splitItem = location.pathname.slice(17).split('-')
@@ -12,7 +32,10 @@ const CategoryBreadcrumbs = ({ firebaseData, loading, id }) => {
   }, [location])
   const navigate = useNavigate()
   return (
-    <div className='bg-light py-5'>
+    <div
+      className='bg-light pb-5'
+      style={{ paddingTop: windowDimension.winWidth < 990 ? '120px' : '170px' }}
+    >
       <Container className='d-flex justify-content-between'>
         <h4 className='raleway-700 m-0' style={{ color: '#505050' }}>
           Category: {id === 'cryptocurrency' ? 'Cryptocurrency' : ''}

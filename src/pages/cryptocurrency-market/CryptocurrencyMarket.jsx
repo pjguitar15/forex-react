@@ -23,6 +23,7 @@ const CryptocurrencyMarket = () => {
         displayCurrency: 'USD',
         colorTheme: 'dark',
         locale: 'en',
+        isTransparent: true,
       })
       scriptRef.current.appendChild(script)
     }
@@ -31,13 +32,11 @@ const CryptocurrencyMarket = () => {
     <div>
       <Jumbotron />
       <div className='bg-dark'>
-        <Container>
-          <div className='py-5'>
-            <div className='tradingview-widget-container' ref={scriptRef}>
-              <div className='tradingview-widget-container__widget'></div>
-            </div>
+        <div className='py-5 col-lg-11 mx-auto'>
+          <div className='tradingview-widget-container' ref={scriptRef}>
+            <div className='tradingview-widget-container__widget'></div>
           </div>
-        </Container>
+        </div>
       </div>
     </div>
   )

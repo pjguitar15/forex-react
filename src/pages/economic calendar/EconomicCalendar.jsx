@@ -21,7 +21,7 @@ const EconomicCalendar = () => {
         width: '100%',
         height: '500',
         colorTheme: 'dark',
-        isTransparent: false,
+        isTransparent: true,
         locale: 'en',
         importanceFilter: '-1,0,1',
       })
@@ -32,15 +32,13 @@ const EconomicCalendar = () => {
   // context
 
   return (
-    <div className='economic-calendar'>
+    <div className='bg-dark'>
       <Jumbotron />
-
-      <div className='p-md-5 p-2'>
+      <div className='p-md-5 col-lg-11 mx-auto'>
         <div className='tradingview-widget-container' ref={scriptRef}>
           <div className='tradingview-widget-container__widget'></div>
         </div>
       </div>
-      <Container></Container>
     </div>
   )
 }

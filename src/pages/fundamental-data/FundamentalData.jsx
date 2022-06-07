@@ -19,7 +19,7 @@ const FundamentalData = () => {
         width: '100%',
         height: '500',
         colorTheme: 'dark',
-        isTransparent: false,
+        isTransparent: true,
         locale: 'en',
         importanceFilter: '-1,0,1',
       })
@@ -30,13 +30,11 @@ const FundamentalData = () => {
     <div>
       <Jumbotron />
       <div className='bg-dark'>
-        <Container>
-          <div className='py-5'>
-            <div className='tradingview-widget-container' ref={scriptRef}>
-              <div className='tradingview-widget-container__widget'></div>
-            </div>
+        <div className='py-5 col-lg-11 mx-auto'>
+          <div className='tradingview-widget-container' ref={scriptRef}>
+            <div className='tradingview-widget-container__widget'></div>
           </div>
-        </Container>
+        </div>
       </div>
     </div>
   )

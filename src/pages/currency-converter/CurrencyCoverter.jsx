@@ -47,13 +47,14 @@ const CurrencyCoverter = () => {
       .then(() => setConvertLoading(false))
   }, [firstSelectValue, secondSelectValue, inputValue])
   return (
-    <div className='py-5 currency-converter'>
+    <div className='py-5 bg-dark'>
       <Container className='py-5'>
-        <div className='rounded bg-dark shadow mt-5'>
-          <h4 className='text-light text-uppercase py-3 text-center bg-black'>
+        <div className='rounded mt-5'>
+          <h4 className='text-light m-0 text-uppercase py-3 text-center'>
             Currency Converter
           </h4>
-          <div className='px-4'>
+          <div className='col-12 gradient-line' style={{ height: '5px' }}></div>
+          <div className='px-4 '>
             <div className='my-3'>
               <div className='small'>Amount</div>
               <input
@@ -139,6 +140,10 @@ const CurrencyCoverter = () => {
             <div className='form-text text-center pb-4'>
               Rates {today.toDateString()}
             </div>
+            <div
+              className='col-12 gradient-line'
+              style={{ height: '5px' }}
+            ></div>
           </div>
         </div>
       </Container>

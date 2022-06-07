@@ -14,20 +14,30 @@ import forexHeatMapBg from '../../assets/forex-heat-map-bg.jpg'
 
 const Jumbotron = () => {
   const [bgImage, setBgImage] = useState('')
+  const [windowDimension, detectHW] = useState({
+    winWidth: window.innerWidth,
+    winHeight: window.innerHeight,
+  })
+
+  const detectSize = () => {
+    detectHW({
+      winWidth: window.innerWidth,
+      winHeight: window.innerHeight,
+    })
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', detectSize)
+
+    return () => {
+      window.removeEventListener('resize', detectSize)
+    }
+  }, [windowDimension])
+
   const location = useLocation()
 
   useEffect(() => {
     console.log(location.pathname)
-    // compounding calculator
-    // home and economic calendar
-    // live market
-    // screener
-    // cryptocurrency
-    // fundamental
-    // market data
-    // stock market
-    // forex cross rates
-    // forex heat map
     switch (location.pathname) {
       case '/compounding-calculator':
         // code block
@@ -80,137 +90,153 @@ const Jumbotron = () => {
     }
   }, [])
   return (
-    <div
-      className='my-jumbotron'
-      style={{
-        background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${bgImage})`,
-      }}
-    >
-      <Container>
-        {location.pathname === '/' ? (
-          <>
-            <p className='text-center jumbotron-content'>
-              Bullish Beast has broken the code in trading, investors please
-              contact (RFIT) Rocket Financial Investment Traders,
-            </p>
-            <p className='text-center jumbotron-content'>
-              Email: info@bullishbeast.co.za Website: www.bullishbeast.co.za
-            </p>
-          </>
-        ) : (
-          ''
-        )}
-        {location.pathname === '/economic-calendar' ? (
-          <>
-            <h1 className='text-center raleway-700 text-white'>
-              Forex Economic Calendar
-            </h1>
-          </>
-        ) : (
-          ''
-        )}
-        {location.pathname === '/compounding-calculator' ? (
-          <>
-            <h1 className='text-center raleway-700 text-white'>
-              Forex Compounding Calculator
-            </h1>
-          </>
-        ) : (
-          ''
-        )}
+    <>
+      <div
+        className='my-jumbotron'
+        style={{
+          background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${bgImage})`,
+          height:
+            windowDimension.winWidth < 990 && location.pathname === '/'
+              ? `80vh`
+              : '65vh',
+        }}
+      >
+        <Container>
+          {location.pathname === '/' ? (
+            <div>
+              <p className='text-center jumbotron-content'>
+                Bullish Beast has broken the code in trading, investors please
+                contact (RFIT) Rocket Financial Investment Traders,
+              </p>
+              <p className='text-center jumbotron-content'>
+                Email: info@bullishbeast.co.za Website: www.bullishbeast.co.za
+              </p>
+            </div>
+          ) : (
+            ''
+          )}
+          {location.pathname === '/economic-calendar' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>
+                Forex Economic Calendar
+              </h1>
+            </>
+          ) : (
+            ''
+          )}
+          {location.pathname === '/compounding-calculator' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>
+                Forex Compounding Calculator
+              </h1>
+            </>
+          ) : (
+            ''
+          )}
 
-        {location.pathname === '/live-market' ? (
-          <>
-            <h1 className='text-center raleway-700 text-white'>Live Market</h1>
-          </>
-        ) : (
-          ''
-        )}
+          {location.pathname === '/live-market' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>
+                Live Market
+              </h1>
+            </>
+          ) : (
+            ''
+          )}
 
-        {location.pathname === '/real-time-chart' ? (
-          <>
-            <h1 className='text-center raleway-700 text-white'>
-              Real Time Chart
-            </h1>
-          </>
-        ) : (
-          ''
-        )}
+          {location.pathname === '/real-time-chart' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>
+                Real Time Chart
+              </h1>
+            </>
+          ) : (
+            ''
+          )}
 
-        {location.pathname === '/screener' ? (
-          <>
-            <h1 className='text-center raleway-700 text-white'>Screener</h1>
-          </>
-        ) : (
-          ''
-        )}
+          {location.pathname === '/screener' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>Screener</h1>
+            </>
+          ) : (
+            ''
+          )}
 
-        {location.pathname === '/cryptocurrency-market' ? (
-          <>
-            <h1 className='text-center raleway-700 text-white'>
-              Cryptocurrency Market
-            </h1>
-          </>
-        ) : (
-          ''
-        )}
+          {location.pathname === '/cryptocurrency-market' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>
+                Cryptocurrency Market
+              </h1>
+            </>
+          ) : (
+            ''
+          )}
 
-        {location.pathname === '/fundamental-data' ? (
-          <>
-            <h1 className='text-center raleway-700 text-white'>
-              Fundamental Data
-            </h1>
-          </>
-        ) : (
-          ''
-        )}
+          {location.pathname === '/fundamental-data' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>
+                Fundamental Data
+              </h1>
+            </>
+          ) : (
+            ''
+          )}
 
-        {location.pathname === '/market-data' ? (
-          <>
-            <h1 className='text-center raleway-700 text-white'>Market Data</h1>
-          </>
-        ) : (
-          ''
-        )}
-        {location.pathname === '/stock-market' ? (
-          <>
-            <h1 className='text-center raleway-700 text-white'>Stock Market</h1>
-          </>
-        ) : (
-          ''
-        )}
+          {location.pathname === '/market-data' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>
+                Market Data
+              </h1>
+            </>
+          ) : (
+            ''
+          )}
+          {location.pathname === '/stock-market' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>
+                Stock Market
+              </h1>
+            </>
+          ) : (
+            ''
+          )}
 
-        {location.pathname === '/symbol-overview' ? (
-          <>
-            <h1 className='text-center raleway-700 text-white'>
-              Symbol Overview
-            </h1>
-          </>
-        ) : (
-          ''
-        )}
+          {location.pathname === '/symbol-overview' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>
+                Symbol Overview
+              </h1>
+            </>
+          ) : (
+            ''
+          )}
 
-        {location.pathname === '/forex-cross-rates' ? (
-          <>
-            <h1 className='text-center raleway-700 text-white'>
-              Forex Cross Rates
-            </h1>
-          </>
-        ) : (
-          ''
-        )}
+          {location.pathname === '/forex-cross-rates' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>
+                Forex Cross Rates
+              </h1>
+            </>
+          ) : (
+            ''
+          )}
 
-        {location.pathname === '/forex-heat-map' ? (
-          <>
-            <h1 className='text-center raleway-700 text-white'>
-              Forex Heat Map
-            </h1>
-          </>
-        ) : (
-          ''
-        )}
-      </Container>
-    </div>
+          {location.pathname === '/forex-heat-map' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>
+                Forex Heat Map
+              </h1>
+            </>
+          ) : (
+            ''
+          )}
+        </Container>
+      </div>
+      <div
+        className='col-12 gradient-line'
+        style={{ height: '5px', display: 'block !important' }}
+      ></div>
+    </>
   )
 }
 
