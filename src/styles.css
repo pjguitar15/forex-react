@@ -169,7 +169,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-
 .my-sub-menu-mb {
   transition: all 0.3s ease-in-out;
 }
@@ -221,4 +220,15 @@
 
 .blog-item-img:hover > .inner-btn-parent {
   opacity: 1;
+}
+
+.about-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.about-card:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+  transition: background-color 300ms linear;
 }

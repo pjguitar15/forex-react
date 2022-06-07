@@ -20,7 +20,7 @@ const EconomicCalendar = () => {
       script.innerHTML = JSON.stringify({
         width: '100%',
         height: '500',
-        colorTheme: 'light',
+        colorTheme: 'dark',
         isTransparent: false,
         locale: 'en',
         importanceFilter: '-1,0,1',
