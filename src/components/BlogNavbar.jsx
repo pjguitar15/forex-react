@@ -136,14 +136,14 @@ const BlogNavbar = () => {
 
             <Navbar.Collapse id='basic-navbar-nav'>
               <Nav className='ms-auto'>
-                <Link
+                {/* <Link
                   onClick={() => setIsToggled(false)}
                   className={`link-style montserrat mx-3 text-white`}
                   to='/about'
                   style={{ fontSize: '14px' }}
                 >
                   About
-                </Link>
+                </Link> */}
                 <div
                   className='parent-dropdown'
                   style={{ position: 'relative', display: 'inline-block' }}
