@@ -29,7 +29,6 @@ const RealTimeChart = () => {
         })
       )
       scriptRef.current.appendChild(script)
-      console.log('test')
     }
   }, [toggle])
   return (

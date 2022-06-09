@@ -29,6 +29,8 @@ import SymbolOverview from './pages/symbol-overview/SymbolOverview';
 import ForexCrossRates from './pages/forex-cross-rates/ForexCrossRates';
 import ForexHeatMap from './pages/forex-heat-map/ForexHeatMap';
 import LoginPage from './pages/login/LoginPage';
+import Register from './pages/login/Register';
+import Portfolios from './pages/home/protected-page/Portfolios';
 
 function App() {
   return (
@@ -38,7 +40,7 @@ function App() {
           <EconomicCalendarProvider>
             <Routes>
               {/* Home - Blog posts */}
-              <Route path='/' element={<><HomeNavbar /><Home /></>} />
+              <Route path='/' element={<><HomeNavbar /><Home /><Footer /></>} />
               {/* About page */}
               <Route path='/about' element={<><HomeNavbar /><About /></>} />
               {/* <Route path='/add' element={<AddItemsToFirebase />} /> */}
@@ -68,6 +70,8 @@ function App() {
               <Route path='/currency-converter' element={<><BlogNavbar /><CurrencyCoverter /></>} />
 
               <Route path='/login' element={<><BlogNavbar /><LoginPage /></>} />
+              <Route path='/register' element={<><BlogNavbar /><Register /></>} />
+              <Route path='/investment-portfolios' element={<><BlogNavbar /><Portfolios /></>} />
 
               {/* Error page */}
               <Route path='*' element={<ErrorPage />} />
@@ -75,7 +79,7 @@ function App() {
           </EconomicCalendarProvider>
         </ContextProvider>
       </Router>
-      <Footer />
+
       {/* Blog Post Item */}
       {/* Economic Calendar */}
       {/* Compounding Calculator */}

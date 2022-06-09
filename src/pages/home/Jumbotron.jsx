@@ -37,7 +37,6 @@ const Jumbotron = () => {
   const location = useLocation()
 
   useEffect(() => {
-    console.log(location.pathname)
     switch (location.pathname) {
       case '/compounding-calculator':
         // code block

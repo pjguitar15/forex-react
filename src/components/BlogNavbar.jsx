@@ -7,6 +7,7 @@ const BlogNavbar = () => {
   const [navbar, setNavbar] = useState(false)
   const [isToggled, setIsToggled] = useState(false)
   const [isMobileMarketClicked, setIsMobileMarketClicked] = useState(false)
+  const [isTokenAvailable, setIsTokenAvailable] = useState(false)
 
   const [windowDimension, detectHW] = useState({
     winWidth: window.innerWidth,
@@ -47,6 +48,15 @@ const BlogNavbar = () => {
   }
 
   window.addEventListener('scroll', scrollListener)
+
+  useEffect(() => {
+    let authToken = sessionStorage.getItem('Auth Token')
+    if (authToken) {
+      setIsTokenAvailable(true)
+    } else {
+      setIsTokenAvailable(false)
+    }
+  }, [location])
   return (
     <div>
       <div>
@@ -59,7 +69,7 @@ const BlogNavbar = () => {
           expand='xl'
           expanded={isToggled}
           style={
-            navbar || windowDimension.winWidth < 990
+            navbar || windowDimension.winWidth < 992
               ? { padding: `16px`, height: isToggled ? '100vh' : '' }
               : {
                   padding: `30px`,
@@ -71,7 +81,7 @@ const BlogNavbar = () => {
               <Navbar.Toggle
                 onClick={() => setIsToggled(!isToggled)}
                 className={`custom-toggler border-0 shadow-none ${
-                  windowDimension.winWidth < 990 && !isToggled
+                  windowDimension.winWidth < 992 && !isToggled
                     ? 'd-block'
                     : 'd-none'
                 }`}
@@ -81,7 +91,7 @@ const BlogNavbar = () => {
             <div className='me-auto'>
               <div
                 className={`${
-                  windowDimension.winWidth < 990 ? 'd-block' : 'd-none'
+                  windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
                 } ${!isToggled ? 'd-none' : 'd-block'}`}
               >
                 <div
@@ -98,7 +108,7 @@ const BlogNavbar = () => {
               style={{ cursor: 'pointer' }}
               onClick={() => navigate('/')}
               className={`navbar-brand-style text-uppercase text-white ${
-                windowDimension.winWidth < 990 ? 'd-none' : 'd-block'
+                windowDimension.winWidth < 992 ? 'd-none' : 'd-block'
               }`}
             >
               <div className='d-flex align-items-center justify-content-center'>
@@ -118,7 +128,7 @@ const BlogNavbar = () => {
                 style={{ cursor: 'pointer' }}
                 onClick={() => navigate('/')}
                 className={`navbar-brand-style  text-uppercase text-white ${
-                  windowDimension.winWidth < 990 ? 'd-block' : 'd-none'
+                  windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
                 } ${isToggled ? 'd-none' : 'd-block'}`}
               >
                 <div className='d-flex align-items-center justify-content-center'>
@@ -163,7 +173,7 @@ const BlogNavbar = () => {
                     Market <i className='ms-1 bi bi-chevron-down'></i>
                   </div>
                   {/* Dropdown menu here only show on medium device */}
-                  {windowDimension.winWidth >= 990 ? (
+                  {windowDimension.winWidth >= 992 ? (
                     <div
                       className='my-dropdown rounded'
                       style={{
@@ -400,19 +410,32 @@ const BlogNavbar = () => {
                     Compounding Calculator
                   </span>
                 </Link>
-                <Button
+                <Link
                   onClick={() => {
-                    navigate('/login')
                     setIsToggled(false)
                   }}
-                  variant='outline-light'
-                  size='sm'
-                  className={`mx-3 raleway-400 ${
-                    windowDimension.winWidth < 990 ? 'mt-2' : ''
-                  }`}
+                  className={`link-style montserrat mx-3 text-white`}
+                  to='/login'
+                  style={{ fontSize: '14px' }}
                 >
-                  Login
-                </Button>
+                  {isTokenAvailable ? (
+                    'Investment Portfolios'
+                  ) : (
+                    <span
+                      style={
+                        location.pathname === '/login'
+                          ? { color: 'white' }
+                          : { color: '' }
+                      }
+                    >
+                      <i
+                        className='bi bi-person-fill me-1'
+                        style={{ fontSize: '16px' }}
+                      ></i>{' '}
+                      Login/Register
+                    </span>
+                  )}
+                </Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
