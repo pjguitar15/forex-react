@@ -66,6 +66,18 @@ const Portfolios = () => {
       <Container>
         <div className='text-end'>
           <Button
+            variant='outline-light'
+            className='rubik-400 me-3'
+            size='sm'
+            onClick={() => alert('Sorry, im still working on this')}
+          >
+            <i
+              className='bi bi-plus-circle me-2'
+              style={{ fontSize: '16px' }}
+            ></i>
+            Register your investment portfolio
+          </Button>
+          <Button
             variant='light'
             className='rubik-400'
             size='sm'
