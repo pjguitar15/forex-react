@@ -4,15 +4,13 @@ import { useNavigate } from 'react-router-dom'
 import { db } from '../../../firebase/firebaseConfig'
 import { collection, getDocs, query, orderBy } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
+// top buttons component
+import TopButtons from '../../../components/logged-in-components/TopButtons'
 
 const Portfolios = () => {
   const [firebaseData, setFirebaseData] = useState([])
   const [currentLoggedInUser, setCurrentLoggedInUser] = useState('')
   const navigate = useNavigate()
-  const logoutHandler = () => {
-    sessionStorage.removeItem('Auth Token')
-    navigate('/login')
-  }
 
   useEffect(() => {
     let authToken = sessionStorage.getItem('Auth Token')
@@ -64,33 +62,15 @@ const Portfolios = () => {
   return (
     <div className='bg-dark text-light' style={{ padding: '150px 0' }}>
       <Container>
-        <div className='text-end'>
-          <Button
-            variant='outline-light'
-            className='rubik-400 me-3'
-            size='sm'
-            onClick={() => alert('Sorry, im still working on this')}
-          >
-            <i
-              className='bi bi-plus-circle me-2'
-              style={{ fontSize: '16px' }}
-            ></i>
-            Register your investment portfolio
-          </Button>
-          <Button
-            variant='light'
-            className='rubik-400'
-            size='sm'
-            onClick={logoutHandler}
-          >
-            Logout
-          </Button>
+        <TopButtons />
+        
+        <div className='mt-3'>
+          {currentLoggedInUser ? (
+            <h6>Welcome {currentLoggedInUser}</h6>
+          ) : (
+            <h6>Loading...</h6>
+          )}
         </div>
-        {currentLoggedInUser ? (
-          <h6>Welcome {currentLoggedInUser}</h6>
-        ) : (
-          <h6>Loading...</h6>
-        )}
 
         <h1 className='text-center rubik-400 mt-5'>Investment Portfolios</h1>
       </Container>

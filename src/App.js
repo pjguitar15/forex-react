@@ -30,7 +30,13 @@ import ForexCrossRates from './pages/forex-cross-rates/ForexCrossRates';
 import ForexHeatMap from './pages/forex-heat-map/ForexHeatMap';
 import LoginPage from './pages/login/LoginPage';
 import Register from './pages/login/Register';
+// Protected pages
 import Portfolios from './pages/home/protected-page/Portfolios';
+import Payouts from './pages/home/protected-page/Payouts';
+import BankingDetails from './pages/home/protected-page/BankingDetails';
+import PersonalDetails from './pages/home/protected-page/PersonalDetails';
+import ShowInvoice from './pages/home/protected-page/ShowInvoice';
+import RegisterYourPortfolio from './pages/home/protected-page/RegisterYourPortfolio';
 
 function App() {
   return (
@@ -72,6 +78,11 @@ function App() {
               <Route path='/login' element={<><BlogNavbar /><LoginPage /></>} />
               <Route path='/register' element={<><BlogNavbar /><Register /></>} />
               <Route path='/investment-portfolios' element={<><BlogNavbar /><Portfolios /></>} />
+              <Route path='/payouts' element={<><BlogNavbar /><Payouts /></>} />
+              <Route path='/banking-details' element={<><BlogNavbar /><BankingDetails /></>} />
+              <Route path='/personal-details' element={<><BlogNavbar /><PersonalDetails /></>} />
+              <Route path='/show-invoice' element={<><BlogNavbar /><ShowInvoice /></>} />
+              <Route path='/register-your-portfolio' element={<><BlogNavbar /><RegisterYourPortfolio /></>} />
 
               {/* Error page */}
               <Route path='*' element={<ErrorPage />} />
