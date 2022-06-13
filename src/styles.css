@@ -248,3 +248,11 @@
   background-color: #ffe53b;
   background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
 }
+
+.ib-logo {
+  cursor: pointer;
+  transition: all 0.05s ease-in-out;
+}
+.ib-logo:hover {
+  padding: 0 0 !important;
+}

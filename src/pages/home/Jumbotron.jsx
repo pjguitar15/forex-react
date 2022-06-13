@@ -108,7 +108,7 @@ const Jumbotron = () => {
                 contact (RFIT) Rocket Financial Investment Traders,
               </p>
               <p className='text-center jumbotron-content'>
-                Email: info@bullishbeast.co.za Website: www.bullishbeast.co.za
+                Email: info@rftraders.co.za Website: www.bullishbeast.co.za
               </p>
             </div>
           ) : (

@@ -10,10 +10,10 @@ const TopButtons = () => {
   }
   return (
     <>
-      <div className='text-start'>
+      <div className='text-end'>
         <Button
           variant='outline-light'
-          className='rubik-400 me-3 my-1'
+          className='rubik-400 me-3 my-1 border-0'
           size='sm'
           onClick={() => navigate('/payouts')}
         >
@@ -28,10 +28,28 @@ const TopButtons = () => {
             <path d='M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z' />
           </svg>{' '}
           Payouts
+        </Button>{' '}
+        <Button
+          variant='outline-light'
+          className='rubik-400 me-3 my-1 border-0'
+          size='sm'
+          onClick={() => navigate('/votality')}
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            fill='currentColor'
+            className='bi bi-wallet2 me-2'
+            viewBox='0 0 16 16'
+          >
+            <path d='M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z' />
+          </svg>{' '}
+          Votality
         </Button>
         <Button
           variant='outline-light'
-          className='rubik-400 me-3 my-1'
+          className='rubik-400 me-3 my-1 border-0'
           size='sm'
           onClick={() => navigate('/banking-details')}
         >
@@ -49,7 +67,7 @@ const TopButtons = () => {
         </Button>
         <Button
           variant='outline-light'
-          className='rubik-400 me-3 my-1'
+          className='rubik-400 me-3 my-1 border-0'
           size='sm'
           onClick={() => navigate('/personal-details')}
         >
@@ -65,7 +83,7 @@ const TopButtons = () => {
           </svg>
           Personal Details
         </Button>
-        <Button
+        {/* <Button
           variant='outline-light'
           className='rubik-400 me-3 my-1'
           size='sm'
@@ -83,10 +101,10 @@ const TopButtons = () => {
             <path d='M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z' />
           </svg>
           Show Invoice
-        </Button>
+        </Button> */}
         <Button
           variant='outline-light'
-          className='rubik-400 me-3 my-1'
+          className='rubik-400 me-3 my-1 border-0'
           size='sm'
           onClick={() => navigate('/register-your-portfolio')}
         >
@@ -94,7 +112,7 @@ const TopButtons = () => {
             className='bi bi-plus-circle me-2'
             style={{ fontSize: '16px' }}
           ></i>
-          Register your investment portfolio
+          Register your portfolio
         </Button>
         <Button
           variant='light'

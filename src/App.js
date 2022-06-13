@@ -37,6 +37,8 @@ import BankingDetails from './pages/home/protected-page/BankingDetails';
 import PersonalDetails from './pages/home/protected-page/PersonalDetails';
 import ShowInvoice from './pages/home/protected-page/ShowInvoice';
 import RegisterYourPortfolio from './pages/home/protected-page/RegisterYourPortfolio';
+import Partnership from './pages/partnership/Partnership';
+import Votality from './pages/home/protected-page/Votality';
 
 function App() {
   return (
@@ -83,6 +85,8 @@ function App() {
               <Route path='/personal-details' element={<><BlogNavbar /><PersonalDetails /></>} />
               <Route path='/show-invoice' element={<><BlogNavbar /><ShowInvoice /></>} />
               <Route path='/register-your-portfolio' element={<><BlogNavbar /><RegisterYourPortfolio /></>} />
+              <Route path='/partnership' element={<><BlogNavbar /><Partnership /></>} />
+              <Route path='/votality' element={<><BlogNavbar /><Votality /></>} />
 
               {/* Error page */}
               <Route path='*' element={<ErrorPage />} />

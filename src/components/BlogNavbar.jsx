@@ -154,6 +154,14 @@ const BlogNavbar = () => {
                 >
                   About
                 </Link> */}
+                <Link
+                  onClick={() => setIsToggled(false)}
+                  className={`link-style montserrat mx-3 text-white`}
+                  to='/partnership'
+                  style={{ fontSize: '14px' }}
+                >
+                  Partnership
+                </Link>
                 <div
                   className='parent-dropdown'
                   style={{ position: 'relative', display: 'inline-block' }}
@@ -200,6 +208,13 @@ const BlogNavbar = () => {
                         style={{ cursor: 'pointer' }}
                       >
                         Screener
+                      </div>{' '}
+                      <div
+                        onClick={() => navigate('/economic-calendar')}
+                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Economic Calendar
                       </div>
                       <div
                         onClick={() => navigate('/cryptocurrency-market')}
@@ -236,7 +251,6 @@ const BlogNavbar = () => {
                     >
                       Symbol Overview
                     </div> */}
-
                       <div
                         onClick={() => navigate('/forex-cross-rates')}
                         className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
@@ -244,7 +258,6 @@ const BlogNavbar = () => {
                       >
                         Forex Cross Rates
                       </div>
-
                       <div
                         onClick={() => navigate('/forex-heat-map')}
                         className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
@@ -294,6 +307,17 @@ const BlogNavbar = () => {
                         style={{ cursor: 'pointer' }}
                       >
                         Screener
+                      </div>{' '}
+                      <div
+                        onClick={() => {
+                          navigate('/economic-calendar')
+                          setIsToggled(false)
+                          setIsMobileMarketClicked(false)
+                        }}
+                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
+                        style={{ cursor: 'pointer' }}
+                      >
+                        Economic Calendar
                       </div>
                       <div
                         onClick={() => {
@@ -350,7 +374,6 @@ const BlogNavbar = () => {
                     >
                       Symbol Overview
                     </div> */}
-
                       <div
                         onClick={() => {
                           navigate('/forex-cross-rates')
@@ -362,7 +385,6 @@ const BlogNavbar = () => {
                       >
                         Forex Cross Rates
                       </div>
-
                       <div
                         onClick={() => {
                           navigate('/forex-heat-map')
@@ -377,15 +399,6 @@ const BlogNavbar = () => {
                     </div>
                   )}
                 </div>
-                <Link
-                  onClick={() => setIsToggled(false)}
-                  className={`link-style montserrat mx-3 text-white`}
-                  to='/economic-calendar'
-                  style={{ fontSize: '14px' }}
-                >
-                  Economic Calendar
-                </Link>
-
                 <Link
                   onClick={() => setIsToggled(false)}
                   className={`link-style montserrat mx-3 text-white`}
