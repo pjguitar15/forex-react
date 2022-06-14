@@ -14,7 +14,7 @@ const LoginPage = () => {
     const authentication = getAuth(app)
     signInWithEmailAndPassword(authentication, email, password)
       .then((response) => {
-        navigate('/investment-portfolios')
+        navigate('/show-invoice')
         sessionStorage.setItem(
           'Auth Token',
           response._tokenResponse.refreshToken

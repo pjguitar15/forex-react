@@ -83,7 +83,11 @@ const MyNavbar = () => {
         }
       >
         <Container>
-          <div>
+          <div
+            className={`d-flex justify-content-between ${
+              windowDimension.winWidth < 992 ? 'col-12' : ''
+            }`}
+          >
             <Navbar.Toggle
               onClick={() => setIsToggled(!isToggled)}
               className={`custom-toggler border-0 shadow-none ${
@@ -93,22 +97,81 @@ const MyNavbar = () => {
               }`}
               aria-controls='basic-navbar-nav'
             />
-          </div>
-          <div className='me-auto'>
-            <div
-              className={`${
-                windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
-              } ${!isToggled ? 'd-none' : 'd-block'}`}
-            >
-              <div
-                onClick={() => setIsToggled(false)}
-                className='text-white'
+            <div className='d-flex flex-reverse justify-content-between'>
+              {/* on small device */}
+              <Navbar.Brand
                 style={{ cursor: 'pointer' }}
+                onClick={() => navigate('/')}
+                className={`navbar-brand-style  text-uppercase text-white ${
+                  windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
+                } ${isToggled ? 'd-none' : 'd-block'}`}
               >
-                ✖
+                <div className='d-flex align-items-center justify-content-center'>
+                  <div style={{ height: '50px' }}>
+                    <img
+                      src={logo}
+                      alt='logo'
+                      className='w-100 h-100 rounded'
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                </div>
+              </Navbar.Brand>
+            </div>
+          </div>
+          <div className={`${windowDimension.winWidth < 992 ? 'w-100' : ''}`}>
+            <div className='col-12'>
+              <div
+                className={`d-flex justify-content-between col-12 ${
+                  windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
+                } ${!isToggled ? 'd-none' : 'd-block'}`}
+              >
+                <div
+                  onClick={() => setIsToggled(false)}
+                  className='text-white'
+                  style={{ cursor: 'pointer' }}
+                >
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='18'
+                    height='18'
+                    fill='white'
+                    className='bi bi-x-lg me-2'
+                    viewBox='0 0 16 16'
+                  >
+                    <path d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z' />
+                  </svg>
+                </div>
+                <Link
+                  onClick={() => {
+                    setIsToggled(false)
+                  }}
+                  className={`link-style montserrat mx-3 text-white ms-auto ${
+                    windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
+                  }`}
+                  to='/login'
+                  style={{ fontSize: '14px' }}
+                >
+                  {isTokenAvailable ? (
+                    'Investment Portfolios'
+                  ) : (
+                    <span
+                      style={
+                        location.pathname === '/login'
+                          ? { color: 'white' }
+                          : { color: '' }
+                      }
+                    >
+                      <i
+                        className='bi bi-person-fill me-1'
+                        style={{ fontSize: '16px' }}
+                      ></i>{' '}
+                      Login/Register
+                    </span>
+                  )}
+                </Link>
               </div>
             </div>
-            <hr className='text-light' />
           </div>
           <Navbar.Brand
             style={{ cursor: 'pointer' }}
@@ -128,29 +191,10 @@ const MyNavbar = () => {
               </div>
             </div>
           </Navbar.Brand>
-          <div className='d-flex flex-reverse justify-content-between'>
-            {/* on small device */}
-            <Navbar.Brand
-              style={{ cursor: 'pointer' }}
-              onClick={() => navigate('/')}
-              className={`navbar-brand-style  text-uppercase text-white ${
-                windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
-              } ${isToggled ? 'd-none' : 'd-block'}`}
-            >
-              <div className='d-flex align-items-center justify-content-center'>
-                <div className='me-3' style={{ height: '50px' }}>
-                  <img
-                    src={logo}
-                    alt='logo'
-                    className='w-100 h-100 rounded'
-                    style={{ objectFit: 'cover' }}
-                  />
-                </div>
-              </div>
-            </Navbar.Brand>
-          </div>
+
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ms-auto'>
+              <hr className='text-light' />
               <Link
                 onClick={() => setIsToggled(false)}
                 className={`${
@@ -167,7 +211,7 @@ const MyNavbar = () => {
                 to='/partnership'
                 style={{ fontSize: '14px' }}
               >
-                Partnership
+                Our Partners
               </Link>
               {/* <Link
                 onClick={() => setIsToggled(false)}
@@ -445,7 +489,9 @@ const MyNavbar = () => {
                 onClick={() => {
                   setIsToggled(false)
                 }}
-                className={`link-style montserrat mx-3 text-white`}
+                className={`link-style montserrat mx-3 text-white ${
+                  windowDimension.winWidth < 992 ? 'd-none' : 'd-block'
+                }`}
                 to='/login'
                 style={{ fontSize: '14px' }}
               >

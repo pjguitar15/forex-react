@@ -32,13 +32,15 @@ import LoginPage from './pages/login/LoginPage';
 import Register from './pages/login/Register';
 // Protected pages
 import Portfolios from './pages/home/protected-page/Portfolios';
-import Payouts from './pages/home/protected-page/Payouts';
-import BankingDetails from './pages/home/protected-page/BankingDetails';
+import Withdrawal from './pages/home/protected-page/Withdrawal';
 import PersonalDetails from './pages/home/protected-page/PersonalDetails';
 import ShowInvoice from './pages/home/protected-page/ShowInvoice';
-import RegisterYourPortfolio from './pages/home/protected-page/RegisterYourPortfolio';
+import CreditNote from './pages/home/protected-page/CreditNote';
 import Partnership from './pages/partnership/Partnership';
-import Votality from './pages/home/protected-page/Votality';
+import FicaDocuments from './pages/home/protected-page/FicaDocuments';
+import Deposit from './pages/home/protected-page/Deposit';
+import Payouts from './pages/home/protected-page/Payouts';
+import ElectronicWallet from './pages/home/protected-page/ElectronicWallet';
 
 function App() {
   return (
@@ -80,13 +82,15 @@ function App() {
               <Route path='/login' element={<><BlogNavbar /><LoginPage /></>} />
               <Route path='/register' element={<><BlogNavbar /><Register /></>} />
               <Route path='/investment-portfolios' element={<><BlogNavbar /><Portfolios /></>} />
-              <Route path='/payouts' element={<><BlogNavbar /><Payouts /></>} />
-              <Route path='/banking-details' element={<><BlogNavbar /><BankingDetails /></>} />
+              <Route path='/fica-documents' element={<><BlogNavbar /><FicaDocuments /></>} />
+              <Route path='/withdrawal' element={<><BlogNavbar /><Withdrawal /></ >} />
               <Route path='/personal-details' element={<><BlogNavbar /><PersonalDetails /></>} />
               <Route path='/show-invoice' element={<><BlogNavbar /><ShowInvoice /></>} />
-              <Route path='/register-your-portfolio' element={<><BlogNavbar /><RegisterYourPortfolio /></>} />
+              <Route path='/credit-note' element={<><BlogNavbar /><CreditNote /></>} />
               <Route path='/partnership' element={<><BlogNavbar /><Partnership /></>} />
-              <Route path='/votality' element={<><BlogNavbar /><Votality /></>} />
+              <Route path='/deposit' element={<><BlogNavbar /><Deposit /></>} />
+              <Route path='/payouts' element={<><BlogNavbar /><Payouts /></>} />
+              <Route path='/electronic-wallet' element={<><BlogNavbar /><ElectronicWallet /></>} />
 
               {/* Error page */}
               <Route path='*' element={<ErrorPage />} />

@@ -63,7 +63,6 @@ const Portfolios = () => {
     <div className='bg-dark text-light' style={{ padding: '150px 0' }}>
       <Container>
         <TopButtons />
-        
         <div className='mt-3'>
           {currentLoggedInUser ? (
             <h6>Welcome {currentLoggedInUser}</h6>
