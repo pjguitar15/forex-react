@@ -33,13 +33,13 @@ import Register from './pages/login/Register';
 // Protected pages
 import Portfolios from './pages/home/protected-page/Portfolios';
 import Withdrawal from './pages/home/protected-page/Withdrawal';
-import PersonalDetails from './pages/home/protected-page/PersonalDetails';
+import PersonalDetails from './pages/home/protected-page/personal-details/PersonalDetails';
 import ShowInvoice from './pages/home/protected-page/ShowInvoice';
 import CreditNote from './pages/home/protected-page/CreditNote';
 import Partnership from './pages/partnership/Partnership';
 import FicaDocuments from './pages/home/protected-page/FicaDocuments';
 import Deposit from './pages/home/protected-page/Deposit';
-import Payouts from './pages/home/protected-page/Payouts';
+import Payouts from './pages/home/protected-page/payouts/Payouts';
 import ElectronicWallet from './pages/home/protected-page/ElectronicWallet';
 
 function App() {

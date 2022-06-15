@@ -13,7 +13,6 @@ const ShowInvoice = () => {
     let authToken = sessionStorage.getItem('Auth Token')
     if (authToken) {
       // take data here
-      console.log(isOnline)
       navigate('/show-invoice')
     } else {
       navigate('/login')

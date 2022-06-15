@@ -3,22 +3,34 @@ import { Form, Button, Alert } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { app } from '../../firebase/firebaseConfig'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import useGetDataFromEmail from '../../custom-hooks/useGetDataFromEmail'
 
 const LoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [alertMsg, setAlertMsg] = useState('')
+  const [data] = useGetDataFromEmail()
   const navigate = useNavigate()
   const submitHandler = (e) => {
     e.preventDefault()
     const authentication = getAuth(app)
     signInWithEmailAndPassword(authentication, email, password)
       .then((response) => {
-        navigate('/show-invoice')
-        sessionStorage.setItem(
-          'Auth Token',
-          response._tokenResponse.refreshToken
-        )
+        if (data) {
+          if (!data.isPaid) {
+            navigate('/show-invoice')
+            sessionStorage.setItem(
+              'Auth Token',
+              response._tokenResponse.refreshToken
+            )
+          } else {
+            navigate('/investment-portfolios')
+            sessionStorage.setItem(
+              'Auth Token',
+              response._tokenResponse.refreshToken
+            )
+          }
+        }
       })
       .catch((err) => {
         const errorCode = err.code

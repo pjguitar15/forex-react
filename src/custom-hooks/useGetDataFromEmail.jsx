@@ -16,8 +16,6 @@ const useGetDataFromEmail = () => {
         const data = await getDocs(q)
         const response = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
         const filter = response.filter((item) => item.email === user.email)
-        console.log(response)
-        console.log(user.email)
         setData(filter[0])
         setLoading(false)
       }
@@ -25,9 +23,6 @@ const useGetDataFromEmail = () => {
     }
   }, [user])
 
-  useEffect(() => {
-    // console.log(data)
-  }, [data])
   return [data, loading]
 }
 
