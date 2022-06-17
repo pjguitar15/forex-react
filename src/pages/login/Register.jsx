@@ -274,7 +274,6 @@ const Register = () => {
             <Button
               onClick={() => navigate('/login')}
               variant='outline-primary'
-              type='submit'
               size='sm'
               className='rubik-400 mt-2 col-12'
             >
