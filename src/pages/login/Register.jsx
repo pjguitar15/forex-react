@@ -268,7 +268,7 @@ const Register = () => {
             </Button>
           </Form>
         </div>
-        <div className='col-lg-6 text-light py-5'>
+        <div className='col-lg-6 text-light p-5'>
           <h1>Open a live trading account</h1>
           <div className='my-5'>
             <h4>Complete your application</h4>

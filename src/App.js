@@ -41,6 +41,7 @@ import FicaDocuments from './pages/home/protected-page/FicaDocuments';
 import Deposit from './pages/home/protected-page/Deposit';
 import Payouts from './pages/home/protected-page/payouts/Payouts';
 import ElectronicWallet from './pages/home/protected-page/ElectronicWallet';
+import VerifyEmail from './pages/home/protected-page/VerifyEmail';
 
 function App() {
   return (
@@ -91,6 +92,7 @@ function App() {
               <Route path='/deposit' element={<><BlogNavbar /><Deposit /></>} />
               <Route path='/payouts' element={<><BlogNavbar /><Payouts /></>} />
               <Route path='/electronic-wallet' element={<><BlogNavbar /><ElectronicWallet /></>} />
+              <Route path='/verify-email' element={<><BlogNavbar /><VerifyEmail /></>} />
 
               {/* Error page */}
               <Route path='*' element={<ErrorPage />} />

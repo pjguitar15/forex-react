@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Button } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { db } from '../../../firebase/firebaseConfig'
 import { collection, getDocs, query, orderBy } from 'firebase/firestore'
@@ -15,7 +15,14 @@ const Portfolios = () => {
   useEffect(() => {
     let authToken = sessionStorage.getItem('Auth Token')
     if (authToken) {
-      navigate('/investment-portfolios')
+      getAuth().onAuthStateChanged((user) => {
+        if (user.emailVerified === true) {
+          navigate('/investment-portfolios')
+        } else {
+          console.log('Please verify your email first')
+          navigate('/verify-email')
+        }
+      })
     } else {
       navigate('/login')
     }
@@ -25,6 +32,7 @@ const Portfolios = () => {
     const getUser = () => {
       getAuth().onAuthStateChanged((user) => {
         if (user) {
+          console.log(user.emailVerified)
           // Get current logged in username
           const collectionRef = collection(db, 'users')
           const q = query(collectionRef, orderBy('timestamp', 'desc'))
