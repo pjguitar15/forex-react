@@ -19,7 +19,6 @@ const Portfolios = () => {
         if (user.emailVerified === true) {
           navigate('/investment-portfolios')
         } else {
-          console.log('Please verify your email first')
           navigate('/verify-email')
         }
       })

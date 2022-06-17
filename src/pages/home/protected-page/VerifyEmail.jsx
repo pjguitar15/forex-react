@@ -5,14 +5,19 @@ import { useNavigate } from 'react-router-dom'
 
 const VerifyEmail = () => {
   const [loggedInEmail, setLoggedInEmail] = useState('')
+  const [btnMsg, setBtnMsg] = useState('RESEND VERIFICATION EMAIL')
+  const [isVerified, setIsVerified] = useState(false)
   const navigate = useNavigate()
 
   const sendVerificationHandler = () => {
     getAuth().onAuthStateChanged((user) => {
-      console.log(user)
       try {
         sendEmailVerification(user)
           .then(() => {
+            setBtnMsg('EMAIL VERIFICATION SENT')
+            setTimeout(() => {
+              setBtnMsg('RESEND VERIFICATION EMAIL')
+            }, [7000])
             console.log('Email verification has been sent to your email')
           })
           .catch((err) => {
@@ -21,6 +26,24 @@ const VerifyEmail = () => {
       } catch (error) {}
     })
   }
+
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+      window.location.reload()
+    }, 8000)
+
+    return () => {
+      clearInterval(myInterval)
+    }
+  })
+
+  useEffect(() => {
+    if (isVerified) {
+      console.log('page will reload')
+      window.location.reload()
+    }
+  }, [isVerified])
+
   useEffect(() => {
     const getUser = () => {
       getAuth().onAuthStateChanged((user) => {
@@ -43,7 +66,6 @@ const VerifyEmail = () => {
         if (user.emailVerified === true) {
           navigate('/investment-portfolios')
         } else {
-          console.log('Please verify your email first')
           navigate('/verify-email')
         }
       })
@@ -101,9 +123,11 @@ const VerifyEmail = () => {
             type='primary'
             shape='round'
           >
-            RESEND VERIFICATION EMAIL
+            {btnMsg}
           </Button>
-          <p className='text-danger mt-4'>Trouble Verifying?</p>
+          <div className='mt-4'>
+            <a href='#'>Trouble Verifying?</a>
+          </div>
         </div>
       </Container>
     </div>

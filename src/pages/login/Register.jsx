@@ -3,20 +3,14 @@ import { Form, Button, Alert } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { app } from '../../firebase/firebaseConfig'
 import { db } from '../../firebase/firebaseConfig'
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
-  serverTimestamp,
-  query,
-  orderBy,
-} from 'firebase/firestore'
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth'
+import { addDoc, serverTimestamp, collection } from 'firebase/firestore'
 import RegisterSuccessModal from '../../components/RegisterSuccessModal'
-import useGetDataFromProps from '../../custom-hooks/useGetDataFromProps'
+import useGetDataFromEmail from '../../custom-hooks/useGetDataFromEmail'
 
 const Register = () => {
   const [firstName, setFirstName] = useState('')
@@ -31,6 +25,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [alertMsg, setAlertMsg] = useState('')
   const [isModalVisible, setIsModalVisible] = useState(false)
+  const [data] = useGetDataFromEmail()
 
   const navigate = useNavigate()
   const submitHandler = async (e) => {
@@ -80,7 +75,26 @@ const Register = () => {
       createUserWithEmailAndPassword(authentication, email, password)
         .then((response) => {
           alert('Your account has been created!')
-          navigate('/login')
+          const authentication = getAuth(app)
+          signInWithEmailAndPassword(authentication, email, password).then(
+            (response) => {
+              if (data) {
+                if (!data.isPaid) {
+                  navigate('/show-invoice')
+                  sessionStorage.setItem(
+                    'Auth Token',
+                    response._tokenResponse.refreshToken
+                  )
+                } else {
+                  navigate('/investment-portfolios')
+                  sessionStorage.setItem(
+                    'Auth Token',
+                    response._tokenResponse.refreshToken
+                  )
+                }
+              }
+            }
+          )
         })
         .catch((err) => {
           const errorMessage = err.message
