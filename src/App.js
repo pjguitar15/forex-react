@@ -32,13 +32,11 @@ import LoginPage from './pages/login/LoginPage';
 import Register from './pages/login/Register';
 // Protected pages
 import Portfolios from './pages/home/protected-page/Portfolios';
-import Withdrawal from './pages/home/protected-page/Withdrawal';
 import PersonalDetails from './pages/home/protected-page/personal-details/PersonalDetails';
 import ShowInvoice from './pages/home/protected-page/ShowInvoice';
 import CreditNote from './pages/home/protected-page/CreditNote';
 import Partnership from './pages/partnership/Partnership';
 import FicaDocuments from './pages/home/protected-page/FicaDocuments';
-import Deposit from './pages/home/protected-page/Deposit';
 import Payouts from './pages/home/protected-page/payouts/Payouts';
 import ElectronicWallet from './pages/home/protected-page/ElectronicWallet';
 import VerifyEmail from './pages/home/protected-page/VerifyEmail';
@@ -84,12 +82,10 @@ function App() {
               <Route path='/register' element={<><BlogNavbar /><Register /></>} />
               <Route path='/investment-portfolios' element={<><BlogNavbar /><Portfolios /></>} />
               <Route path='/fica-documents' element={<><BlogNavbar /><FicaDocuments /></>} />
-              <Route path='/withdrawal' element={<><BlogNavbar /><Withdrawal /></ >} />
               <Route path='/personal-details' element={<><BlogNavbar /><PersonalDetails /></>} />
               <Route path='/show-invoice' element={<><BlogNavbar /><ShowInvoice /></>} />
               <Route path='/credit-note' element={<><BlogNavbar /><CreditNote /></>} />
-              <Route path='/partnership' element={<><BlogNavbar /><Partnership /></>} />
-              <Route path='/deposit' element={<><BlogNavbar /><Deposit /></>} />
+              <Route path='/partnership' element={<><HomeNavbar /><Partnership /></>} />
               <Route path='/payouts' element={<><BlogNavbar /><Payouts /></>} />
               <Route path='/electronic-wallet' element={<><BlogNavbar /><ElectronicWallet /></>} />
               <Route path='/verify-email' element={<><BlogNavbar /><VerifyEmail /></>} />

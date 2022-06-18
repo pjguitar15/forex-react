@@ -10,129 +10,67 @@ import ifxBrokers from '../../assets/broker-logos/ifx-brokers.png'
 import thinkMarkets from '../../assets/broker-logos/think-markets.png'
 import tickmill from '../../assets/broker-logos/tickmill.png'
 import xm from '../../assets/broker-logos/xm-logo.png'
+import LogoCard from './LogoCard'
 
 const LogosIb = () => {
   return (
     <div className='row mt-5'>
-      <div
-        className='col-6 col-sm-3 col-lg-2 p-2 ib-logo'
-        onClick={() => alert('still working on this part. thanks!')}
-      >
-        <img
-          className='w-100 h-100 bg-white p-2 rounded'
-          src={alpari}
-          alt='logo'
-        />
-      </div>
-      <div
-        className='col-6 col-sm-3 col-lg-2 p-2 ib-logo'
-        onClick={() => alert('still working on this part. thanks!')}
-      >
-        <img
-          className='w-100 h-100 bg-white p-2 rounded'
-          src={avatrade}
-          alt='logo'
-        />
-      </div>
-      <div
-        className='col-sm-8 col-lg-5 p-2 ib-logo'
-        onClick={() => alert('still working on this part. thanks!')}
-      >
-        <img
-          className='w-100 h-100 bg-white p-1 rounded'
-          style={{ objectFit: 'cover' }}
-          src={exness}
-          alt='logo'
-        />
-      </div>
-      <div
-        className='col-5 col-sm-3 col-lg-2 p-2 ib-logo'
-        onClick={() => alert('still working on this part. thanks!')}
-      >
-        <img
-          className='w-100 h-100 bg-white p-1 rounded'
-          style={{ objectFit: 'cover' }}
-          src={fbs}
-          alt='logo'
-        />
-      </div>{' '}
-      <div
-        className='col-9 col-sm-6 col-lg-4 p-2 ib-logo'
-        onClick={() => alert('still working on this part. thanks!')}
-      >
-        <img
-          className='w-100 h-100 bg-white p-1 rounded'
-          style={{ objectFit: 'cover' }}
-          src={globex360}
-          alt='logo'
-        />
-      </div>{' '}
-      <div
-        className='col-7 col-sm-4 col-lg-3 p-2 ib-logo'
-        onClick={() => alert('still working on this part. thanks!')}
-      >
-        <img
-          className='w-100 h-100 bg-white p-1 rounded'
-          style={{ objectFit: 'cover' }}
-          src={gvMarkets}
-          alt='logo'
-        />
-      </div>
-      <div
-        className='col-6 col-sm-3 col-lg-2 p-2 ib-logo'
-        onClick={() => alert('still working on this part. thanks!')}
-      >
-        <img
-          className='w-100 h-100 bg-white p-1 rounded'
-          style={{ objectFit: 'cover' }}
-          src={hotForex}
-          alt='logo'
-        />
-      </div>
-      <div
-        className='col-10 col-sm-6 col-lg-3 p-2 ib-logo'
-        onClick={() => alert('still working on this part. thanks!')}
-      >
-        <img
-          className='w-100 h-100 bg-white p-1 rounded'
-          style={{ objectFit: 'cover' }}
-          src={ifxBrokers}
-          alt='logo'
-        />
-      </div>
-      <div
-        className='col-7 col-sm-5 col-lg-3 p-2 ib-logo'
-        onClick={() => alert('still working on this part. thanks!')}
-      >
-        <img
-          className='w-100 h-100 bg-white p-1 rounded'
-          style={{ objectFit: 'cover' }}
-          src={thinkMarkets}
-          alt='logo'
-        />
-      </div>
-      <div
-        className='col-7 col-sm-5 col-lg-3 p-2 ib-logo'
-        onClick={() => alert('still working on this part. thanks!')}
-      >
-        <img
-          className='w-100 h-100 bg-white p-1 rounded'
-          style={{ objectFit: 'cover' }}
-          src={tickmill}
-          alt='logo'
-        />
-      </div>
-      <div
-        className='col-8 col-sm-5 col-lg-5 p-2 ib-logo'
-        onClick={() => alert('still working on this part. thanks!')}
-      >
-        <img
-          className='w-100 h-100 bg-white p-3 rounded'
-          style={{ objectFit: 'cover' }}
-          src={xm}
-          alt='logo'
-        />
-      </div>
+      <LogoCard
+        name='Avatrade'
+        img={avatrade}
+        leverage='1 : 400'
+        fcsa='No.45984'
+      />
+      <LogoCard
+        name='Hotforex'
+        img={hotForex}
+        leverage='1 : 1000'
+        fcsa='No.46632'
+      />
+      <LogoCard name='FBS' img={fbs} leverage='1 : 3000' fcsa='No.50885' />
+      <LogoCard
+        name='Tickmill'
+        img={tickmill}
+        leverage='1 : 500'
+        fcsa='No.49464'
+      />
+      <LogoCard
+        name='Exness'
+        img={exness}
+        leverage='1 : Unlimited'
+        fcsa='No.51024'
+      />
+      <LogoCard name='XM' img={xm} leverage='1 : 888' fcsa='No.49976' />
+      <LogoCard
+        name='IFX Brokers'
+        img={ifxBrokers}
+        leverage='1 : 1000'
+        fcsa='No.48021'
+      />
+      <LogoCard
+        name='GlobeX360'
+        img={globex360}
+        leverage='1 : 100'
+        fcsa='No.50130'
+      />
+      <LogoCard
+        name='GV Markets'
+        img={gvMarkets}
+        leverage='1 : 500'
+        fcsa='No.49213'
+      />
+      <LogoCard
+        name='Alpari'
+        img={avatrade}
+        leverage='1 : 400'
+        fcsa='No.50320'
+      />
+      <LogoCard
+        name='ThinkMarkets'
+        img={thinkMarkets}
+        leverage='1 : 777'
+        fcsa='No.49835'
+      />
     </div>
   )
 }

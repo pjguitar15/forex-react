@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { Button, Nav, Navbar, Container } from 'react-bootstrap'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.jpg'
+import MarketDropdown from './MarketDropdown'
+import ToolsDropdown from './ToolsDropdown'
 
 const BlogNavbar = () => {
   const [navbar, setNavbar] = useState(false)
   const [isToggled, setIsToggled] = useState(false)
   const [isMobileMarketClicked, setIsMobileMarketClicked] = useState(false)
+  const [isMobileToolsClicked, setIsMobileToolsClicked] = useState(false)
   const [isTokenAvailable, setIsTokenAvailable] = useState(false)
 
   const [windowDimension, detectHW] = useState({
@@ -191,22 +194,20 @@ const BlogNavbar = () => {
                 <hr className='text-light' />
                 <Link
                   onClick={() => setIsToggled(false)}
-                  className={`${
-                    windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
-                  } link-style montserrat mx-3 text-white`}
+                  className={`link-style montserrat mx-3 text-white`}
                   to='/'
                   style={{ fontSize: '14px' }}
                 >
                   Home
                 </Link>
-                {/* <Link
+                <Link
                   onClick={() => setIsToggled(false)}
                   className={`link-style montserrat mx-3 text-white`}
                   to='/about'
                   style={{ fontSize: '14px' }}
                 >
                   About
-                </Link> */}
+                </Link>
                 <Link
                   onClick={() => setIsToggled(false)}
                   className={`link-style montserrat mx-3 text-white`}
@@ -215,267 +216,19 @@ const BlogNavbar = () => {
                 >
                   Our Partners
                 </Link>
-                <div
-                  className='parent-dropdown'
-                  style={{ position: 'relative', display: 'inline-block' }}
-                >
-                  <div
-                    onClick={() =>
-                      setIsMobileMarketClicked(!isMobileMarketClicked)
-                    }
-                    className={`link-style live-market-link montserrat mx-3 text-white`}
-                    style={{
-                      fontSize: '14px',
-                      zIndex: '1',
-                      cursor: 'pointer',
-                      transition: 'all 0.3 ease-in-out',
-                    }}
-                  >
-                    Market <i className='ms-1 bi bi-chevron-down'></i>
-                  </div>
-                  {/* Dropdown menu here only show on medium device */}
-                  {windowDimension.winWidth >= 992 ? (
-                    <div
-                      className='my-dropdown rounded'
-                      style={{
-                        width: '15rem',
-                      }}
-                    >
-                      <div
-                        onClick={() => navigate('/live-market')}
-                        className='py-2 my-sub-menu px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Live Market
-                      </div>
-                      {/* <div
-                      onClick={() => navigate('/real-time-chart')}
-                      className='py-2 my-sub-menu px-4 mx-auto w-100 bg-dark'
-                      style={{ cursor: 'pointer' }}
-                    >
-                      Real Time Chart
-                    </div> */}
-                      <div
-                        onClick={() => navigate('/screener')}
-                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Screener
-                      </div>{' '}
-                      <div
-                        onClick={() => navigate('/economic-calendar')}
-                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Economic Calendar
-                      </div>
-                      <div
-                        onClick={() => navigate('/cryptocurrency-market')}
-                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Cryptocurrency Market
-                      </div>
-                      <div
-                        onClick={() => navigate('/fundamental-data')}
-                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Fundamental Data
-                      </div>
-                      <div
-                        onClick={() => navigate('/market-data')}
-                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Market Data
-                      </div>
-                      <div
-                        onClick={() => navigate('/stock-market')}
-                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Stock Market
-                      </div>
-                      {/* <div
-                      onClick={() => navigate('/symbol-overview')}
-                      className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
-                      style={{ cursor: 'pointer' }}
-                    >
-                      Symbol Overview
-                    </div> */}
-                      <div
-                        onClick={() => navigate('/forex-cross-rates')}
-                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Forex Cross Rates
-                      </div>
-                      <div
-                        onClick={() => navigate('/forex-heat-map')}
-                        className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Forex Heat Map
-                      </div>
-                    </div>
-                  ) : (
-                    // MOBILE VIEW
-                    <div
-                      className={`my-dropdown-mb rounded`}
-                      style={{
-                        width: '15rem',
-                        display: isMobileMarketClicked ? 'block' : 'none',
-                      }}
-                    >
-                      <div
-                        onClick={() => {
-                          navigate('/live-market')
-                          setIsToggled(false)
-                          setIsMobileMarketClicked(false)
-                        }}
-                        className='py-2 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Live Market
-                      </div>
-                      {/* <div
-                      onClick={() => {
-                        navigate('/real-time-chart')
-                        setIsToggled(false)
-                        setIsMobileMarketClicked(false)
-                      }}
-                      className='py-2 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
-                      style={{ cursor: 'pointer' }}
-                    >
-                      Real Time Chart
-                    </div> */}
-                      <div
-                        onClick={() => {
-                          navigate('/screener')
-                          setIsToggled(false)
-                          setIsMobileMarketClicked(false)
-                        }}
-                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Screener
-                      </div>{' '}
-                      <div
-                        onClick={() => {
-                          navigate('/economic-calendar')
-                          setIsToggled(false)
-                          setIsMobileMarketClicked(false)
-                        }}
-                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Economic Calendar
-                      </div>
-                      <div
-                        onClick={() => {
-                          navigate('/cryptocurrency-market')
-                          setIsToggled(false)
-                          setIsMobileMarketClicked(false)
-                        }}
-                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Cryptocurrency Market
-                      </div>
-                      <div
-                        onClick={() => {
-                          navigate('/fundamental-data')
-                          setIsToggled(false)
-                          setIsMobileMarketClicked(false)
-                        }}
-                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Fundamental Data
-                      </div>
-                      <div
-                        onClick={() => {
-                          navigate('/market-data')
-                          setIsToggled(false)
-                          setIsMobileMarketClicked(false)
-                        }}
-                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Market Data
-                      </div>
-                      <div
-                        onClick={() => {
-                          navigate('/stock-market')
-                          setIsToggled(false)
-                          setIsMobileMarketClicked(false)
-                        }}
-                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Stock Market
-                      </div>
-                      {/* <div
-                      onClick={() => {
-                        navigate('/symbol-overview')
-                        setIsToggled(false)
-                        setIsMobileMarketClicked(false)
-                      }}
-                      className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
-                      style={{ cursor: 'pointer' }}
-                    >
-                      Symbol Overview
-                    </div> */}
-                      <div
-                        onClick={() => {
-                          navigate('/forex-cross-rates')
-                          setIsToggled(false)
-                          setIsMobileMarketClicked(false)
-                        }}
-                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Forex Cross Rates
-                      </div>
-                      <div
-                        onClick={() => {
-                          navigate('/forex-heat-map')
-                          setIsToggled(false)
-                          setIsMobileMarketClicked(false)
-                        }}
-                        className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
-                        style={{ cursor: 'pointer' }}
-                      >
-                        Forex Heat Map
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <Link
-                  onClick={() => setIsToggled(false)}
-                  className={`link-style montserrat mx-3 text-white`}
-                  to='/currency-converter'
-                  style={{ fontSize: '14px' }}
-                >
-                  Currency Converter
-                </Link>
-                <Link
-                  onClick={() => setIsToggled(false)}
-                  className={`link-style montserrat mx-3 text-white`}
-                  to='/compounding-calculator'
-                  style={{ fontSize: '14px' }}
-                >
-                  <span
-                    style={
-                      location.pathname === '/compounding-calculator'
-                        ? { color: 'white' }
-                        : { color: '' }
-                    }
-                  >
-                    Compounding Calculator
-                  </span>
-                </Link>
+                <MarketDropdown
+                  setIsMobileMarketClicked={setIsMobileMarketClicked}
+                  isMobileMarketClicked={isMobileMarketClicked}
+                  windowDimension={windowDimension}
+                  setIsToggled={setIsToggled}
+                />
+                <ToolsDropdown
+                  setIsMobileToolsClicked={setIsMobileToolsClicked}
+                  isMobileToolsClicked={isMobileToolsClicked}
+                  windowDimension={windowDimension}
+                  setIsToggled={setIsToggled}
+                />
+
                 {windowDimension.winWidth > 992 ? (
                   <Link
                     onClick={() => {

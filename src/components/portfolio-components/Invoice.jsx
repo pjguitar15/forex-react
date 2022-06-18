@@ -40,7 +40,13 @@ const Invoice = () => {
               {loading ? 'Loading...' : ''}
             </div>
             <div className='text-uppercase my-2'>
-              {data ? data.address : ''} {loading ? 'Loading...' : ''}
+              {data.houseNumber}, {data.streetAddress}, {data.suburb}
+              {data.suburb ? ', ' : ''}
+              {data.city}
+              {data.city ? ', ' : ''}
+              {data.province}
+              {data.province ? ', ' : ''}
+              {data.postCode}, {data.country} {loading ? 'Loading...' : ''}
             </div>
           </div>
 
@@ -66,7 +72,7 @@ const Invoice = () => {
         {/* Description */}
         <div className='row'>
           <div className='col-md-10 mb-5'>
-            <div className='fw-bold'>Desription</div>
+            <div className='fw-bold'>Description</div>
             <hr />
             <div>CORPORATE - www.axi.com/int</div>
             <div>PORTFOLIO NUMBER : 6046479</div>

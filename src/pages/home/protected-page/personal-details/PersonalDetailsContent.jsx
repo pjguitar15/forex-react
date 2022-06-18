@@ -74,12 +74,19 @@ const PersonalDetailsContent = () => {
               </p>
             </div>
           </div>{' '}
+          {}
           <div className='p-3'>
             <div className='d-flex justify-content-between'>
-              <p className='m-0'>Address: </p>
+              <p className='m-0'>Residential Address: </p>
               <div className='text-end col-7 col-lg-4'>
                 <p className='m-0'>
-                  {data.address}
+                  {data.houseNumber}, {data.streetAddress}, {data.suburb}
+                  {data.suburb ? ', ' : ''}
+                  {data.city}
+                  {data.city ? ', ' : ''}
+                  {data.province}
+                  {data.province ? ', ' : ''}
+                  {data.postCode}, {data.country}
                   {loading ? 'Loading...' : ''}
                 </p>
               </div>

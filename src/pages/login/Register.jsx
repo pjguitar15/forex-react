@@ -11,6 +11,7 @@ import {
 import { addDoc, serverTimestamp, collection } from 'firebase/firestore'
 import RegisterSuccessModal from '../../components/RegisterSuccessModal'
 import useGetDataFromEmail from '../../custom-hooks/useGetDataFromEmail'
+import ResidentialAddress from './ResidentialAddress'
 
 const Register = () => {
   const [firstName, setFirstName] = useState('')
@@ -18,7 +19,13 @@ const Register = () => {
   const [lastName, setLastName] = useState('')
   const [segment, setSegment] = useState('3000')
   const [identificationNumber, setIdentificationNumber] = useState('')
-  const [address, setAddress] = useState('')
+  const [houseNumber, setHouseNumber] = useState('')
+  const [streetAddress, setStreetAddress] = useState('')
+  const [suburb, setSuburb] = useState('')
+  const [city, setCity] = useState('')
+  const [province, setProvince] = useState('')
+  const [postCode, setPostCode] = useState('')
+  const [country, setCountry] = useState('Afghanistan')
   const [email, setEmail] = useState('')
   const [contactNumber, setContactNumber] = useState('')
   const [password, setPassword] = useState('')
@@ -113,7 +120,13 @@ const Register = () => {
         lastName: lastName,
         identificationNumber: identificationNumber,
         segment: segment,
-        address: address,
+        houseNumber: houseNumber,
+        streetAddress: streetAddress,
+        suburb: suburb,
+        city: city,
+        province: province,
+        postCode: postCode,
+        country: country,
         contactNumber: contactNumber,
         email: email,
         dateCreated: JSON.stringify(new Date()).slice(1, 11),
@@ -140,7 +153,7 @@ const Register = () => {
         <div className='col-lg-6 p-5'>
           <Form onSubmit={submitHandler} className='p-5 bg-dark border-1'>
             <h2 className='text-light rubik-400 mb-3'>START YOUR INVESTMENT</h2>
-            <Form.Group className='py-1 rubik-400'>
+            <Form.Group className='py-2 rubik-400'>
               <Form.Text className='text-light'>First name</Form.Text>
               <Form.Control
                 value={firstName}
@@ -151,7 +164,7 @@ const Register = () => {
                 placeholder='Enter your first name'
               />
             </Form.Group>
-            <Form.Group className='py-1 rubik-400'>
+            <Form.Group className='py-2 rubik-400'>
               <Form.Text className='text-light'>Middle name</Form.Text>
               <Form.Control
                 value={middleName}
@@ -161,7 +174,7 @@ const Register = () => {
                 placeholder='Enter your middle name (optional)'
               />
             </Form.Group>
-            <Form.Group className='py-1 rubik-400'>
+            <Form.Group className='py-2 rubik-400'>
               <Form.Text className='text-light'>Last name</Form.Text>
               <Form.Control
                 value={lastName}
@@ -172,7 +185,7 @@ const Register = () => {
                 placeholder='Enter your last name'
               />
             </Form.Group>{' '}
-            <Form.Group className='py-1 rubik-400'>
+            <Form.Group className='py-2 rubik-400'>
               <Form.Text className='text-light'>Segment</Form.Text>
               <Form.Select onChange={(e) => setSegment(e.target.value)}>
                 <option>Please select a segment</option>
@@ -188,7 +201,7 @@ const Register = () => {
                 <option value='200000'>$200,000</option>
               </Form.Select>
             </Form.Group>{' '}
-            <Form.Group className='py-1 rubik-400'>
+            <Form.Group className='py-2 rubik-400'>
               <Form.Text className='text-light'>
                 Identification Number
               </Form.Text>
@@ -201,18 +214,23 @@ const Register = () => {
                 placeholder='Enter your Identification Number'
               />
             </Form.Group>{' '}
-            <Form.Group className='py-1 rubik-400'>
-              <Form.Text className='text-light'>Residential Address</Form.Text>
-              <Form.Control
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                required
-                type='text'
-                className='rubik-400 rounded-0 mt-2'
-                placeholder='Enter your residential address'
-              />
-            </Form.Group>
-            <Form.Group className='py-1 rubik-400'>
+            <ResidentialAddress
+              houseNumber={houseNumber}
+              setHouseNumber={setHouseNumber}
+              streetAddress={streetAddress}
+              setStreetAddress={setStreetAddress}
+              suburb={suburb}
+              setSuburb={setSuburb}
+              city={city}
+              setCity={setCity}
+              province={province}
+              setProvince={setProvince}
+              postCode={postCode}
+              setPostCode={setPostCode}
+              country={country}
+              setCountry={setCountry}
+            />
+            <Form.Group className='py-2 rubik-400'>
               <Form.Text className='text-light'>Contact Number</Form.Text>
               <Form.Control
                 value={contactNumber}
@@ -223,7 +241,7 @@ const Register = () => {
                 placeholder='Enter your contact number'
               />
             </Form.Group>
-            <Form.Group className='py-1 rubik-400'>
+            <Form.Group className='py-2 rubik-400'>
               <Form.Text className='text-light'>Email</Form.Text>
               <Form.Control
                 value={email}
@@ -234,7 +252,7 @@ const Register = () => {
                 placeholder='Enter your email'
               />
             </Form.Group>
-            <Form.Group className='py-1 rubik-400'>
+            <Form.Group className='py-2 rubik-400'>
               <Form.Text className='text-light'>Password</Form.Text>
               <Form.Control
                 value={password}
@@ -245,7 +263,7 @@ const Register = () => {
                 placeholder='Create your password'
               />
             </Form.Group>{' '}
-            <Form.Group className='py-1 rubik-400'>
+            <Form.Group className='py-2 rubik-400'>
               <Form.Text className='text-light'>Confirm Password</Form.Text>
               <Form.Control
                 value={confirmPassword}
@@ -282,7 +300,7 @@ const Register = () => {
           </Form>
         </div>
         <div className='col-lg-6 text-light p-5'>
-          <h1>Open a live trading account</h1>
+          <h1>Open a Live Investment Account</h1>
           <div className='my-5'>
             <h4>Complete your application</h4>
             <p>

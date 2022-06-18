@@ -11,6 +11,7 @@ import marketDataBg from '../../assets/market-data-bg.jpg'
 import stockMarketBg from '../../assets/stock-market-bg.jpg'
 import forexCrossRateBg from '../../assets/forex-cross-rate-bg.jpg'
 import forexHeatMapBg from '../../assets/forex-heat-map-bg.jpg'
+import partnership from '../../assets/partnership.jpg'
 
 const Jumbotron = () => {
   const [bgImage, setBgImage] = useState('')
@@ -84,6 +85,10 @@ const Jumbotron = () => {
         // code block
         setBgImage(forexHeatMapBg)
         break
+      case '/partnership':
+        // code block
+        setBgImage(partnership)
+        break
       default:
       // code block
     }
@@ -93,7 +98,7 @@ const Jumbotron = () => {
       <div
         className='my-jumbotron'
         style={{
-          background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${bgImage})`,
+          background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url(${bgImage})`,
           height:
             windowDimension.winWidth < 990 && location.pathname === '/'
               ? `80vh`
@@ -108,7 +113,7 @@ const Jumbotron = () => {
                 contact (RFIT) Rocket Financial Investment Traders,
               </p>
               <p className='text-center jumbotron-content'>
-                Email: info@rftraders.co.za Website: www.bullishbeast.co.za
+                Email: info@rftraders.co.za Website: www.bullishbeastsa.com
               </p>
             </div>
           ) : (
@@ -224,6 +229,16 @@ const Jumbotron = () => {
             <>
               <h1 className='text-center raleway-700 text-white'>
                 Forex Heat Map
+              </h1>
+            </>
+          ) : (
+            ''
+          )}
+
+          {location.pathname === '/partnership' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>
+                Partnership
               </h1>
             </>
           ) : (
