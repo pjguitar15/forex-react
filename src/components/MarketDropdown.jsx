@@ -35,56 +35,56 @@ const MarketDropdown = ({
         >
           <div
             onClick={() => navigate('/live-market')}
-            className='py-2 my-sub-menu px-4 mx-auto w-100 bg-dark'
+            className='py-2 my-sub-menu px-4 mx-auto w-100 bg-dark shadow'
             style={{ cursor: 'pointer' }}
           >
             Live Market
           </div>
           <div
             onClick={() => navigate('/screener')}
-            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark shadow'
             style={{ cursor: 'pointer' }}
           >
             Screener
           </div>
           <div
             onClick={() => navigate('/economic-calendar')}
-            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark shadow'
             style={{ cursor: 'pointer' }}
           >
             Economic Calendar
           </div>
           <div
             onClick={() => navigate('/cryptocurrency-market')}
-            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark shadow'
             style={{ cursor: 'pointer' }}
           >
             Cryptocurrency Market
           </div>
           <div
             onClick={() => navigate('/fundamental-data')}
-            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark shadow'
             style={{ cursor: 'pointer' }}
           >
             Fundamental Data
           </div>
           <div
             onClick={() => navigate('/market-data')}
-            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark shadow'
             style={{ cursor: 'pointer' }}
           >
             Market Data
           </div>
           <div
             onClick={() => navigate('/stock-market')}
-            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark shadow'
             style={{ cursor: 'pointer' }}
           >
             Stock Market
           </div>
           <div
             onClick={() => navigate('/forex-cross-rates')}
-            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark shadow'
             style={{ cursor: 'pointer' }}
           >
             Forex Cross Rates
@@ -92,7 +92,7 @@ const MarketDropdown = ({
 
           <div
             onClick={() => navigate('/forex-heat-map')}
-            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark'
+            className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark shadow'
             style={{ cursor: 'pointer' }}
           >
             Forex Heat Map
@@ -103,7 +103,7 @@ const MarketDropdown = ({
         <div
           className={`my-dropdown-mb rounded`}
           style={{
-            width: '15rem',
+            width: '100%',
             display: isMobileMarketClicked ? 'block' : 'none',
           }}
         >

@@ -9,7 +9,7 @@ import ToolsDropdown from './ToolsDropdown'
 const MyNavbar = () => {
   const [navbar, setNavbar] = useState(false)
   const [isToggled, setIsToggled] = useState(false)
-  const [isMobileMarketClicked, setIsMobileMarketClicked] = useState(false) 
+  const [isMobileMarketClicked, setIsMobileMarketClicked] = useState(false)
   const [isMobileToolsClicked, setIsMobileToolsClicked] = useState(false)
   const [isTokenAvailable, setIsTokenAvailable] = useState(false)
   const [windowDimension, detectHW] = useState({
@@ -64,21 +64,21 @@ const MyNavbar = () => {
     <div>
       <Navbar
         variant={`${
-          navbar || windowDimension.winWidth < 992 ? 'dark' : 'dark'
+          navbar || windowDimension.winWidth <= 992 ? 'dark' : 'dark'
         }`}
         className={`fixed-top ${
-          navbar || !(windowDimension.winWidth < 992) ? 'fixed-top' : ''
+          navbar || !(windowDimension.winWidth <= 992) ? 'fixed-top' : ''
         } navbar-main ${
-          navbar || windowDimension.winWidth < 992 ? 'bg-black' : ''
+          navbar || windowDimension.winWidth <= 992 ? 'bg-black' : ''
         }`}
         expand='lg'
         expanded={isToggled}
         style={
-          navbar || windowDimension.winWidth < 992
+          navbar || windowDimension.winWidth <= 992
             ? {
                 padding: `16px`,
                 height:
-                  isToggled && windowDimension.winWidth < 992 ? '100vh' : '',
+                  isToggled && windowDimension.winWidth <= 992 ? '100vh' : '',
               }
             : {
                 padding: `30px`,
@@ -88,13 +88,13 @@ const MyNavbar = () => {
         <Container>
           <div
             className={`d-flex justify-content-between ${
-              windowDimension.winWidth < 992 ? 'col-12' : ''
+              windowDimension.winWidth <= 992 ? 'col-12' : ''
             }`}
           >
             <Navbar.Toggle
               onClick={() => setIsToggled(!isToggled)}
               className={`custom-toggler border-0 shadow-none ${
-                windowDimension.winWidth < 992 && !isToggled
+                windowDimension.winWidth <= 992 && !isToggled
                   ? 'd-block'
                   : 'd-none'
               }`}
@@ -106,7 +106,7 @@ const MyNavbar = () => {
                 style={{ cursor: 'pointer' }}
                 onClick={() => navigate('/')}
                 className={`navbar-brand-style  text-uppercase text-white ${
-                  windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
+                  windowDimension.winWidth <= 992 ? 'd-block' : 'd-none'
                 } ${isToggled ? 'd-none' : 'd-block'}`}
               >
                 <div className='d-flex align-items-center justify-content-center'>
@@ -122,11 +122,11 @@ const MyNavbar = () => {
               </Navbar.Brand>
             </div>
           </div>
-          <div className={`${windowDimension.winWidth < 992 ? 'w-100' : ''}`}>
+          <div className={`${windowDimension.winWidth <= 992 ? 'w-100' : ''}`}>
             <div className='col-12'>
               <div
                 className={`d-flex justify-content-between col-12 ${
-                  windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
+                  windowDimension.winWidth <= 992 ? 'd-block' : 'd-none'
                 } ${!isToggled ? 'd-none' : 'd-block'}`}
               >
                 <div
@@ -150,7 +150,7 @@ const MyNavbar = () => {
                     setIsToggled(false)
                   }}
                   className={`link-style montserrat mx-3 text-white ms-auto ${
-                    windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
+                    windowDimension.winWidth <= 992 ? 'd-block' : 'd-none'
                   }`}
                   to='/login'
                   style={{ fontSize: '14px' }}
@@ -180,7 +180,7 @@ const MyNavbar = () => {
             style={{ cursor: 'pointer' }}
             onClick={() => navigate('/')}
             className={`navbar-brand-style text-uppercase text-white ${
-              windowDimension.winWidth < 992 ? 'd-none' : 'd-block'
+              windowDimension.winWidth <= 992 ? 'd-none' : 'd-block'
             }`}
           >
             <div className='d-flex align-items-center justify-content-center'>
@@ -240,7 +240,7 @@ const MyNavbar = () => {
                   setIsToggled(false)
                 }}
                 className={`link-style montserrat mx-3 text-white ${
-                  windowDimension.winWidth < 992 ? 'd-none' : 'd-block'
+                  windowDimension.winWidth <= 992 ? 'd-none' : 'd-block'
                 }`}
                 to='/login'
                 style={{ fontSize: '14px' }}

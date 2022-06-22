@@ -160,6 +160,10 @@
   background: gray !important;
 }
 
+.parent-dropdown {
+  transition: all 0.3s ease-in-out;
+}
+
 .parent-dropdown:hover .my-dropdown {
   display: block;
 }

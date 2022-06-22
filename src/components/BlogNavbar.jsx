@@ -72,7 +72,7 @@ const BlogNavbar = () => {
           expand='xl'
           expanded={isToggled}
           style={
-            navbar || windowDimension.winWidth < 992
+            navbar || windowDimension.winWidth <= 992
               ? { padding: `16px`, height: isToggled ? '100vh' : '' }
               : {
                   padding: `30px`,
@@ -82,13 +82,13 @@ const BlogNavbar = () => {
           <Container>
             <div
               className={`d-flex justify-content-between ${
-                windowDimension.winWidth < 992 ? 'col-12' : ''
+                windowDimension.winWidth <= 992 ? 'col-12' : ''
               }`}
             >
               <Navbar.Toggle
                 onClick={() => setIsToggled(!isToggled)}
                 className={`custom-toggler border-0 shadow-none ${
-                  windowDimension.winWidth < 992 && !isToggled
+                  windowDimension.winWidth <= 992 && !isToggled
                     ? 'd-block'
                     : 'd-none'
                 }`}
@@ -100,7 +100,7 @@ const BlogNavbar = () => {
                   style={{ cursor: 'pointer' }}
                   onClick={() => navigate('/')}
                   className={`navbar-brand-style  text-uppercase text-white ${
-                    windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
+                    windowDimension.winWidth <= 992 ? 'd-block' : 'd-none'
                   } ${isToggled ? 'd-none' : 'd-block'}`}
                 >
                   <div className='d-flex align-items-center justify-content-center'>
@@ -116,11 +116,13 @@ const BlogNavbar = () => {
                 </Navbar.Brand>
               </div>
             </div>
-            <div className={`${windowDimension.winWidth < 992 ? 'w-100' : ''}`}>
+            <div
+              className={`${windowDimension.winWidth <= 992 ? 'w-100' : ''}`}
+            >
               <div className='col-12'>
                 <div
                   className={`d-flex justify-content-between col-12 ${
-                    windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
+                    windowDimension.winWidth <= 992 ? 'd-block' : 'd-none'
                   } ${!isToggled ? 'd-none' : 'd-block'}`}
                 >
                   <div
@@ -144,7 +146,7 @@ const BlogNavbar = () => {
                       setIsToggled(false)
                     }}
                     className={`link-style montserrat mx-3 text-white ms-auto ${
-                      windowDimension.winWidth < 992 ? 'd-block' : 'd-none'
+                      windowDimension.winWidth <= 992 ? 'd-block' : 'd-none'
                     }`}
                     to='/login'
                     style={{ fontSize: '14px' }}
@@ -174,7 +176,7 @@ const BlogNavbar = () => {
               style={{ cursor: 'pointer' }}
               onClick={() => navigate('/')}
               className={`navbar-brand-style text-uppercase text-white ${
-                windowDimension.winWidth < 992 ? 'd-none' : 'd-block'
+                windowDimension.winWidth <= 992 ? 'd-none' : 'd-block'
               }`}
             >
               <div className='d-flex align-items-center justify-content-center'>
@@ -229,7 +231,7 @@ const BlogNavbar = () => {
                   setIsToggled={setIsToggled}
                 />
 
-                {windowDimension.winWidth > 992 ? (
+                {windowDimension.winWidth >= 992 ? (
                   <Link
                     onClick={() => {
                       setIsToggled(false)

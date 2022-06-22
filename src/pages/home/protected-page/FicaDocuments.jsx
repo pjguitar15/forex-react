@@ -27,6 +27,19 @@ const FicaDocuments = () => {
             <Form.Control type='file' />
           </Form.Group>
         </div>
+        <Form.Group className='my-4'>
+          <Form.Text className='text-light'>Enter proof of ID</Form.Text>
+          <Form.Control className='rubik-400' type='file' />
+        </Form.Group>
+        <div className='my-4'>
+          <Form.Group>
+            <Form.Control
+              className='rubik-400'
+              type='text'
+              placeholder='Enter proof of Address'
+            />
+          </Form.Group>
+        </div>
       </Container>
     </div>
   )

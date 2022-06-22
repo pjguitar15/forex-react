@@ -104,7 +104,7 @@ const LoginPage = () => {
         </Form.Group>
         <Button
           onClick={() => navigate('/register')}
-          variant='outline-primary'
+          variant='primary'
           type='submit'
           size='sm'
           className='rubik-400 mt-3 col-12'

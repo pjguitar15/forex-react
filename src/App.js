@@ -40,6 +40,7 @@ import FicaDocuments from './pages/home/protected-page/FicaDocuments';
 import Payouts from './pages/home/protected-page/payouts/Payouts';
 import ElectronicWallet from './pages/home/protected-page/ElectronicWallet';
 import VerifyEmail from './pages/home/protected-page/VerifyEmail';
+import TradingAcademy from './pages/trading-academy/TradingAcademy';
 
 function App() {
   return (
@@ -90,6 +91,7 @@ function App() {
               <Route path='/electronic-wallet' element={<><BlogNavbar /><ElectronicWallet /></>} />
               <Route path='/verify-email' element={<><BlogNavbar /><VerifyEmail /></>} />
 
+              <Route path='/trading-academy' element={<><HomeNavbar /><TradingAcademy /></>} />
               {/* Error page */}
               <Route path='*' element={<ErrorPage />} />
             </Routes>

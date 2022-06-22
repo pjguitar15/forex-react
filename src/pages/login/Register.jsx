@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Form, Button, Alert } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { app } from '../../firebase/firebaseConfig'
@@ -7,11 +7,15 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendEmailVerification,
 } from 'firebase/auth'
 import { addDoc, serverTimestamp, collection } from 'firebase/firestore'
 import RegisterSuccessModal from '../../components/RegisterSuccessModal'
 import useGetDataFromEmail from '../../custom-hooks/useGetDataFromEmail'
 import ResidentialAddress from './ResidentialAddress'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+import { v4 as uuidv4 } from 'uuid'
 
 const Register = () => {
   const [firstName, setFirstName] = useState('')
@@ -27,55 +31,24 @@ const Register = () => {
   const [postCode, setPostCode] = useState('')
   const [country, setCountry] = useState('Afghanistan')
   const [email, setEmail] = useState('')
-  const [contactNumber, setContactNumber] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [passwordStrength, setPasswordStrength] = useState('')
   const [alertMsg, setAlertMsg] = useState('')
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [data] = useGetDataFromEmail()
+
+  // ref
+  const phoneInputRef = useRef()
 
   const navigate = useNavigate()
   const submitHandler = async (e) => {
     e.preventDefault()
 
-    const SYMBOLS = '!@#$%^&*()'
-    const NUMBERS = '1234567890'
-    const SMALL_LETTERS = 'abcdefghijklmnopqrstuvwxyz'
-    const CAPITAL_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
-    // 4 boolean values should be true
-    let isSymbolIncluded = false
-    let isNumberIncluded = false
-    let isSmallLettersIncluded = false
-    let isCapitalLettersIncluded = false
-    for (let i = 0; i < password.length; i++) {
-      if (SYMBOLS.includes(password[i])) {
-        isSymbolIncluded = true
-      } else if (NUMBERS.includes(password[i])) {
-        isNumberIncluded = true
-      } else if (SMALL_LETTERS.includes(password[i])) {
-        isSmallLettersIncluded = true
-      } else if (CAPITAL_LETTERS.includes(password[i])) {
-        isCapitalLettersIncluded = true
-      }
-    }
-
     if (password !== confirmPassword) {
       setAlertMsg('Passwords do not match')
     } else if (password.length < 7) {
       setAlertMsg('Password must contain atleast 7 characters')
-    } else if (
-      !isSymbolIncluded ||
-      !isNumberIncluded ||
-      !isSmallLettersIncluded ||
-      !isCapitalLettersIncluded
-    ) {
-      setAlertMsg(
-        `Password must contain Uppercase letters: A-Z.
-        Lowercase letters: a-z.
-        Numbers: 0-9.
-        Symbols: ~@#$%^&*()_-+`
-      )
     } else {
       // Add to Auth
       const authentication = getAuth(app)
@@ -83,8 +56,8 @@ const Register = () => {
         .then((response) => {
           alert('Your account has been created!')
           const authentication = getAuth(app)
-          signInWithEmailAndPassword(authentication, email, password).then(
-            (response) => {
+          signInWithEmailAndPassword(authentication, email, password)
+            .then((response) => {
               if (data) {
                 if (!data.isPaid) {
                   navigate('/show-invoice')
@@ -100,8 +73,22 @@ const Register = () => {
                   )
                 }
               }
-            }
-          )
+            })
+            .then(() => {
+              getAuth().onAuthStateChanged((user) => {
+                try {
+                  sendEmailVerification(user)
+                    .then(() => {
+                      console.log(
+                        'Email verification has been sent to your email'
+                      )
+                    })
+                    .catch((err) => {
+                      console.log(err)
+                    })
+                } catch (error) {}
+              })
+            })
         })
         .catch((err) => {
           const errorMessage = err.message
@@ -127,8 +114,9 @@ const Register = () => {
         province: province,
         postCode: postCode,
         country: country,
-        contactNumber: contactNumber,
+        contactNumber: phoneInputRef.current.numberInputRef.value,
         email: email,
+        invoiceNumber: uuidv4().slice(24),
         dateCreated: JSON.stringify(new Date()).slice(1, 11),
         isPaid: false,
         timestamp: serverTimestamp(),
@@ -143,15 +131,63 @@ const Register = () => {
       navigate('/register')
     }
   }, [])
+
+  useEffect(() => {
+    const SYMBOLS = '!@#$%^&*()'
+    const NUMBERS = '1234567890'
+    const SMALL_LETTERS = 'abcdefghijklmnopqrstuvwxyz'
+    const CAPITAL_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+    // 4 boolean values should be true
+    let isSymbolIncluded = false
+    let isNumberIncluded = false
+    let isSmallLettersIncluded = false
+    let isCapitalLettersIncluded = false
+    for (let i = 0; i < password.length; i++) {
+      if (SYMBOLS.includes(password[i])) {
+        isSymbolIncluded = true
+      } else if (NUMBERS.includes(password[i])) {
+        isNumberIncluded = true
+      } else if (SMALL_LETTERS.includes(password[i])) {
+        isSmallLettersIncluded = true
+      } else if (CAPITAL_LETTERS.includes(password[i])) {
+        isCapitalLettersIncluded = true
+      }
+    }
+    if (password.length < 6) {
+      setPasswordStrength('Poor. Password length must be 6 above.')
+    } else if (
+      isSymbolIncluded &&
+      isNumberIncluded &&
+      isSmallLettersIncluded &&
+      isCapitalLettersIncluded
+    ) {
+      setPasswordStrength('Excellent')
+    } else if (
+      isNumberIncluded &&
+      isSmallLettersIncluded &&
+      isCapitalLettersIncluded
+    ) {
+      setPasswordStrength(
+        'Great. Now add a symbol like !@#$ for maximum security.'
+      )
+    } else if (isSmallLettersIncluded && isCapitalLettersIncluded) {
+      setPasswordStrength('Good. (Please include numbers and symbols)')
+    } else if (isSmallLettersIncluded) {
+      setPasswordStrength('Poor (Please include uppercase letters)')
+    } else {
+      setPasswordStrength('Weak')
+    }
+  }, [password])
   return (
     <>
       <RegisterSuccessModal
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
       />
-      <div className='bg-black row rubik-400' style={{ padding: '130px 0' }}>
-        <div className='col-lg-6 p-5'>
-          <Form onSubmit={submitHandler} className='p-5 bg-dark border-1'>
+      <div className='bg-dark row rubik-400' style={{ padding: '130px 0' }}>
+        <div className='col-lg-7 col-xl-6 py-5 px-3'>
+          <Form onSubmit={submitHandler} className='p-4 bg-black border-1'>
             <h2 className='text-light rubik-400 mb-3'>START YOUR INVESTMENT</h2>
             <Form.Group className='py-2 rubik-400'>
               <Form.Text className='text-light'>First name</Form.Text>
@@ -232,14 +268,7 @@ const Register = () => {
             />
             <Form.Group className='py-2 rubik-400'>
               <Form.Text className='text-light'>Contact Number</Form.Text>
-              <Form.Control
-                value={contactNumber}
-                onChange={(e) => setContactNumber(e.target.value)}
-                required
-                type='text'
-                className='rubik-400 rounded-0 mt-2'
-                placeholder='Enter your contact number'
-              />
+              <PhoneInput country={'us'} ref={phoneInputRef} />
             </Form.Group>
             <Form.Group className='py-2 rubik-400'>
               <Form.Text className='text-light'>Email</Form.Text>
@@ -262,6 +291,25 @@ const Register = () => {
                 className='rubik-400 rounded-0 mt-2'
                 placeholder='Create your password'
               />
+              <div
+                className={`small rubik-400 ${
+                  passwordStrength === 'Weak' ||
+                  passwordStrength ===
+                    'Poor (Please include uppercase letters)' ||
+                  passwordStrength === 'Poor. Password length must be 6 above.'
+                    ? 'text-danger'
+                    : ''
+                } ${
+                  passwordStrength ===
+                    'Good. (Please include numbers and symbols)' ||
+                  passwordStrength ===
+                    'Great. Now add a symbol like !@#$ for maximum security.'
+                    ? 'text-warning'
+                    : ''
+                }  ${passwordStrength === 'Excellent' ? 'text-success' : ''} `}
+              >
+                {passwordStrength}
+              </div>
             </Form.Group>{' '}
             <Form.Group className='py-2 rubik-400'>
               <Form.Text className='text-light'>Confirm Password</Form.Text>
@@ -291,7 +339,7 @@ const Register = () => {
             </Form.Group>
             <Button
               onClick={() => navigate('/login')}
-              variant='outline-primary'
+              variant='primary'
               size='sm'
               className='rubik-400 mt-2 col-12'
             >
@@ -299,7 +347,7 @@ const Register = () => {
             </Button>
           </Form>
         </div>
-        <div className='col-lg-6 text-light p-5'>
+        <div className='col-lg-5 col-xl-6 text-light p-5'>
           <h1>Open a Live Investment Account</h1>
           <div className='my-5'>
             <h4>Complete your application</h4>

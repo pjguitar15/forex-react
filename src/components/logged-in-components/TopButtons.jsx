@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import useGetDataFromEmail from '../../custom-hooks/useGetDataFromEmail'
@@ -10,6 +10,12 @@ const TopButtons = () => {
     sessionStorage.removeItem('Auth Token')
     navigate('/login')
   }
+
+  useEffect(() => {
+    if (!localStorage.getItem('userSegment')) {
+      localStorage.setItem('userSegment', data.segment)
+    }
+  }, [])
   return (
     <>
       <div className='col-12 w-100 mx-auto d-flex justify-content-between my-3'>
@@ -26,12 +32,12 @@ const TopButtons = () => {
             <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z' />
             <path d='M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z' />
           </svg>{' '}
-          $ {loading ? 'Loading...' : data.segment + ' Segment'}
+          ${localStorage.getItem('userSegment') || data.segment + ' Segment'}
         </h5>
         <div>
           <Button
             variant='outline-light'
-            className='rubik-400 my-1 border-0'
+            className='rubik-400 my-1 rounded-0 border-0'
             size='sm'
             onClick={logoutHandler}
           >
@@ -59,7 +65,7 @@ const TopButtons = () => {
       <div className='text-start'>
         <Button
           variant='outline-light'
-          className='rubik-400 border-0 me-3 my-1'
+          className='rubik-400 border-0 me-3 my-1 rounded-0'
           size='sm'
           onClick={() => navigate('/show-invoice')}
         >
@@ -78,9 +84,9 @@ const TopButtons = () => {
         </Button>
         <Button
           variant='outline-light'
-          className='rubik-400 me-3 my-1 border-0'
+          className='rubik-400 me-3 my-1 rounded-0 border-0'
           size='sm'
-          onClick={() => navigate('/personal-details')}
+          onClick={() => navigate('/personal-details')} 
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -96,7 +102,7 @@ const TopButtons = () => {
         </Button>
         <Button
           variant='outline-light'
-          className='rubik-400 me-3 my-1 border-0'
+          className='rubik-400 me-3 my-1 rounded-0 border-0'
           size='sm'
           onClick={() => navigate('/fica-documents')}
         >
@@ -113,11 +119,9 @@ const TopButtons = () => {
           </svg>
           Fica Documents
         </Button>{' '}
-        
- 
         <Button
           variant='outline-light'
-          className='rubik-400 me-3 my-1 border-0'
+          className='rubik-400 me-3 my-1 rounded-0 border-0'
           size='sm'
           onClick={() => navigate('/credit-note')}
         >
@@ -136,7 +140,7 @@ const TopButtons = () => {
         </Button>
         <Button
           variant='outline-light'
-          className='rubik-400 me-3 my-1 border-0'
+          className='rubik-400 me-3 my-1 rounded-0 border-0'
           size='sm'
           onClick={() => navigate('/payouts')}
         >
@@ -148,7 +152,7 @@ const TopButtons = () => {
         </Button>
         <Button
           variant='outline-light'
-          className='rubik-400 me-3 my-1 border-0'
+          className='rubik-400 me-3 my-1 rounded-0 border-0'
           size='sm'
           onClick={() => navigate('/electronic-wallet')}
         >

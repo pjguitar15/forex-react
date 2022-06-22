@@ -12,6 +12,7 @@ import stockMarketBg from '../../assets/stock-market-bg.jpg'
 import forexCrossRateBg from '../../assets/forex-cross-rate-bg.jpg'
 import forexHeatMapBg from '../../assets/forex-heat-map-bg.jpg'
 import partnership from '../../assets/partnership.jpg'
+import tradingAcademy from '../../assets/tradingAcademy.jpg'
 
 const Jumbotron = () => {
   const [bgImage, setBgImage] = useState('')
@@ -88,6 +89,10 @@ const Jumbotron = () => {
       case '/partnership':
         // code block
         setBgImage(partnership)
+        break
+      case '/trading-academy':
+        // code block
+        setBgImage(tradingAcademy)
         break
       default:
       // code block
@@ -239,6 +244,16 @@ const Jumbotron = () => {
             <>
               <h1 className='text-center raleway-700 text-white'>
                 Partnership
+              </h1>
+            </>
+          ) : (
+            ''
+          )}
+
+          {location.pathname === '/trading-academy' ? (
+            <>
+              <h1 className='text-center raleway-700 text-white'>
+                Trading Academy
               </h1>
             </>
           ) : (
