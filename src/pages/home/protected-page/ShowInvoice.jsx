@@ -25,7 +25,10 @@ const ShowInvoice = () => {
     }
   }, [])
   return (
-    <div className='bg-dark text-light' style={{ padding: '150px 0' }}>
+    <div
+      className='text-light'
+      style={{ padding: '150px 0', background: '#080808' }}
+    >
       <Container>
         <TopButtons />
         <Invoice />

@@ -18,7 +18,10 @@ const ElectronicWallet = () => {
     }
   }, [])
   return (
-    <div className='bg-dark text-light' style={{ padding: '150px 0' }}>
+    <div
+      className='text-light'
+      style={{ padding: '150px 0', background: '#080808' }}
+    >
       <Container>
         <TopButtons />
         {/* <h1 className='text-center rubik-400 mt-5'>Electronic Wallet</h1> */}
@@ -64,14 +67,10 @@ const ElectronicWallet = () => {
           </svg>{' '}
           Fund
         </Button>
-        <div className='my-4 text-light py-4 col-md-5'>
-          <div>
-            <h1 className='rubik-400 m-0 p-0'>$500</h1>
-            <h5 className='rubik-400 m-0 p-0'>Available Balance</h5>
-          </div>
+        <div className='mt-4'>
+          {isFundSelected ? <Fund /> : ''}
+          {isWithdrawalSelected ? <Withdrawal /> : ''}
         </div>
-        {isFundSelected ? <Fund /> : ''}
-        {isWithdrawalSelected ? <Withdrawal /> : ''}
       </Container>
     </div>
   )

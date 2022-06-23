@@ -8,6 +8,15 @@ const Withdrawal = () => {
         <h6 className='m-0 p-0'>Withdrawal</h6>
       </div>
       <div className='py-4 px-3'>
+        <div
+          className='text-dark col-md-5 border p-4 mb-4'
+          style={{ background: 'white' }}
+        >
+          <div>
+            <h1 className='rubik-400 m-0 p-0'>$500</h1>
+            <h5 className='rubik-400 m-0 p-0'>Available Balance</h5>
+          </div>
+        </div>
         <h4 className='text-start rubik-400 m-0 p-0'>Withdrawal</h4>
         <hr />
         <Form>

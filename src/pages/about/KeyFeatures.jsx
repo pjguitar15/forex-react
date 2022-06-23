@@ -4,7 +4,7 @@ import KeyFeatureRow from './KeyFeatureRow'
 
 const KeyFeatures = () => {
   return (
-    <div className='bg-dark p-5'>
+    <div className='p-5' style={{ background: '#080808' }}>
       <div>
         <p
           className='text-light text-center raleway-400'

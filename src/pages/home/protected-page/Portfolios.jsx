@@ -67,7 +67,10 @@ const Portfolios = () => {
     }
   }, [firebaseData])
   return (
-    <div className='bg-dark text-light' style={{ padding: '150px 0' }}>
+    <div
+      className='text-light'
+      style={{ padding: '150px 0', background: '#080808' }}
+    >
       <Container>
         <TopButtons />
         <div className='mt-3'>
@@ -78,7 +81,9 @@ const Portfolios = () => {
           )}
         </div>
 
-        <h1 className='text-center rubik-400 mt-5'>Investment Portfolios</h1>
+        <h1 className='text-center rubik-400 mt-5'>
+          Investment Portfolios (what should be here?)
+        </h1>
       </Container>
     </div>
   )

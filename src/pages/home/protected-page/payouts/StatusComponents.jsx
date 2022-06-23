@@ -8,15 +8,17 @@ import { Badge } from 'react-bootstrap'
 const StatusComponents = ({ status, estimatedDate, type, payoutAmount }) => {
   return (
     <div>
-      <div className='row fw-bold' style={{ fontSize: '12px' }}>
-        <div className='col-md-3'>Status</div>
-        <div className='col-md-3'>Estimated Date</div>
-        <div className='col-md-3'>Type</div>
-        <div className='col-md-3'>Payout amount</div>
+      <div className='d-none d-sm-block'>
+        <div className='row fw-bold' style={{ fontSize: '12px' }}>
+          <div className='col-sm-3'>Status</div>
+          <div className='col-sm-3'>Estimated Date</div>
+          <div className='col-sm-3'>Type</div>
+          <div className='col-sm-3'>Payout amount</div>
+        </div>
       </div>
       <hr className='p-0 my-2 text-muted' />
       <div className='row'>
-        <h6 className='col-md-3'>
+        <h6 className='col-sm-3'>
           {status === 'Pending' ? (
             <Badge bg='info' className='text-dark'>
               {status}
@@ -39,13 +41,18 @@ const StatusComponents = ({ status, estimatedDate, type, payoutAmount }) => {
             ''
           )}
         </h6>
-        <div style={{ fontSize: '12px' }} className='col-md-3'>
+        <div style={{ fontSize: '12px' }} className='col-sm-3'>
+          <span className='d-inline-block d-sm-none me-2'>
+            Estimated Date:{' '}
+          </span>
           {estimatedDate}
         </div>
-        <div style={{ fontSize: '12px' }} className='col-md-3'>
+        <div style={{ fontSize: '12px' }} className='col-sm-3'>
+          <span className='d-inline-block d-sm-none me-2'>Type: </span>
           {type}
         </div>
-        <div style={{ fontSize: '14px' }} className='col-md-3 rubik-400'>
+        <div style={{ fontSize: '14px' }} className='col-sm-3 rubik-400'>
+          <span className='d-inline-block d-sm-none me-2'>Payout Amount: </span>
           ${payoutAmount}
         </div>
       </div>

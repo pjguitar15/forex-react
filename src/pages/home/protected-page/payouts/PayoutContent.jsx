@@ -5,7 +5,7 @@ const PayoutContent = () => {
   return (
     <>
       <div className='border bg-white p-3' style={{ color: '#f88b0f' }}>
-        <h6 className='m-0 p-0'>Withdrawal</h6>
+        <h6 className='m-0 p-0'>Payouts</h6>
       </div>
       <div className='bg-white text-dark p-4'>
         {/* Upcoming */}

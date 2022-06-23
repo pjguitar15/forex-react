@@ -1,7 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
+.roboto-condensed-700 {
+  font-family: 'roboto condensed' !important;
+  font-weight: 600;
+}
+
+.manrope-600 {
+  font-family: 'Manrope' !important;
+  font-weight: 600;
+}
 
 .link-style {
   text-decoration: none;
@@ -21,6 +32,11 @@
   font-weight: 700;
   line-height: 40px;
   font-size: 13px;
+}
+
+.montserrat-font {
+  font-family: 'montserrat';
+  font-weight: 700;
 }
 
 .raleway-700 {

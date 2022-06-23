@@ -14,31 +14,40 @@ const FicaDocuments = () => {
     }
   }, [])
   return (
-    <div className='bg-dark text-light' style={{ padding: '150px 0' }}>
+    <div
+      className='bgtext-light'
+      style={{ padding: '150px 0', background: '#080808' }}
+    >
       <Container>
         <TopButtons />
         <div className='bg-white text-dark shadow'>
           <div className='border p-3' style={{ color: '#ff8514' }}>
             <h6 className='m-0 p-0'>FICA Document Upload</h6>
           </div>
-          <div className='border px-3 d-flex' style={{ color: '#ff8514' }}>
-            <div
-              className='m-0 p-0 text-dark me-2 py-2 px-3'
-              style={{ background: '#f1f0f0', cursor: 'pointer' }}
-            >
-              ID Document
+          <div className='row' style={{ color: '#ff8514' }}>
+            <div className='m-0 text-dark pe-md-2 col-md-4'>
+              <div
+                className='text-dark py-2 px-2 text-center'
+                style={{ background: '#dddddd', cursor: 'pointer' }}
+              >
+                ID Document
+              </div>
             </div>
-            <div
-              className='m-0 p-0 text-dark me-2 py-2 px-3'
-              style={{ background: '#f1f0f0', cursor: 'pointer' }}
-            >
-              Proof of Address
+            <div className='m-0 text-dark pe-md-2 col-md-4'>
+              <div
+                className='text-dark py-2 px-2 text-center'
+                style={{ background: '#f1f0f0', cursor: 'pointer' }}
+              >
+                Proof of Address
+              </div>
             </div>
-            <div
-              className='m-0 p-0 text-dark me-2 py-2 px-3'
-              style={{ background: '#f1f0f0', cursor: 'pointer' }}
-            >
-              Picture of yourself holding your ID
+            <div className='m-0 text-dark col-md-4'>
+              <div
+                className='text-dark py-2 px-2 text-center'
+                style={{ background: '#f1f0f0', cursor: 'pointer' }}
+              >
+                Picture of yourself holding your ID
+              </div>
             </div>
           </div>
           <div className='py-5 px-3'>
@@ -49,8 +58,9 @@ const FicaDocuments = () => {
             <div
               className='p-5 text-center col-7 mx-auto'
               style={{
-                border: '2px solid grey',
+                border: '2px solid #d8d8d8',
                 borderStyle: 'dashed',
+                cursor: 'pointer',
               }}
             >
               <svg

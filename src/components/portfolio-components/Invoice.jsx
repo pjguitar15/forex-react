@@ -224,7 +224,7 @@ const Invoice = () => {
         </div>
 
         {/* Terms and Conditions */}
-        <div className='rubik-400'>
+        <div className='rubik-400 px-3 pb-4'>
           <div className='fw-bold'>TERMS & CONDITIONS</div>
           <div>Payment is due on date of issue 2-24hrs</div>
           <div>* pending deposit. </div>
