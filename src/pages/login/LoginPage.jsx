@@ -62,11 +62,11 @@ const LoginPage = () => {
     >
       <Form
         onSubmit={submitHandler}
-        className='p-5 border-1 col-11 col-md-10 col-lg-7 col-xl-6'
+        className='p-5 border-1 col-11 col-md-10 col-lg-7 col-xl-4 bg-light'
       >
-        <h2 className='text-light rubik-400'>LOGIN</h2>
+        <h2 className='text-dark rubik-400'>LOGIN</h2>
         <Form.Group className='py-1 rubik-400'>
-          <Form.Text className='text-light'>Username</Form.Text>
+          <Form.Text className='text-muted'>Username</Form.Text>
           <Form.Control
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -77,7 +77,7 @@ const LoginPage = () => {
           />
         </Form.Group>{' '}
         <Form.Group className='py-1 rubik-400'>
-          <Form.Text className='text-light'>Password</Form.Text>
+          <Form.Text className='text-muted'>Password</Form.Text>
           <Form.Control
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -104,12 +104,12 @@ const LoginPage = () => {
         </Form.Group>
         <Button
           onClick={() => navigate('/register')}
-          variant='primary'
+          variant='light'
           type='submit'
           size='sm'
           className='rubik-400 mt-3 col-12'
         >
-          Create an Account
+          No account yet? Create an Account
         </Button>
       </Form>
     </div>

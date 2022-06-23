@@ -6,8 +6,8 @@ import Fund from './Fund'
 import Withdrawal from './Withdrawal'
 
 const ElectronicWallet = () => {
-  const [isFundSelected, setIsFundSelected] = useState(true)
-  const [isWithdrawalSelected, setIsWithdrawalSelected] = useState(false)
+  const [isFundSelected, setIsFundSelected] = useState(false)
+  const [isWithdrawalSelected, setIsWithdrawalSelected] = useState(true)
   const navigate = useNavigate()
   useEffect(() => {
     let authToken = sessionStorage.getItem('Auth Token')
@@ -22,27 +22,6 @@ const ElectronicWallet = () => {
       <Container>
         <TopButtons />
         {/* <h1 className='text-center rubik-400 mt-5'>Electronic Wallet</h1> */}
-        <Button
-          variant={`${isFundSelected ? 'light' : 'outline-light'} `}
-          className='rubik-400 me-3 my-1 border-0'
-          size='sm'
-          onClick={() => {
-            setIsFundSelected(true)
-            setIsWithdrawalSelected(false)
-          }}
-        >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='16'
-            height='16'
-            fill='currentColor'
-            className='bi bi-wallet2 me-2'
-            viewBox='0 0 16 16'
-          >
-            <path d='M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z' />
-          </svg>{' '}
-          Fund
-        </Button>
         <Button
           variant={`${isWithdrawalSelected ? 'light' : 'outline-light'}`}
           className='rubik-400 me-3 my-1 border-0'
@@ -64,6 +43,27 @@ const ElectronicWallet = () => {
           </svg>
           Withdrawal
         </Button>{' '}
+        <Button
+          variant={`${isFundSelected ? 'light' : 'outline-light'} `}
+          className='rubik-400 me-3 my-1 border-0'
+          size='sm'
+          onClick={() => {
+            setIsFundSelected(true)
+            setIsWithdrawalSelected(false)
+          }}
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            fill='currentColor'
+            className='bi bi-wallet2 me-2'
+            viewBox='0 0 16 16'
+          >
+            <path d='M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z' />
+          </svg>{' '}
+          Fund
+        </Button>
         <div className='my-4 text-light py-4 col-md-5'>
           <div>
             <h1 className='rubik-400 m-0 p-0'>$500</h1>

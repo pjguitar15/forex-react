@@ -18,9 +18,6 @@ const PersonalDetails = () => {
     <div className='bg-dark text-light' style={{ padding: '150px 0' }}>
       <Container>
         <TopButtons />
-        <h3 className='rounded text-light p-3 text-center rubik-400 mt-5'>
-          Personal Details
-        </h3>
         <PersonalDetailsContent />
       </Container>
     </div>

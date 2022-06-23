@@ -3,8 +3,11 @@ import { Container, Form, Button } from 'react-bootstrap'
 
 const Withdrawal = () => {
   return (
-    <div className='bg-light text-dark py-5 px-3'>
-      <Container>
+    <Container className='bg-light text-dark p-0'>
+      <div className='border p-3' style={{ color: 'orange' }}>
+        <h6 className='m-0 p-0'>Withdrawal</h6>
+      </div>
+      <div className='py-4 px-3'>
         <h4 className='text-start rubik-400 m-0 p-0'>Withdrawal</h4>
         <hr />
         <Form>
@@ -57,10 +60,12 @@ const Withdrawal = () => {
             </div>
           </Form.Group>
           <hr />
-          <Button className='rubik-400'>Withdraw</Button>
+          <Button className='rubik-400' variant='warning'>
+            Withdraw
+          </Button>
         </Form>
-      </Container>
-    </div>
+      </div>
+    </Container>
   )
 }
 

@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import TopButtons from '../../../../components/logged-in-components/TopButtons'
 import { useNavigate } from 'react-router-dom'
-import PayoutsContent from './PayoutsContent'
+import PayoutContent from './PayoutContent'
+import PayoutButtons from './PayoutButtons'
 
 const Payouts = () => {
   const navigate = useNavigate()
@@ -19,7 +20,8 @@ const Payouts = () => {
       <Container>
         <TopButtons />
         <h1 className='text-center rubik-400 mt-5'>Payouts</h1>
-        <PayoutsContent />
+        <PayoutButtons />
+        <PayoutContent />
       </Container>
     </div>
   )

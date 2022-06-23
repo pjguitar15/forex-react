@@ -260,3 +260,16 @@
 .ib-logo:hover {
   padding: 0 0 !important;
 }
+
+.credit-note-card-head {
+  background: #243f5c;
+  display: flex;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+.credit-note-card-body {
+  padding: 18px;
+  background: white;
+  color: rgba(12, 12, 12, 0.7);
+}

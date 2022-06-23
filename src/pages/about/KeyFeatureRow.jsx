@@ -4,7 +4,7 @@ const KeyFeatureRow = () => {
   return (
     <>
       <div className='row'>
-        <div className='col-lg-4 col-sm-6 p-3'>
+        <div className='col-lg-4 col-xl-3 mx-auto col-sm-6 p-3'>
           <div className='shadow px-4 py-5 about-card'>
             <div className='text-warning text-center mb-5'>
               <svg
@@ -24,14 +24,14 @@ const KeyFeatureRow = () => {
             <h5 className='text-light text-center mb-4'>
               INVESTING FOR GROWTH
             </h5>
-            <p className='text-light'>
+            <p className='text-light text-center'>
               Bullishbeast’s investment philosophy supports long term growth
               prospects. It seeks to identify and originate niche investment
               opportunities to build superior value and returns.
             </p>
           </div>
         </div>
-        <div className='col-lg-4 col-sm-6 p-3'>
+        <div className='col-lg-4 col-xl-3 mx-auto col-sm-6 p-3'>
           <div className='shadow px-4 py-5 about-card'>
             <div className='text-warning text-center mb-5'>
               <svg
@@ -61,7 +61,7 @@ const KeyFeatureRow = () => {
             </p>
           </div>
         </div>
-        <div className='col-lg-4 col-sm-6 p-3'>
+        <div className='col-lg-4 col-xl-3 mx-auto col-sm-6 p-3'>
           <div className='shadow px-4 py-5 about-card'>
             <div className='text-warning text-center mb-5'>
               <svg
@@ -88,7 +88,7 @@ const KeyFeatureRow = () => {
           </div>
         </div>
 
-        <div className='col-lg-4 col-sm-6 p-3'>
+        <div className='col-lg-4 col-xl-3 mx-auto col-sm-6 p-3'>
           <div className='shadow px-4 py-5 about-card'>
             <div className='text-warning text-center mb-5'>
               <svg
@@ -115,7 +115,7 @@ const KeyFeatureRow = () => {
             </p>
           </div>
         </div>
-        <div className='col-lg-4 col-sm-6 p-3'>
+        <div className='col-lg-4 col-xl-3 mx-auto col-sm-6 p-3'>
           <div className='shadow px-4 py-5 about-card'>
             <div className='text-warning text-center mb-5'>
               <svg
@@ -140,7 +140,7 @@ const KeyFeatureRow = () => {
             </p>
           </div>
         </div>
-        <div className='col-lg-4 col-sm-6 p-3'>
+        <div className='col-lg-4 col-xl-3 mx-auto col-sm-6 p-3'>
           <div className='shadow px-4 py-5 about-card'>
             <div className='text-warning text-center mb-5'>
               <svg

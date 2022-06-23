@@ -11,7 +11,6 @@ import Footer from './components/Footer'
 // pages
 import Home from './pages/home/Home'
 import BlogSlug from './pages/home/blog/BlogSlug'
-import AddItemsToFirebase from './AddItemsToFirebase';
 import CategoryItems from './pages/home/blog/CategoryPage/CategoryItems';
 import EconomicCalendar from './pages/economic calendar/EconomicCalendar';
 import ForexCompoundingCalculator from './pages/forex-compounding-calculator/ForexCompoundingCalculator';
@@ -34,7 +33,7 @@ import Register from './pages/login/Register';
 import Portfolios from './pages/home/protected-page/Portfolios';
 import PersonalDetails from './pages/home/protected-page/personal-details/PersonalDetails';
 import ShowInvoice from './pages/home/protected-page/ShowInvoice';
-import CreditNote from './pages/home/protected-page/CreditNote';
+import CreditNote from './pages/home/protected-page/credit-note/CreditNote';
 import Partnership from './pages/partnership/Partnership';
 import FicaDocuments from './pages/home/protected-page/FicaDocuments';
 import Payouts from './pages/home/protected-page/payouts/Payouts';
@@ -98,11 +97,6 @@ function App() {
           </EconomicCalendarProvider>
         </ContextProvider>
       </Router>
-
-      {/* Blog Post Item */}
-      {/* Economic Calendar */}
-      {/* Compounding Calculator */}
-      {/* Currency Converter */}
     </div>
   )
 }
