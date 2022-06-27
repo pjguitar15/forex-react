@@ -35,7 +35,7 @@ import PersonalDetails from './pages/home/protected-page/personal-details/Person
 import ShowInvoice from './pages/home/protected-page/ShowInvoice';
 import CreditNote from './pages/home/protected-page/credit-note/CreditNote';
 import Partnership from './pages/partnership/Partnership';
-import FicaDocuments from './pages/home/protected-page/FicaDocuments';
+import FicaDocuments from './pages/home/protected-page/FICA/FicaDocuments';
 import Payouts from './pages/home/protected-page/payouts/Payouts';
 import ElectronicWallet from './pages/home/protected-page/ElectronicWallet';
 import VerifyEmail from './pages/home/protected-page/VerifyEmail';
