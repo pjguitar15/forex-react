@@ -127,6 +127,9 @@ const Invoice = () => {
                 <Badge className='my-2 text-dark' bg='warning'>
                   No approved yet
                 </Badge>
+                <Badge className='my-2 text-light' bg='success'>
+                  Approved
+                </Badge>
               </div>
               <div>Premium Investment Portfolio</div>
               <div>
