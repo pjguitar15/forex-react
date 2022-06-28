@@ -5,10 +5,9 @@ import LogosIb from './LogosIb'
 
 const Partnership = () => {
   return (
-    <div className='bg-dark'>
+    <div style={{ background: '#030303' }}>
       <Jumbotron />
       <Container className='pt-5'>
-        <h1 className='text-center text-light rubik-400 mb-4'>Partnership</h1>
         <LogosIb />
       </Container>
     </div>

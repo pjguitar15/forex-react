@@ -261,7 +261,7 @@
 }
 
 .blurred {
-  filter: blur(4px);
+  filter: blur(9px);
 }
 
 .gradient-line {
@@ -288,4 +288,12 @@
   padding: 18px;
   background: white;
   color: rgba(12, 12, 12, 0.7);
+}
+
+.top-btn {
+  /* background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url('${topBg}')`, */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)),
+    url('./assets/forex-cross-rate-bg.jpg');
+  background-size: cover !important;
+  background-position: center !important;
 }

@@ -10,26 +10,25 @@ const AboutSection = () => {
   }, [])
   return (
     <>
-      <div className='d-flex bg-black align-items-center justify-content-center px-5 py-5'>
+      <div
+        className='d-flex align-items-center justify-content-center px-5 py-5'
+        style={{ background: '#030303' }}
+      >
         <div
           className='row'
           style={{ paddingTop: '150px', paddingBottom: '100px' }}
         >
           <div className='col-md-5'>
             <div>
-              <img
-                // effect='blur'
-                className={`w-100 h-100 ${isLoaded ? 'd-block' : 'd-none'}`}
-                src={sa}
-                alt='about'
-              />
-              <img
-                src={sa2}
-                className={`w-100 h-100 blurred ${
-                  isLoaded ? 'd-none' : 'd-block'
-                }`}
-                alt='blurred'
-              />
+              {isLoaded ? (
+                <img className={`w-100 h-100`} src={sa} alt='about' />
+              ) : (
+                <img
+                  src={sa2}
+                  className={`w-100 h-100 blurred`}
+                  alt='blurred'
+                />
+              )}
             </div>
           </div>
           <div className='col-md-7 px-md-5 mt-4 mt-md-0'>

@@ -33,11 +33,14 @@ const CategoryBreadcrumbs = ({ firebaseData, loading, id }) => {
   const navigate = useNavigate()
   return (
     <div
-      className='bg-light pb-5'
-      style={{ paddingTop: windowDimension.winWidth < 990 ? '120px' : '170px' }}
+      className='pb-5 rubik-400'
+      style={{
+        background: '#030303',
+        borderBottom: '1px white solid',
+      }}
     >
-      <Container className='d-flex justify-content-between'>
-        <h4 className='raleway-700 m-0' style={{ color: '#505050' }}>
+      <Container className='d-flex justify-content-between pt-5'>
+        <h4 className='raleway-700 m-0' style={{ color: '#fff' }}>
           Category: {id === 'cryptocurrency' ? 'Cryptocurrency' : ''}
           {id === 'how-to-guide' ? 'How to Guide' : ''}
           {id === 'lifestyle' ? 'Lifestyle' : ''}
@@ -49,7 +52,7 @@ const CategoryBreadcrumbs = ({ firebaseData, loading, id }) => {
         <div>
           <span
             onClick={() => navigate('/')}
-            className='text-muted raleway-400'
+            className='text-light raleway-400'
             style={{ fontSize: '14px', cursor: 'pointer' }}
           >
             Home
@@ -60,7 +63,7 @@ const CategoryBreadcrumbs = ({ firebaseData, loading, id }) => {
           ></span>
           <span
             className='raleway-400 fw-bold text-capitalize'
-            style={{ color: '#505050', fontSize: '14px' }}
+            style={{ color: '#fff', fontSize: '14px' }}
           >
             {currentCategory}
           </span>

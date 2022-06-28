@@ -6,11 +6,11 @@ const Categories = () => {
   return (
     <>
       <div className='p-4 mb-3 text-white' style={{ background: '#0090FF' }}>
-        <h6 className='m-0 raleway-700'>Categories</h6>
+        <h6 className='m-0 rubik-400'>Categories</h6>
       </div>
       <div
         onClick={() => navigate(`/blog/categories/cryptocurrency`)}
-        className='px-4 px-lg-0 raleway-400'
+        className='px-4 px-lg-0 rubik-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>CRYPTOCURRENCY</p>
@@ -18,7 +18,7 @@ const Categories = () => {
       <hr />
       <div
         onClick={() => navigate(`/blog/categories/how-to-guide`)}
-        className='px-4 px-lg-0 raleway-400'
+        className='px-4 px-lg-0 rubik-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>HOW TO GUIDE</p>
@@ -26,7 +26,7 @@ const Categories = () => {
       <hr />
       <div
         onClick={() => navigate(`/blog/categories/lifestyle`)}
-        className='px-4 px-lg-0 raleway-400'
+        className='px-4 px-lg-0 rubik-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>LIFESTYLE</p>
@@ -34,7 +34,7 @@ const Categories = () => {
       <hr />
       <div
         onClick={() => navigate(`/blog/categories/make-money-online`)}
-        className='px-4 px-lg-0 raleway-400'
+        className='px-4 px-lg-0 rubik-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>MAKE MONEY ONLINE</p>
@@ -42,7 +42,7 @@ const Categories = () => {
       <hr />
       <div
         onClick={() => navigate(`/blog/categories/technical-analysis`)}
-        className='px-4 px-lg-0 raleway-400'
+        className='px-4 px-lg-0 rubik-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>TECHNICAL ANALYSIS</p>
@@ -50,7 +50,7 @@ const Categories = () => {
       <hr />
       <div
         onClick={() => navigate(`/blog/categories/traders-education`)}
-        className='px-4 px-lg-0 raleway-400'
+        className='px-4 px-lg-0 rubik-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>TRADERS EDUCATION</p>
@@ -58,7 +58,7 @@ const Categories = () => {
       <hr />
       <div
         onClick={() => navigate(`/blog/categories/uncategorized`)}
-        className='px-4 px-lg-0 raleway-400'
+        className='px-4 px-lg-0 rubik-400'
         style={{ fontSize: '13px', cursor: 'pointer' }}
       >
         <p>UNCATEGORIZED</p>

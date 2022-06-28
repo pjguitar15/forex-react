@@ -14,7 +14,7 @@ const CategoryItems = () => {
   const { firebaseData, loading } = useBlog()
   const { id } = useParams()
   return (
-    <div>
+    <div style={{ background: '#080808' }} className='text-light'>
       <CategoryBreadcrumbs
         firebaseData={firebaseData}
         loading={loading}
@@ -24,7 +24,7 @@ const CategoryItems = () => {
         <div className='row'>
           <div className='col-md-9'>
             {/* Category Cards here */}
-            <div className='row'>
+            <div className='row py-5'>
               {loading ? (
                 <div className='text-center mb-5'>
                   <Spinner animation='border' size='lg' role='status'>
@@ -62,7 +62,7 @@ const CategoryItems = () => {
               )}
             </div>
           </div>
-          <div className='col-12 col-md-3 mt-3 mb-5 mb-md-0'>
+          <div className='col-12 col-md-3 mt-3 mb-5 mb-md-0 py-5'>
             {/* Category list on the right */}
             <Categories />
           </div>

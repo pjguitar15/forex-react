@@ -23,12 +23,9 @@ const FicaDocuments = () => {
   }, [])
 
   return (
-    <div
-      className='bgtext-light'
-      style={{ padding: '150px 0', background: '#080808' }}
-    >
-      <Container>
-        <TopButtons />
+    <div className='bgtext-light' style={{ background: '#080808' }}>
+      <TopButtons />
+      <Container className='py-5' style={{ height: '70vh' }}>
         <div className='bg-white text-dark shadow'>
           <div className='border p-3' style={{ color: '#ff8514' }}>
             <h6 className='m-0 p-0'>FICA Document Upload</h6>

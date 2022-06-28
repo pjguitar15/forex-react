@@ -47,16 +47,16 @@ const CurrencyCoverter = () => {
       .then(() => setConvertLoading(false))
   }, [firstSelectValue, secondSelectValue, inputValue])
   return (
-    <div className='py-5 bg-dark'>
-      <Container className='py-5'>
-        <div className='rounded mt-5'>
+    <div style={{ background: '#030303', height: '100vh' }}>
+      <Container className='py-5 d-flex align-items-center'>
+        <div className='rounded'>
           <h4 className='text-light m-0 text-uppercase py-3 text-center'>
             Currency Converter
           </h4>
           <div className='col-12 gradient-line' style={{ height: '5px' }}></div>
           <div className='px-4 '>
             <div className='my-3'>
-              <div className='small'>Amount</div>
+              <div className='small text-light'>Amount</div>
               <input
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
@@ -68,7 +68,7 @@ const CurrencyCoverter = () => {
             </div>
             <div className='row'>
               <div className='col-6'>
-                <div className='small'>From</div>
+                <div className='small text-light'>From</div>
                 {/* SELECT 1 */}
                 <select
                   onChange={(e) => setFirstSelectValue(e.target.value)}
@@ -97,7 +97,7 @@ const CurrencyCoverter = () => {
                 </select>
               </div>
               <div className='col-6'>
-                <div className='small'>To</div>
+                <div className='small text-light'>To</div>
                 {/* SELECT 2 */}
                 <select
                   onChange={(e) => setSecondSelectValue(e.target.value)}

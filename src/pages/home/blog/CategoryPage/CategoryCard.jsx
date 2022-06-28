@@ -28,10 +28,10 @@ const CategoryCard = ({ item }) => {
         </div>
         <div className='py-3 px-4'>
           {/* title */}
-          <h5 className='mt-3 raleway-700 m-0 text-dark'>{item.title}</h5>
+          <h5 className='mt-3 raleway-700 m-0 text-light'>{item.title}</h5>
           {/* by admin and date */}
           <div
-            className='my-3 text-dark raleway-400 d-flex justify-content-between'
+            className='my-3 text-light raleway-400 d-flex justify-content-between'
             style={{ fontSize: '14px' }}
           >
             <div>
@@ -42,7 +42,7 @@ const CategoryCard = ({ item }) => {
           </div>
           {/* content */}
           <p
-            className='text-dark raleway-400'
+            className='text-light raleway-400'
             style={{
               textAlign: 'justify',
               fontSize: '14px',
@@ -55,7 +55,7 @@ const CategoryCard = ({ item }) => {
           <hr style={{ color: 'grey' }} />
           {/* tag icon and tag name */}
           <p
-            className='text-uppercase text-dark raleway-400'
+            className='text-uppercase text-light raleway-400'
             style={{ fontSize: '13px' }}
           >
             <i className='bi bi-tag me-1'></i>

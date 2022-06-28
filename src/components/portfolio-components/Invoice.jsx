@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import useGetDataFromEmail from '../../custom-hooks/useGetDataFromEmail'
 import { Badge } from 'react-bootstrap'
 
 const Invoice = () => {
   const [data, loading] = useGetDataFromEmail()
+  const [isApproved, setIsApproved] = useState(false)
+  useEffect(() => {
+    if (data) {
+      const isId = data.isIdDocumentApproved
+      const isPicWithId = data.isPictureWithIdApproved
+      const isProof = data.isProofOfAddressApproved
+      if (isId && isPicWithId && isProof) {
+        setIsApproved(true)
+      }
+    }
+  }, [data])
   return (
     <div>
-      <div className='my-5 border bg-light  text-dark'>
-        <div className='border p-3' style={{ color: 'orange' }}>
+      <div className='my-5 bg-light text-dark'>
+        <div className='border p-3 text-warning'>
           <h6 className='m-0 p-0'>Invoice</h6>
         </div>
         <div className='p-4'>
@@ -105,10 +116,10 @@ const Invoice = () => {
                 </span>
               </div>
               <div>
-                Payment made 24/05/2022 * 10.000ZAR{' '}
-                <span className='bg-danger text-light'>
-                  (If user isn't paid yet, what should be here??)
-                </span>
+                Payment made{' '}
+                <Badge className='my-2 text-dark' bg='warning'>
+                  Not paid yet. Click here to pay.
+                </Badge>
               </div>
               <div>
                 exchange standard premium * $24.08{' '}
@@ -124,21 +135,21 @@ const Invoice = () => {
               </div>
               <div>
                 FICA DOCS:{' '}
-                <Badge className='my-2 text-dark' bg='warning'>
-                  No approved yet
-                </Badge>
-                <Badge className='my-2 text-light' bg='success'>
-                  Approved
-                </Badge>
+                {isApproved ? (
+                  <Badge className='my-2 text-light' bg='success'>
+                    Approved
+                  </Badge>
+                ) : (
+                  <Badge className='my-2 text-dark' bg='warning'>
+                    Not approved yet
+                  </Badge>
+                )}
               </div>
               <div>Premium Investment Portfolio</div>
-              <div>
-                Total Investment{' '}
-                <Badge className='my-2 text-dark' bg='warning'>
-                  $3000
-                </Badge>
-                <span className='bg-danger text-light'>
-                  (They have to invest first?)
+              <div className='my-2'>
+                Total Investment:{' '}
+                <span className='text-dark fw-bold'>
+                  ${data.investedValue}.00
                 </span>
               </div>
               <div>

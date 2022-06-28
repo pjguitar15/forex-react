@@ -12,7 +12,7 @@ const BlogSlug = () => {
   const { firebaseData, loading } = useBlog()
   const { id } = useParams()
   return (
-    <div className='bg-white'>
+    <div className='text-light' style={{ background: '#080808' }}>
       {/* BlogPost breadcrumbs section */}
       <BreadCrumbs id={id} />
       <Container>

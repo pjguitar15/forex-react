@@ -18,12 +18,9 @@ const ElectronicWallet = () => {
     }
   }, [])
   return (
-    <div
-      className='text-light'
-      style={{ padding: '150px 0', background: '#080808' }}
-    >
-      <Container>
-        <TopButtons />
+    <div className='text-light' style={{ background: '#080808' }}>
+      <TopButtons />
+      <Container className='py-5'>
         {/* <h1 className='text-center rubik-400 mt-5'>Electronic Wallet</h1> */}
         <Button
           variant={`${isWithdrawalSelected ? 'light' : 'outline-light'}`}

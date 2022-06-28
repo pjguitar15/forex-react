@@ -11,7 +11,7 @@ import peach from '../../../assets/payment-gateway-logos/peach.png'
 
 const Deposit = () => {
   return (
-    <div className='bg-dark text-light '>
+    <div className='bg-dark text-light'>
       <Container>
         {/* logos */}
         <div className='row'>

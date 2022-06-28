@@ -56,8 +56,11 @@ const BreadCrumbs = ({ id }) => {
   }
   return (
     <div
-      className='bg-light pb-5'
-      style={{ paddingTop: windowDimension.winWidth < 990 ? '120px' : '170px' }}
+      className='pb-5 rubik-400'
+      style={{
+        background: '#030303',
+        borderBottom: '1px white solid',
+      }}
     >
       {loading ? (
         <div className='text-center mb-5'>
@@ -71,18 +74,15 @@ const BreadCrumbs = ({ id }) => {
           .map((item, index) => (
             <Container
               key={index}
-              className='d-lg-flex justify-content-between'
+              className='d-lg-flex justify-content-between pt-5'
             >
-              <h4
-                className='raleway-700 m-0 mb-2 mb-md-0'
-                style={{ color: '#505050' }}
-              >
+              <h4 className='rubik-400 m-0 mb-2 mb-md-0 text-light'>
                 Blog Post
               </h4>
               <div>
                 <span
                   onClick={() => navigate('/')}
-                  className='text-muted text-capitalize raleway-400'
+                  className='text-capitalize rubik-400 text-light'
                   style={{ fontSize: '14px', cursor: 'pointer' }}
                 >
                   Home
@@ -93,7 +93,7 @@ const BreadCrumbs = ({ id }) => {
                 ></span>
                 <span
                   onClick={() => tagClicked(item.tag)}
-                  className='text-muted raleway-400'
+                  className='text-light rubik-400'
                   style={{
                     fontSize: '14px',
                     cursor: 'pointer',
@@ -107,8 +107,8 @@ const BreadCrumbs = ({ id }) => {
                   data-icon='entypo:chevron-thin-right'
                 ></span>
                 <span
-                  className='raleway-400 fw-bold text-capitalize'
-                  style={{ color: '#505050', fontSize: '14px' }}
+                  className='rubik-400 text-capitalize'
+                  style={{ color: '#fff', fontSize: '14px' }}
                 >
                   {item.title}
                 </span>

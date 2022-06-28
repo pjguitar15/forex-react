@@ -9,10 +9,12 @@ const LoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [alertMsg, setAlertMsg] = useState('')
+  const [loginLoading, setLoginLoading] = useState(false)
   const [data] = useGetDataFromEmail()
   const navigate = useNavigate()
   const submitHandler = (e) => {
     e.preventDefault()
+    setLoginLoading(true)
     const authentication = getAuth(app)
     signInWithEmailAndPassword(authentication, email, password)
       .then((response) => {
@@ -31,6 +33,7 @@ const LoginPage = () => {
             )
           }
         }
+        setLoginLoading(false)
       })
       .catch((err) => {
         const errorCode = err.code
@@ -44,6 +47,7 @@ const LoginPage = () => {
         } else {
           setAlertMsg(errorMessage)
         }
+        setLoginLoading(false)
       })
   }
 
@@ -57,12 +61,12 @@ const LoginPage = () => {
   }, [])
   return (
     <div
-      className='bg-dark d-flex align-items-center justify-content-center'
-      style={{ height: '100vh' }}
+      className='d-flex align-items-start justify-content-center'
+      style={{ height: '90vh', background: '#080808' }}
     >
       <Form
         onSubmit={submitHandler}
-        className='p-5 border-1 col-11 col-md-10 col-lg-7 col-xl-4 bg-light'
+        className='p-5 border-1 col-11 col-md-10 col-lg-7 col-xl-5 bg-light mt-5'
       >
         <h2 className='text-dark rubik-400'>LOGIN</h2>
         <Form.Group className='py-1 rubik-400'>
@@ -95,11 +99,12 @@ const LoginPage = () => {
             {alertMsg}
           </Alert>
           <Button
+            disabled={loginLoading}
             type='submit'
             size='sm'
             className='col-12 rounded-0 rubik-400'
           >
-            Log in
+            {loginLoading ? 'Logging in...' : 'Log in'}
           </Button>
         </Form.Group>
         <Button

@@ -31,7 +31,6 @@ const Portfolios = () => {
     const getUser = () => {
       getAuth().onAuthStateChanged((user) => {
         if (user) {
-          console.log(user.emailVerified)
           // Get current logged in username
           const collectionRef = collection(db, 'users')
           const q = query(collectionRef, orderBy('timestamp', 'desc'))
@@ -67,12 +66,9 @@ const Portfolios = () => {
     }
   }, [firebaseData])
   return (
-    <div
-      className='text-light'
-      style={{ padding: '150px 0', background: '#080808' }}
-    >
-      <Container>
-        <TopButtons />
+    <div className='text-light' style={{ background: '#080808' }}>
+      <TopButtons />
+      <Container style={{ height: '100vh' }}>
         <div className='mt-3'>
           {currentLoggedInUser ? (
             <h6>Welcome {currentLoggedInUser}</h6>
@@ -81,9 +77,7 @@ const Portfolios = () => {
           )}
         </div>
 
-        <h1 className='text-center rubik-400 mt-5'>
-          Investment Portfolios (what should be here?)
-        </h1>
+        <h1 className='text-center rubik-400 mt-5'>Investment Portfolios</h1>
       </Container>
     </div>
   )

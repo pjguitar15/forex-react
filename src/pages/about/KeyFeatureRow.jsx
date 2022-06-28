@@ -4,15 +4,15 @@ const KeyFeatureRow = () => {
   return (
     <>
       <div className='row'>
-        <div className='col-lg-4 col-xl-3 mx-auto col-sm-6 p-3'>
-          <div className='shadow px-4 py-5 about-card'>
+        <div className='col-lg-4 col-xl-4 mx-auto col-sm-6 p-3'>
+          <div className='shadow px-4 py-3 about-card'>
             <div className='text-warning text-center mb-5'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='100'
                 height='100'
                 fill='currentColor'
-                className='bi bi-graph-up-arrow'
+                className='bi bi-graph-up-arrow mt-3'
                 viewBox='0 0 16 16'
               >
                 <path
@@ -31,15 +31,15 @@ const KeyFeatureRow = () => {
             </p>
           </div>
         </div>
-        <div className='col-lg-4 col-xl-3 mx-auto col-sm-6 p-3'>
-          <div className='shadow px-4 py-5 about-card'>
+        <div className='col-lg-4 col-xl-4 mx-auto col-sm-6 p-3'>
+          <div className='shadow px-4 py-3 about-card'>
             <div className='text-warning text-center mb-5'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='100'
                 height='100'
                 fill='currentColor'
-                class='bi bi-people-fill'
+                className='bi bi-people-fill mt-2'
                 viewBox='0 0 16 16'
               >
                 <path d='M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z' />
@@ -61,15 +61,15 @@ const KeyFeatureRow = () => {
             </p>
           </div>
         </div>
-        <div className='col-lg-4 col-xl-3 mx-auto col-sm-6 p-3'>
-          <div className='shadow px-4 py-5 about-card'>
+        <div className='col-lg-4 col-xl-4 mx-auto col-sm-6 p-3'>
+          <div className='shadow px-4 py-3 about-card'>
             <div className='text-warning text-center mb-5'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='100'
                 height='100'
                 fill='currentColor'
-                class='bi bi-card-checklist'
+                className='bi bi-card-checklist mt-2'
                 viewBox='0 0 16 16'
               >
                 <path d='M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z' />
@@ -88,15 +88,15 @@ const KeyFeatureRow = () => {
           </div>
         </div>
 
-        <div className='col-lg-4 col-xl-3 mx-auto col-sm-6 p-3'>
-          <div className='shadow px-4 py-5 about-card'>
+        <div className='col-lg-4 col-xl-4 mx-auto col-sm-6 p-3'>
+          <div className='shadow px-4 py-3 about-card'>
             <div className='text-warning text-center mb-5'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='100'
                 height='100'
                 fill='currentColor'
-                class='bi bi-map'
+                className='bi bi-map mt-2'
                 viewBox='0 0 16 16'
               >
                 <path
@@ -108,22 +108,22 @@ const KeyFeatureRow = () => {
             <h5 className='text-light text-center mb-4'>
               DISCIPLINED APPROACH
             </h5>
-            <p className='text-light'>
+            <p className='text-light text-center'>
               The firm’s investment decisions are underpinned by industry
               expertise, intelligent research, discipline and a consistent focus
               on generating superior returns.
             </p>
           </div>
         </div>
-        <div className='col-lg-4 col-xl-3 mx-auto col-sm-6 p-3'>
-          <div className='shadow px-4 py-5 about-card'>
+        <div className='col-lg-4 col-xl-4 mx-auto col-sm-6 p-3'>
+          <div className='shadow px-4 py-3 about-card'>
             <div className='text-warning text-center mb-5'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='100'
                 height='100'
                 fill='currentColor'
-                class='bi bi-arrow-left-right'
+                className='bi bi-arrow-left-right mt-2'
                 viewBox='0 0 16 16'
               >
                 <path
@@ -140,15 +140,15 @@ const KeyFeatureRow = () => {
             </p>
           </div>
         </div>
-        <div className='col-lg-4 col-xl-3 mx-auto col-sm-6 p-3'>
-          <div className='shadow px-4 py-5 about-card'>
+        <div className='col-lg-4 col-xl-4 mx-auto col-sm-6 p-3'>
+          <div className='shadow px-4 py-3 about-card'>
             <div className='text-warning text-center mb-5'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='100'
                 height='100'
                 fill='currentColor'
-                class='bi bi-gem'
+                className='bi bi-gem mt-2'
                 viewBox='0 0 16 16'
               >
                 <path d='M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6l3-4zm11.386 3.785-1.806-2.41-.776 2.413 2.582-.003zm-3.633.004.961-2.989H4.186l.963 2.995 5.704-.006zM5.47 5.495 8 13.366l2.532-7.876-5.062.005zm-1.371-.999-.78-2.422-1.818 2.425 2.598-.003zM1.499 5.5l5.113 6.817-2.192-6.82L1.5 5.5zm7.889 6.817 5.123-6.83-2.928.002-2.195 6.828z' />
@@ -157,7 +157,7 @@ const KeyFeatureRow = () => {
             <h5 className='text-light text-center mb-4'>
               COMMITMENT TO LASTING TRANSFORMATION
             </h5>
-            <p className='text-light'>
+            <p className='text-light text-center'>
               A passion for transformation in both the economic and social
               arenas is a key driver of the company’s vision. Bullish Beast
               fully embraces the empowerment of others and strives to leverage

@@ -18,13 +18,16 @@ const VerifyEmail = () => {
             setTimeout(() => {
               setBtnMsg('RESEND VERIFICATION EMAIL')
             }, [7000])
-            console.log('Email verification has been sent to your email')
           })
           .catch((err) => {
             console.log(err)
           })
       } catch (error) {}
     })
+  }
+
+  const troubleVerifyingHandler = () => {
+    alert('Please check your email spam')
   }
 
   useEffect(() => {
@@ -39,7 +42,6 @@ const VerifyEmail = () => {
 
   useEffect(() => {
     if (isVerified) {
-      console.log('page will reload')
       window.location.reload()
     }
   }, [isVerified])
@@ -49,10 +51,8 @@ const VerifyEmail = () => {
       getAuth().onAuthStateChanged((user) => {
         if (user) {
           setLoggedInEmail(user.email)
-          console.log('test')
         } else {
           // No user is signed in.
-          console.log('There is no logged in user')
         }
       })
     }
@@ -125,7 +125,11 @@ const VerifyEmail = () => {
           >
             {btnMsg}
           </Button>
-          <div className='mt-4'>
+          <div
+            className='mt-4'
+            onClick={troubleVerifyingHandler}
+            style={{ cursor: 'pointer' }}
+          >
             <a href='#'>Trouble Verifying?</a>
           </div>
         </div>

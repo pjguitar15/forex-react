@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Nav, Navbar, Container } from 'react-bootstrap'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import logo from '../assets/logo.jpg'
+import logo from '../assets/bullishbeast-logo.png'
 import MarketDropdown from './MarketDropdown'
 import ToolsDropdown from './ToolsDropdown'
 
@@ -67,7 +67,7 @@ const BlogNavbar = () => {
         {/* Logo Font: Raleway, Navlinks font: Montserrat */}
         <Navbar
           variant='dark'
-          className={`navbar-main bg-black fixed-top`}
+          className={`navbar-main bg-black`}
           // bg='light'
           expand='xl'
           expanded={isToggled}
@@ -104,6 +104,9 @@ const BlogNavbar = () => {
                   } ${isToggled ? 'd-none' : 'd-block'}`}
                 >
                   <div className='d-flex align-items-center justify-content-center'>
+                    <h6 className='text-light text-end fw-bold m-0 me-2'>
+                      <div className='text-warning'>Bullish</div> Beast
+                    </h6>
                     <div style={{ height: '50px' }}>
                       <img
                         src={logo}
@@ -175,7 +178,7 @@ const BlogNavbar = () => {
             <Navbar.Brand
               style={{ cursor: 'pointer' }}
               onClick={() => navigate('/')}
-              className={`navbar-brand-style text-uppercase text-white ${
+              className={`navbar-brand-style text-white ${
                 windowDimension.winWidth <= 992 ? 'd-none' : 'd-block'
               }`}
             >
@@ -188,6 +191,9 @@ const BlogNavbar = () => {
                     style={{ objectFit: 'cover' }}
                   />
                 </div>
+                <h6 className='text-light fw-bold m-0'>
+                  <span className='text-warning'>Bullish</span> Beast
+                </h6>
               </div>
             </Navbar.Brand>
 

@@ -16,12 +16,9 @@ const Payouts = () => {
     }
   }, [])
   return (
-    <div
-      className='text-light'
-      style={{ padding: '150px 0', background: '#080808' }}
-    >
-      <Container>
-        <TopButtons />
+    <div className='text-light' style={{ background: '#080808' }}>
+      <TopButtons />
+      <Container className='py-5'>
         <PayoutButtons />
         <PayoutContent />
       </Container>

@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap'
 
 const TrackRecord = () => {
   return (
-    <div className='bg-dark py-5'>
+    <div className='py-5' style={{ background: '#080808' }}>
       <Container>
         <div className='text-center text-light py-5'>
           <p className='raleway-400 p-0 m-0' style={{ fontSize: '26px' }}>
