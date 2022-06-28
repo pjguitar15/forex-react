@@ -32,10 +32,12 @@ const TopButtons = () => {
   }
 
   useEffect(() => {
-    if (!localStorage.getItem('userSegment')) {
-      localStorage.setItem('userSegment', data.segment)
+    if (localStorage.getItem('userSegment') !== '') {
+      if (data.segment) {
+        localStorage.setItem('userSegment', data.segment)
+      }
     }
-  }, [])
+  }, [data])
   return (
     // background-position: center !important;
     // background-size: cover !important;
