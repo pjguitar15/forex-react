@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate, Link } from 'react-router-dom'
-import { Container, Navbar, Nav, Button } from 'react-bootstrap'
+import { Container, Navbar, Nav } from 'react-bootstrap'
 import logo from '../assets/bullishbeast-logo.png'
 import '../styles.css'
 import MarketDropdown from './MarketDropdown'

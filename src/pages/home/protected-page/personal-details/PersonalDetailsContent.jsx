@@ -10,7 +10,7 @@ const PersonalDetailsContent = () => {
         <h6 className='m-0 p-0'>Personal Details</h6>
       </div>
       <div className='py-4'>
-        <div className='col-2 mx-auto my-2'>
+        <div className='col-5 col-md-2 mx-auto my-2'>
           <img src={userIcon} alt='user icon' />
         </div>
         {/* Upload image button */}

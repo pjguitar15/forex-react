@@ -238,19 +238,19 @@ const Invoice = () => {
         </div>
 
         {/* Terms and Conditions */}
-        <div className='rubik-400 px-3 pb-4'>
-          <div className='fw-bold'>TERMS & CONDITIONS</div>
-          <div>Payment is due on date of issue 2-24hrs</div>
-          <div>* pending deposit. </div>
-          <div>Bank Name: Standard Bank Business </div>
-          <div>Account Name: BULLISH BEAST (PTY) LTD</div>
-          <div>Account Number: 10165662458</div>
-          <div>Branch: BAYSIDE</div>
-          <div>Branch Code: 022209</div>
-          <div>Ref no: PORTFL6479</div>
-          <div>
-            (Generated Ref no; please refer to agent for complete reference)
-          </div>
+      </div>
+      <div className='rubik-400 px-3 pb-4'>
+        <div className='fw-bold'>TERMS & CONDITIONS</div>
+        <div>Payment is due on date of issue 2-24hrs</div>
+        <div>* pending deposit. </div>
+        <div>Bank Name: Standard Bank Business </div>
+        <div>Account Name: BULLISH BEAST (PTY) LTD</div>
+        <div>Account Number: 10165662458</div>
+        <div>Branch: BAYSIDE</div>
+        <div>Branch Code: 022209</div>
+        <div>Ref no: PORTFL6479</div>
+        <div>
+          (Generated Ref no; please refer to agent for complete reference)
         </div>
       </div>
     </div>

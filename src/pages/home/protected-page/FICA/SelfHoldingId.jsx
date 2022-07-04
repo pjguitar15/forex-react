@@ -2,17 +2,7 @@ import React, { useState, useEffect } from 'react'
 import MySpinner from '../../../../components/MySpinner'
 import Axios from 'axios'
 import { db } from '../../../../firebase/firebaseConfig'
-import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
-  serverTimestamp,
-  query,
-  orderBy,
-} from 'firebase/firestore'
+import { collection, getDocs, updateDoc, doc, query } from 'firebase/firestore'
 import useGetCurrEmail from '../../../../custom-hooks/useGetCurrEmail'
 import MyDotSpinner from '../../../../components/MyDotSpinner'
 
@@ -27,6 +17,7 @@ const SelfHoldingId = () => {
     if (selectedFile.length > 0) {
       uploadFileHandler()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedFile])
 
   //   Check if selfie image exists from datbase
@@ -40,7 +31,7 @@ const SelfHoldingId = () => {
         const filteredData = allData.filter((item) => item.email === user.email)
         if (filteredData[0].id !== '') {
           setCurrentUserId(filteredData[0].id)
-          if (filteredData[0].selfieImg !== '') {
+          if (typeof filteredData[0].selfieImg !== 'undefined') {
             setImgFromFirestore(filteredData[0].selfieImg)
           }
         }
@@ -131,7 +122,7 @@ const SelfHoldingId = () => {
           {!imgFromFirestore && (
             <div
               for='file-upload'
-              className='p-5 text-center col-7 mx-auto'
+              className='p-5 text-center col-12 col-md-7 mx-auto'
               style={{
                 border: '2px solid #d8d8d8',
                 borderStyle: 'dashed',

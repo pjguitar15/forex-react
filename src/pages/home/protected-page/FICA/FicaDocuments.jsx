@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Form, Button } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import TopButtons from '../../../../components/logged-in-components/TopButtons'
 import { useNavigate } from 'react-router-dom'
 
@@ -9,9 +9,6 @@ import SelfHoldingId from './SelfHoldingId'
 
 const FicaDocuments = () => {
   const [selectedNavLink, setSelectedNavLink] = useState('ID Document')
-  const [selectedFile, setSelectedFile] = useState([])
-  const [fileLoading, setFileLoading] = useState(false)
-  const [previewImg, setPreviewImg] = useState('')
   const navigate = useNavigate()
   useEffect(() => {
     let authToken = sessionStorage.getItem('Auth Token')
@@ -20,12 +17,13 @@ const FicaDocuments = () => {
     } else {
       navigate('/login')
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <div className='bgtext-light' style={{ background: '#080808' }}>
       <TopButtons />
-      <Container className='py-5' style={{ height: '70vh' }}>
+      <Container className='py-5' style={{ height: 'auto' }}>
         <div className='bg-white text-dark shadow'>
           <div className='border p-3' style={{ color: '#ff8514' }}>
             <h6 className='m-0 p-0'>FICA Document Upload</h6>

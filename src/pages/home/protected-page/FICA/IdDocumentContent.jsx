@@ -2,17 +2,7 @@ import React, { useState, useEffect } from 'react'
 import MySpinner from '../../../../components/MySpinner'
 import Axios from 'axios'
 import { db } from '../../../../firebase/firebaseConfig'
-import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
-  serverTimestamp,
-  query,
-  orderBy,
-} from 'firebase/firestore'
+import { collection, getDocs, updateDoc, doc, query } from 'firebase/firestore'
 import useGetCurrEmail from '../../../../custom-hooks/useGetCurrEmail'
 import MyDotSpinner from '../../../../components/MyDotSpinner'
 
@@ -27,6 +17,7 @@ const IdDocumentContent = () => {
     if (selectedFile.length > 0) {
       uploadFileHandler()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedFile])
 
   //   Check if selfie image exists from datbase

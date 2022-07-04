@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Nav, Navbar, Container } from 'react-bootstrap'
+import { Nav, Navbar, Container } from 'react-bootstrap'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/bullishbeast-logo.png'
 import MarketDropdown from './MarketDropdown'
@@ -69,7 +69,7 @@ const BlogNavbar = () => {
           variant='dark'
           className={`navbar-main bg-black`}
           // bg='light'
-          expand='xl'
+          expand='lg'
           expanded={isToggled}
           style={
             navbar || windowDimension.winWidth <= 992
@@ -236,8 +236,7 @@ const BlogNavbar = () => {
                   windowDimension={windowDimension}
                   setIsToggled={setIsToggled}
                 />
-
-                {windowDimension.winWidth >= 992 ? (
+                {windowDimension.winWidth > 992 ? (
                   <Link
                     onClick={() => {
                       setIsToggled(false)
