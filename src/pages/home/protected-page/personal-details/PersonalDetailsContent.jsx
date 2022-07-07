@@ -1,8 +1,42 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import useGetDataFromEmail from '../../../../custom-hooks/useGetDataFromEmail'
+import { db } from '../../../../firebase/firebaseConfig'
+import { doc, updateDoc } from 'firebase/firestore'
 import userIcon from '../../../../assets/user.svg'
+import Axios from 'axios'
 const PersonalDetailsContent = () => {
+  const [selectedImg, setSelectedImg] = useState([])
   const [data, loading] = useGetDataFromEmail()
+
+  const selectImgHandler = async (e) => {
+    setSelectedImg(e.target.files)
+  }
+
+  useEffect(() => {
+    const updateItem = () => {
+      // upload to cloudinary here
+      const formData = new FormData()
+      formData.append('file', selectedImg[0]) // selectedImage is a state
+      formData.append('upload_preset', 'forex-website-imgs')
+
+      const cloudName = 'philcob'
+      Axios.post(
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        formData
+      ).then(async (res) => {
+        console.log(res.data.url)
+        const id = data.id
+        const userDoc = doc(db, 'items', id)
+        const newFields = { profileImg: res.data.url }
+        await updateDoc(userDoc, newFields)
+      })
+    }
+    if (selectedImg.length > 0) {
+      console.log(selectedImg)
+      console.log('initialize')
+      updateItem()
+    }
+  }, [selectedImg, data])
 
   return (
     <div className='bg-white text-dark shadow'>
@@ -10,17 +44,41 @@ const PersonalDetailsContent = () => {
         <h6 className='m-0 p-0'>Personal Details</h6>
       </div>
       <div className='py-4'>
-        <div className='col-5 col-md-2 mx-auto my-2'>
+        {/* <div className='col-5 col-md-2 mx-auto my-2'>
           <img src={userIcon} alt='user icon' />
-        </div>
+        </div> */}
         {/* Upload image button */}
-        <div className='text-primary text-center' style={{ cursor: 'pointer' }}>
+        <div className='col-6 col-sm-4 col-md-3 mx-auto'>
+          <img
+            className='w-100 h-100'
+            src='https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?w=2000'
+            alt='test'
+          />
+        </div>
+        <div
+          className='text-primary text-center'
+          style={{ cursor: 'pointer', position: 'relative' }}
+        >
+          <input
+            onChange={selectImgHandler}
+            style={{
+              height: '100%',
+              width: '100%',
+              position: 'absolute',
+              top: '0',
+              left: '0',
+              opacity: '0',
+              cursor: 'pointer',
+            }}
+            type='file'
+          />
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='14'
             height='14'
             fill='blue'
             className='bi bi-upload me-2'
+            style={{ cursor: 'pointer' }}
             viewBox='0 0 16 16'
           >
             <path d='M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z' />

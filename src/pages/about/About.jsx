@@ -14,7 +14,7 @@ const About = () => {
       <AboutSection />
       <KeyFeatures />
       <TrackRecord />
-      <Team />
+      {/* <Team /> */}
     </div>
   )
 }

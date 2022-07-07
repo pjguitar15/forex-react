@@ -4,7 +4,6 @@ const LogoCard = ({ img, name, leverage, fcsa }) => {
   return (
     <div
       className='col-6 col-sm-6 col-md-4 col-xl-3 p-3 ib-logo'
-      onClick={() => alert('still working on this part. thanks!')}
     >
       <img className='w-100 bg-white rounded' src={img} alt='logo' />
       <div className='py-3'>

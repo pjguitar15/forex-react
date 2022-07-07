@@ -11,7 +11,7 @@ const ToolsDropdown = ({
   const navigate = useNavigate()
   return (
     <div
-      className='parent-dropdown'
+      className='tools-parent-dropdown'
       style={{ position: 'relative', display: 'inline-block' }}
     >
       <div
@@ -29,7 +29,7 @@ const ToolsDropdown = ({
       {/* Dropdown menu here only show on medium device */}
       {windowDimension.winWidth >= 992 ? (
         <div
-          className='my-dropdown'
+          className='tools-dropdown'
           style={{
             width: '18rem',
           }}
@@ -48,7 +48,7 @@ const ToolsDropdown = ({
           >
             Compounding Calculator
           </div>
-          <div
+          {/* <div
             onClick={() => navigate('/trading-academy')}
             className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark shadow'
             style={{ cursor: 'pointer' }}
@@ -57,14 +57,14 @@ const ToolsDropdown = ({
             <Badge bg='warning' className='text-dark'>
               Try now!
             </Badge>
-          </div>
-          <div
+          </div> */}
+          {/* <div
             // onClick={() => navigate('/compounding-calculator')}
             className='py-1 my-sub-menu px-4 mx-auto w-100 bg-dark shadow'
             style={{ cursor: 'pointer' }}
           >
             Bible Verses
-          </div>
+          </div> */}
         </div>
       ) : (
         // MOBILE VIEW
@@ -98,18 +98,7 @@ const ToolsDropdown = ({
           >
             Compounding Calculator
           </div>{' '}
-          <div
-            onClick={() => {
-              navigate('/compounding-calculator')
-              setIsToggled(false)
-              setIsMobileToolsClicked(false)
-            }}
-            className='py-1 my-sub-menu-mb px-4 mx-auto w-100 bg-dark'
-            style={{ cursor: 'pointer' }}
-          >
-            Compounding Calculator
-          </div>{' '}
-          <div
+          {/* <div
             onClick={() => {
               navigate('/trading-academy')
               setIsToggled(false)
@@ -122,8 +111,8 @@ const ToolsDropdown = ({
             <Badge bg='warning' className='text-dark'>
               Try now!
             </Badge>
-          </div>{' '}
-          <div
+          </div>{' '} */}
+          {/* <div
             onClick={() => {
               navigate('/compounding-calculator')
               setIsToggled(false)
@@ -133,7 +122,7 @@ const ToolsDropdown = ({
             style={{ cursor: 'pointer' }}
           >
             Bible Verses
-          </div>
+          </div> */}
         </div>
       )}
     </div>

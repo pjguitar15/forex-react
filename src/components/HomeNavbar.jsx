@@ -93,11 +93,7 @@ const MyNavbar = () => {
           >
             <Navbar.Toggle
               onClick={() => setIsToggled(!isToggled)}
-              className={`custom-toggler border-0 shadow-none ${
-                windowDimension.winWidth <= 992 && !isToggled
-                  ? 'd-block'
-                  : 'd-none'
-              }`}
+              className={`custom-toggler border-0 shadow-none`}
               aria-controls='basic-navbar-nav'
             />
             <div className='d-flex flex-reverse justify-content-between'>
@@ -107,7 +103,7 @@ const MyNavbar = () => {
                 onClick={() => navigate('/')}
                 className={`navbar-brand-style  text-uppercase text-white ${
                   windowDimension.winWidth <= 992 ? 'd-block' : 'd-none'
-                } ${isToggled ? 'd-none' : 'd-block'}`}
+                } `}
               >
                 <div className='d-flex align-items-center justify-content-center'>
                   <h6 className='text-light text-end fw-bold m-0 me-2'>
@@ -125,7 +121,7 @@ const MyNavbar = () => {
               </Navbar.Brand>
             </div>
           </div>
-          <div className={`${windowDimension.winWidth <= 992 ? 'w-100' : ''}`}>
+          {/* <div className={`${windowDimension.winWidth <= 992 ? 'w-100' : ''}`}>
             <div className='col-12'>
               <div
                 className={`d-flex justify-content-between col-12 ${
@@ -178,7 +174,7 @@ const MyNavbar = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </div> */}
           <Navbar.Brand
             style={{ cursor: 'pointer' }}
             onClick={() => navigate('/')}
@@ -241,7 +237,7 @@ const MyNavbar = () => {
                 setIsToggled={setIsToggled}
               />
 
-              <Link
+              {/* <Link
                 onClick={() => {
                   setIsToggled(false)
                 }}
@@ -268,7 +264,7 @@ const MyNavbar = () => {
                     Login/Register
                   </span>
                 )}
-              </Link>
+              </Link> */}
             </Nav>
           </Navbar.Collapse>
         </Container>
